@@ -6,6 +6,148 @@
   <title>InnovexLab | Gainesville Clinical Pathogen Testing Laboratory</title>
   <meta name="description" content="InnovexLab is a Gainesville-based clinical laboratory offering advanced pathogen testing panels including UTI, respiratory, STI, wound, GI, nail fungus, antibiotic resistance, and women’s health." />
   <link rel="canonical" href="https://innovexlab.com/" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f7fb;
+      color: #333;
+    }
+
+    header {
+      background-color: #0b2c4a;
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      margin: 0;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background: linear-gradient(to right, #0b2c4a, #0077a8);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 12px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+
+    .hero .cta {
+      margin-top: 20px;
+    }
+
+    .hero .cta a {
+      display: inline-block;
+      margin: 8px;
+      padding: 10px 20px;
+      background-color: white;
+      color: #0b2c4a;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .hero .cta a:hover {
+      background-color: #e0e0e0;
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .panels {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+    }
+
+    .panel-card {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
+    }
+
+    .panel-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .panel-card h3 {
+      margin-top: 0;
+      color: #0b2c4a;
+      font-size: 1.2rem;
+    }
+
+    .panel-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background-color: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 40px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-box p {
+      margin: 6px 0;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      background-color: #0b2c4a;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 8px;
+      }
+
+      .hero h2 {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -25,35 +167,59 @@
     <p>
       From urinary tract and respiratory infections to complex women’s health and antimicrobial resistance, InnovexLab delivers precision diagnostics with responsive service.
     </p>
+    <div class="cta">
+      <a href="#panels">View Panels</a>
+      <a href="contact.html">Contact Us</a>
+    </div>
   </section>
 
   <main>
-    <section>
-      <h3>Our Diagnostic Panels</h3>
-      <ul>
-        <li><strong>UTI Panel:</strong> Molecular detection of uropathogens including <em>E. coli</em>, <em>Klebsiella</em>, and <em>Enterococcus</em>. Supports diagnosis of uncomplicated and recurrent urinary tract infections.</li>
-        <li><strong>Respiratory Panel:</strong> Comprehensive screening for viral and bacterial respiratory pathogens including <em>Influenza A/B</em>, <em>RSV</em>, and <em>Mycoplasma pneumoniae</em>.</li>
-        <li><strong>STI Panel:</strong> NAAT-based detection of <em>Chlamydia trachomatis</em>, <em>Neisseria gonorrhoeae</em>, <em>Trichomonas vaginalis</em>, and <em>Mycoplasma genitalium</em>.</li>
-        <li><strong>Wound Panel:</strong> Identification of aerobic and anaerobic bacteria including MRSA and <em>Pseudomonas aeruginosa</em> for skin and soft tissue infections.</li>
-        <li><strong>GI Panel:</strong> Detection of enteric pathogens such as <em>Salmonella</em>, <em>Shigella</em>, <em>Campylobacter</em>, and <em>Clostridioides difficile</em>.</li>
-        <li><strong>Nail Fungus Panel:</strong> PCR-based detection of dermatophytes and non-dermatophyte molds including <em>Trichophyton rubrum</em> and <em>Candida</em> species.</li>
-        <li><strong>Antibiotic Resistance Panel:</strong> Screening for resistance genes including ESBL, carbapenemase, and MRSA markers to guide antimicrobial therapy.</li>
-        <li><strong>Women’s Health Panel:</strong> Vaginal microbiome assessment including <em>Gardnerella vaginalis</em>, <em>Atopobium vaginae</em>, <em>Candida</em> species, and STI co-testing.</li>
-      </ul>
+    <section id="panels">
+      <h2 style="text-align:center; color:#0b2c4a;">Our Diagnostic Panels</h2>
+      <div class="panels">
+        <div class="panel-card">
+          <h3>UTI Panel</h3>
+          <p>Molecular detection of uropathogens including <em>E. coli</em>, <em>Klebsiella</em>, and <em>Enterococcus</em>. Supports diagnosis of uncomplicated and recurrent urinary tract infections.</p>
+        </div>
+        <div class="panel-card">
+          <h3>Respiratory Panel</h3>
+          <p>Comprehensive screening for viral and bacterial respiratory pathogens including <em>Influenza A/B</em>, <em>RSV</em>, and <em>Mycoplasma pneumoniae</em>.</p>
+        </div>
+        <div class="panel-card">
+          <h3>STI Panel</h3>
+          <p>NAAT-based detection of <em>Chlamydia trachomatis</em>, <em>Neisseria gonorrhoeae</em>, <em>Trichomonas vaginalis</em>, and <em>Mycoplasma genitalium</em>.</p>
+        </div>
+        <div class="panel-card">
+          <h3>Wound Panel</h3>
+          <p>Identification of aerobic and anaerobic bacteria including MRSA and <em>Pseudomonas aeruginosa</em> for skin and soft tissue infections.</p>
+        </div>
+        <div class="panel-card">
+          <h3>GI Panel</h3>
+          <p>Detection of enteric pathogens such as <em>Salmonella</em>, <em>Shigella</em>, <em>Campylobacter</em>, and <em>Clostridioides difficile</em>.</p>
+        </div>
+        <div class="panel-card">
+          <h3>Nail Fungus Panel</h3>
+          <p>PCR-based detection of dermatophytes and non-dermatophyte molds including <em>Trichophyton rubrum</em> and <em>Candida</em> species.</p>
+        </div>
+        <div class="panel-card">
+          <h3>Antibiotic Resistance Panel</h3>
+          <p>Screening for resistance genes including ESBL, carbapenemase, and MRSA markers to guide antimicrobial therapy.</p>
+        </div>
+        <div class="panel-card">
+          <h3>Women’s Health Panel</h3>
+          <p>Vaginal microbiome assessment including <em>Gardnerella vaginalis</em>, <em>Atopobium vaginae</em>, <em>Candida</em> species, and STI co-testing.</p>
+        </div>
+      </div>
     </section>
 
-    <section>
-      <h3>Contact InnovexLab</h3>
-      <p>Email: <a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
-      <p>Phone: <a href="tel:+13523283066">(352) 328-3066</a></p>
-      <p>Address: 1135 NW 23rd Ave Ste L, Gainesville, FL 32609</p>
+    <section class="contact-box">
+      <h2 style="color:#0b2c4a;">Contact InnovexLab</h2>
+      <p><strong>Email:</strong> <a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+13523283066">(352) 328-3066</a></p>
+      <p><strong>Address:</strong> 1135 NW 23rd Ave Ste L, Gainesville, FL 32609</p>
       <p>Visit our <a href="contact.html">Contact page</a> for more details.</p>
     </section>
   </main>
 
   <footer>
-    <p>© <span id="year"></span> InnovexLab. All rights reserved.</p>
-    <script>document.getElementById("year").textContent = new Date().getFullYear();</script>
-  </footer>
-</body>
-</html>
+    <p>© <span id="year"></span> InnovexLab. All rights
