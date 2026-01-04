@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact InnovexLab | Laboratory Contact Information</title>
+  <meta name="description" content="Contact InnovexLab in Gainesville, Florida for information about pathogen testing panels, ordering, and laboratory services.">
+  <link rel="canonical" href="https://innovexlab.com/contact.html">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #222;
+      line-height: 1.6;
+      background-color: #f7f9fc;
+    }
+
+    header {
+      background-color: #0b2c4a;
+      color: #ffffff;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.3rem;
+      margin: 0;
+      letter-spacing: 0.03em;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 32px 16px 48px 16px;
+    }
+
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 8px;
+      color: #0b2c4a;
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      margin-top: 24px;
+      margin-bottom: 6px;
+      color: #0b2c4a;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 0.97rem;
+    }
+
+    .contact-box {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e1e6ee;
+      margin-top: 12px;
+    }
+
+    .contact-box p {
+      margin: 4px 0;
+    }
+
+    .contact-form {
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      border: 1px solid #e1e6ee;
+      margin-top: 24px;
+    }
+
+    label {
+      display: block;
+      font-size: 0.9rem;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border-radius: 4px;
+      border: 1px solid #cfd6e4;
+      font-size: 0.95rem;
+      box-sizing: border-box;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    button[type="submit"] {
+      background-color: #00a6d6;
+      color: #ffffff;
+      border: 1px solid #00a6d6;
+      border-radius: 4px;
+      padding: 10px 18px;
+      font-size: 0.95rem;
+      cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0088af;
+    }
+
+    footer {
+      background-color: #0b2c4a;
+      color: #ffffff;
+      padding: 16px 32px;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    footer a {
+      color: #ffffff;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>InnovexLab</h1>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact InnovexLab</h2>
+      <p>
+        For information about our pathogen testing panels, ordering process, or general inquiries,
+        please use the contact details below or send us a message.
+      </p>
+      <div class="contact-box">
+        <p><strong>Email:</strong> <a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+13523283066">(352) 328-3066</a></p>
+        <p><strong>Address:</strong><br>
+          InnovexLab<br>
+          1135 NW 23rd Ave, Ste L<br>
+          Gainesville, FL 32609
+        </p>
+      </div>
+    </section>
+
+    <section aria-labelledby="message-heading" class="contact-form">
+      <h3 id="message-heading">Send us a message</h3>
+      <!--
+        This is a static HTML form. To make it functional, point the "action"
+        attribute to your form handler (e.g., an email service, backend, or form service).
+      -->
+      <form action="#" method="post">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" autocomplete="name">
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" autocomplete="email">
+
+        <label for="organization">Practice / Organization</label>
+        <input id="organization" name="organization" type="text">
+
+        <label for="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <div>
+      © <span id="year"></span> InnovexLab. All rights reserved.
+    </div>
+    <div>
+      1135 NW 23rd Ave, Ste L, Gainesville, FL 32609 ·
+      <a href="tel:+13523283066">(352) 328-3066</a>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
