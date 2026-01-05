@@ -65,7 +65,9 @@
     }
 
     .hero {
-      background: linear-gradient(to right, #0b2c4a, #0077a8);
+      background-image: url('hero-bg.png'); /* Use your generated image */
+      background-size: cover;
+      background-position: center;
       color: white;
       padding: 60px 20px;
       text-align: center;
@@ -80,10 +82,6 @@
       font-size: 1.1rem;
       max-width: 800px;
       margin: 0 auto 20px;
-    }
-
-    .hero .cta {
-      margin-top: 20px;
     }
 
     .hero .cta a {
@@ -119,6 +117,7 @@
       padding: 20px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.1);
       transition: transform 0.2s ease;
+      cursor: pointer;
     }
 
     .panel-card:hover {
@@ -136,17 +135,33 @@
       margin-bottom: 0;
     }
 
-    .contact-box {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    /* Modal Styling */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.6);
     }
 
-    .contact-box p {
-      margin: 6px 0;
-      font-size: 1rem;
+    .modal-content {
+      background-color: white;
+      margin: 10% auto;
+      padding: 20px;
+      border-radius: 8px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+
+    .close {
+      float: right;
+      font-size: 24px;
+      cursor: pointer;
     }
 
     footer {
@@ -155,65 +170,4 @@
       text-align: center;
       padding: 16px;
       margin-top: 40px;
-      font-size: 0.9rem;
-    }
-
-    a[href^="mailto:"] {
-      color: #ffffff;
-      text-decoration: underline;
-      font-weight: normal;
-    }
-  </style>
-</head>
-
-<body>
-  <header>
-    <h1><a href="index.html">InnovexLab</a></h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Advanced Pathogen Testing in Gainesville, Florida</h2>
-    <p>
-      InnovexLab is a high-quality clinical laboratory located in Gainesville, Florida, specializing in molecular and microbiological testing for infectious diseases. We support healthcare providers with accurate, timely results across a focused menu of diagnostic panels.
-    </p>
-    <p>
-      From urinary tract and respiratory infections to complex women’s health and antimicrobial resistance, InnovexLab delivers precision diagnostics with responsive service.
-    </p>
-    <div class="cta">
-      <a href="#panels">View Panels</a>
-      <a href="contact.html">Contact Us</a>
-    </div>
-  </section>
-
-  <main>
-    <section id="panels">
-      <h2 style="text-align:center; color:#0b2c4a;">Our Diagnostic Panels</h2>
-      <div class="panels">
-        <!-- Panel cards go here (same as before) -->
-        <!-- ... -->
-      </div>
-    </section>
-
-    <section class="contact-box">
-      <h2 style="color:#0b2c4a;">Contact InnovexLab</h2>
-      <p><strong>Email:</strong> <a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+13523283066">(352) 328-3066</a></p>
-      <p><strong>Address:</strong> 1135 NW 23rd Ave Ste L, Gainesville, FL 32609</p>
-      <p>Visit our <a href="contact.html">Contact page</a> for more details.</p>
-    </section>
-  </main>
-
-  <footer>
-    © <span id="year"></span> InnovexLab. All rights reserved.
-  </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      font-size: 0.9rem
