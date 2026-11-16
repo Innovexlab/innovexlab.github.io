@@ -4,7 +4,7 @@ Public website for **InnovexLab**, a molecular infection-testing laboratory in G
 Served by **GitHub Pages** from the `main` branch of this repository at <https://www.innovexlab.com/>.
 
 The site has one job: help a practice or facility understand one useful molecular-testing use case
-and **book a 15-minute panel review**. Existing clients get a separate, clearly marked **Client Portal** link
+and **request a consultation** (a 15-minute panel review). Existing clients get a separate, clearly marked **Client Portal** link
 once the portal address has been verified.
 
 > **This repository is public.** Never commit passwords, API keys, CRM/prospect data, pricing
@@ -89,7 +89,7 @@ Details: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 | Area | Status |
 |---|---|
-| Refreshed Home / Testing / How to Start / About / Contact | Implemented on branch `refresh/w02-public-site`; **not yet reviewed or deployed** |
+| Refreshed site | **Live** since 2026-11-16 (PR #1); logo PR #2; professional copy rewrite + credentials (this change). Clinical/billing reviewer sign-off pending |
 | Contact form delivery to `info@innovex-lab.com` | **Unverified**: needs a marked test confirmed in the real inbox |
 | Client Portal link | Built but **hidden** until the portal URL is verified |
 | Ad video | Not added; waits for claim/rights review, captions and transcript |

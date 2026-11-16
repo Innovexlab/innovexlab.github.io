@@ -3,7 +3,21 @@
 Format: newest first. Record **deployments** separately from implementation: an entry is "Released"
 only when merged to `main` and smoke-tested on the live site.
 
-## Unreleased
+## Unreleased — professional rewrite
+
+### Changed
+- All pages rewritten in a clinical, declarative register for clinicians and administrators: no
+  explanatory basics, scenario stories or slogans; panel cards now "Indication" / "Clinical use";
+  limitations stated once, plainly. Billing FAQ answer kept verbatim.
+- One call to action, "Request a consultation", replaces the repeated "Book a 15-minute panel review";
+  nav label "How to Start" → "Getting Started" (URL unchanged).
+- Credentials: CLIA certification (CLIA #10D2306552, high-complexity) and COLA accreditation
+  (COLA ID 33609), owner-supplied 2026-11-16, in a band under the hero (Home, About), the utility bar,
+  footer, About and JSON-LD. `check_site.py` pins both numbers; licence/CAP/ISO/FDA claims stay blocked.
+- Visual: squarer corners, flatter shadows, plain navy hero (banner text contrast now ≥ 7:1), outlined
+  step numerals, testing-services index and feature columns on Home.
+
+## Released 2026-11-16 — logo (PR #2)
 
 ### Added
 - Innovex logo (official mark, confirmed by the owner 2026-11-16) beside the name in the header
