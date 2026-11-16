@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- List every public, indexable page. thankyou.html and 404.html are intentionally excluded (noindex).
+     tools/check_site.py verifies this list matches the indexable pages in the repo root. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.innovexlab.com/</loc></url>
+  <url><loc>https://www.innovexlab.com/testing.html</loc></url>
+  <url><loc>https://www.innovexlab.com/how-to-start.html</loc></url>
+  <url><loc>https://www.innovexlab.com/about.html</loc></url>
+  <url><loc>https://www.innovexlab.com/contact.html</loc></url>
+</urlset>

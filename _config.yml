@@ -1,0 +1,22 @@
+# GitHub Pages (Jekyll) configuration
+# ------------------------------------------------------------------
+# The site is plain HTML; Jekyll only copies files. This file exists to
+# keep developer-only files OFF the public website. Without it, GitHub
+# Pages would publish README.md, CLAUDE.md, docs/ etc. as web pages.
+#
+# If you add a new developer-only file or folder, add it below.
+# Note: the GitHub REPOSITORY is public regardless — never commit secrets,
+# internal pricing, CRM data or patient information to it.
+exclude:
+  - README.md
+  - CLAUDE.md
+  - CONTRIBUTING.md
+  - CHANGELOG.md
+  - docs/
+  - tools/
+  - partials/
+  - tests/
+  - .github/
+  - .editorconfig
+  - .gitattributes
+  - .gitignore
