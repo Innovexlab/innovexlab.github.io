@@ -3,7 +3,22 @@
 Format: newest first. Record **deployments** separately from implementation: an entry is "Released"
 only when merged to `main` and smoke-tested on the live site.
 
-## Unreleased — branch `refresh/w02-public-site`
+## Unreleased
+
+### Added
+- Innovex logo (official mark, confirmed by the owner 2026-11-16) beside the name in the header
+  on every page, on a white disc so it reads on the navy header; PNG tab icon and home-screen
+  icon (`assets/img/innovex-logo-96.png`, `favicon-48.png`, `apple-touch-icon.png`; ~41 KB total)
+
+### Fixed
+- Small phones: the header button's compact padding never applied (overridden by `.button`);
+  brand, button and menu share one row again from 360px
+
+## 2026-11-16 — Released (PR #1, merge `4f2ee72`)
+
+Owner-authorized release of the refresh below. Clinical and billing reviewer sign-off deferred by
+the owner to after launch; contact-form receipt test pending.
+
 
 Implemented and checked locally (`tools/check_site.py` OK; visual check at 390px and 1366px).
 Not yet owner-, clinically- or billing-reviewed. Not deployed.
