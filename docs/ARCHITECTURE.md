@@ -38,7 +38,7 @@ Every clinical message follows the marketing standard's order:
 2. **Mechanism**: molecular testing reads organisms and resistance genes directly from the specimen
 3. **Decision**: what the result can inform (precautions, cohorting, antibiotic choice…)
 4. **Honest limit**: what a molecular result can't tell you on its own
-5. **One action**: book a 15-minute panel review
+5. **One action**: request a consultation
 
 Pages reuse a small set of components defined in `site.css`:
 
@@ -46,6 +46,9 @@ Pages reuse a small set of components defined in `site.css`:
 |---|---|---|
 | Dark top band | `.hero`, `.hero--page` | every page |
 | Card | `.card`, `.panel-card` | Home, Testing, About, Thank-you |
+| Credentials band | `.credentials` | Home, About (CLIA/COLA, numbers checked by `check_site.py`) |
+| Testing-services index | `.service-grid`, `.service-link` | Home |
+| Plain feature columns | `.feature` | Home |
 | Numbered steps | `.steps` | Home, How to Start |
 | Highlighted note | `.callout` | startup benefit (Home, How to Start) |
 | Limits box | `.limits` | Testing, About |
@@ -105,8 +108,8 @@ there); run sync + checks.
 
 Each page has a unique `<title>`, meta description (50–160 chars), canonical URL on
 `https://www.innovexlab.com`, Open Graph tags, and is listed in `sitemap.xml` unless `noindex`.
-Home carries `MedicalBusiness` JSON-LD limited to facts the site already publishes (name, address,
-phone, email). Add hours, accreditation or service area to it **only** once verified.
+Home carries `MedicalBusiness` JSON-LD limited to facts the site already publishes (name, description,
+logo, address, phone, email). Add hours or service area to it **only** once verified.
 
 ## Not in this repository (by design)
 

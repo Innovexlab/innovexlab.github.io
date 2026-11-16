@@ -1,7 +1,9 @@
 # Content rules for public copy
 
-InnovexLab is a laboratory serving clinicians (don't call it a "clinical laboratory" in public copy
-until the licence wording is transcribed). Everything the website says about tests, timing, billing,
+InnovexLab is a CLIA-certified, COLA-accredited molecular laboratory working with clinicians and
+facilities. Write in a clinical, declarative register for clinicians and administrators: state facts,
+don't explain basics, no stories or slogans, one call to action ("Request a consultation").
+Everything the website says about tests, timing, billing,
 logistics or credentials may be relied on by a clinician or an administrator, and some statements are
 regulated. These rules keep the site accurate. `tools/check_site.py` enforces the mechanical parts;
 reviewers enforce the rest.
@@ -19,7 +21,7 @@ Every page or section that sells testing should contain, in order:
 4. **An honest limit**, stated plainly: a positive PCR is not by itself a diagnosis of symptomatic
    infection; a resistance gene does not by itself determine susceptibility or treatment; culture and
    clinical assessment still matter.
-5. **One action**: book a 15-minute panel review.
+5. **One action**: request a consultation (a 15-minute panel review with the laboratory).
 
 Test for filler: delete every mention of Innovex and its testing. If the paragraph still says the
 same thing, rewrite it.
@@ -40,7 +42,7 @@ placeholders.
 | Targets, specimens, devices, methods per panel | organism names, target counts, "urine or swab", platform names | Lab director (signed validated menu) |
 | Turnaround / speed | "24-hour results", "same-day", "fast", "faster than your lab" | Lab director + measured lab data |
 | Accuracy / performance | "accurate", "high specificity", "precision diagnostics", percentages | Lab director (validation data) |
-| Accreditation and licences | CLIA/CAP/state licence numbers, "certified", "accredited" | Owner, transcribed from current certificates |
+| Accreditation and licences | CLIA certification and COLA accreditation **may be stated**, only with the recorded numbers (`CLIA_NUMBER`, `COLA_ID` in `check_site.py`; owner-supplied 2026-11-16). Florida licence, CAP, ISO, FDA status or any other accreditation still need records | Owner, transcribed from current certificates |
 | Billing, coverage, cost | "no cost", "covered by Medicare", prices of any kind | Billing owner (and counsel where applicable) |
 | Logistics | courier, pickup, service area, cut-off times, kit contents, delivery timing | Operations owner |
 | Results delivery | portal, fax, EHR interface, critical-value calls | Operations owner / portal owner |

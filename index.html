@@ -7,13 +7,13 @@
        <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>InnovexLab | Molecular Infection Testing Lab in Gainesville, FL</title>
-  <meta name="description" content="InnovexLab is a Gainesville, Florida molecular testing lab. Add one focused infection panel alongside your current lab. Book a 15-minute panel review.">
+  <title>InnovexLab | CLIA-Certified Molecular Infection Testing, Gainesville FL</title>
+  <meta name="description" content="CLIA-certified, COLA-accredited molecular laboratory in Gainesville, Florida. PCR infection panels with antibiotic-resistance gene detection.">
   <link rel="canonical" href="https://www.innovexlab.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="InnovexLab">
-  <meta property="og:title" content="InnovexLab | Molecular infection testing in Gainesville, FL">
-  <meta property="og:description" content="Add one focused molecular testing panel alongside your current lab. Book a 15-minute panel review.">
+  <meta property="og:title" content="InnovexLab | Molecular infection testing, Gainesville FL">
+  <meta property="og:description" content="CLIA-certified molecular laboratory offering PCR infection panels with antibiotic-resistance gene detection.">
   <meta property="og:url" content="https://www.innovexlab.com/">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
@@ -30,6 +30,8 @@
     "@context": "https://schema.org",
     "@type": "MedicalBusiness",
     "name": "InnovexLab",
+    "description": "CLIA-certified, COLA-accredited molecular laboratory performing PCR infection testing.",
+    "logo": "https://www.innovexlab.com/assets/img/apple-touch-icon.png",
     "url": "https://www.innovexlab.com/",
     "telephone": "+1-352-328-3066",
     "email": "info@innovex-lab.com",
@@ -52,7 +54,7 @@
     <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
     <div class="utility-bar">
       <div class="container utility-bar__inner">
-        <span class="utility-bar__place">Molecular testing laboratory &middot; Gainesville, Florida</span>
+        <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
           <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
@@ -63,14 +65,14 @@
     <div class="container site-header__main">
       <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40">Innovex<span>Lab</span></a>
       <a class="button button--primary header-cta" href="/contact.html#book">
-        <span class="label-long">Book a 15-minute panel review</span>
-        <span class="label-short">Book a review</span>
+        <span class="label-long">Request a consultation</span>
+        <span class="label-short">Consultation</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></button>
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
-          <li><a href="/how-to-start.html" data-nav="how-to-start">How to Start</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
           <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
@@ -81,103 +83,113 @@
   <!-- /PARTIAL:header -->
 
   <main id="main">
-    <!-- HERO — opens on a recognizable clinical moment (marketing standard, test 1: tension). -->
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container">
-        <span class="eyebrow">Molecular testing lab &middot; Gainesville, Florida</span>
-        <h1 id="hero-heading">Add a focused molecular testing option to your current lab.</h1>
-        <!-- SITUATION: must be a clinician-assessed infection question. Do not use a sign that,
-             alone, could suggest urine testing (e.g. confusion). Pending lab-director review. -->
-        <p class="situation">Several residents on one hall start coughing in the same week. Their clinician has to decide on precautions and cohorting today.</p>
-        <!-- CLAIM: "reads organisms and resistance genes directly from the specimen" is the approved
-             general PCR line. Do NOT add turnaround times, accuracy or "faster than" language here. -->
-        <p>When the ordering clinician needs pathogen or resistance-gene information for an infection question, our molecular panels read it directly from the specimen, without waiting for culture growth. Start with one panel. Keep the lab you already use.</p>
+        <span class="eyebrow">Molecular infection testing &middot; Gainesville, Florida</span>
+        <h1 id="hero-heading">Molecular infection testing for long-term care facilities and medical practices</h1>
+        <!-- CLAIM: general PCR description only. No turnaround, accuracy or "faster than" language. -->
+        <p>PCR panels for urinary, wound, respiratory, gastrointestinal, STI, women&rsquo;s health and nail infections, with antibiotic-resistance gene detection. Organisms and resistance genes are identified directly from the specimen, without waiting for culture growth.</p>
         <div class="button-row">
-          <a class="button button--on-dark" href="/contact.html#book">Book a 15-minute panel review</a>
-          <a class="button button--ghost-on-dark" href="/testing.html">See testing areas</a>
+          <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
+          <a class="button button--ghost-on-dark" href="/testing.html">View testing services</a>
         </div>
       </div>
     </section>
 
-    <!-- WHAT A RESULT ADDS — mechanism, decision, honest limit (tests 2–4). -->
-    <section class="section" aria-labelledby="adds-heading">
+    <!-- CREDENTIALS — owner-supplied 2026-11-16 (company forms + report template); confirming
+         certificate copies to be filed in the private fact register. check_site.py requires these
+         exact numbers. Do NOT add a Florida licence, CAP or other accreditation without records. -->
+    <section class="credentials" aria-label="Laboratory credentials">
+      <div class="container">
+        <ul class="credentials__list">
+          <li><span class="credentials__label">CLIA-certified</span> <span class="credentials__value">CLIA #10D2306552</span></li>
+          <li><span class="credentials__label">COLA-accredited</span> <span class="credentials__value">COLA ID 33609</span></li>
+          <li><span class="credentials__label">High-complexity testing</span> <span class="credentials__value">Molecular (PCR) methods</span></li>
+          <li><span class="credentials__label">Gainesville, Florida</span> <span class="credentials__value">1135 NW 23rd Ave, Ste L</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- TESTING SERVICES — panel names and indications only. Target lists, specimen types and
+         target counts stay off the site until the lab director's signed, validated menu exists. -->
+    <section class="section" aria-labelledby="services-heading">
       <div class="container">
         <div class="section__intro">
-          <h2 id="adds-heading">What a molecular result adds</h2>
-          <p>Culture tells you what grows. Molecular testing reads the genetic material that is already in the sample.</p>
+          <h2 id="services-heading">Testing services</h2>
+          <p>Target menus, accepted specimen types and collection requirements are provided by the laboratory during consultation.</p>
+        </div>
+        <ul class="service-grid">
+          <li><a class="service-link" href="/testing.html#uti"><span class="service-link__name">UTI</span><span class="service-link__text">Symptomatic patients with a suspected urinary source.</span></a></li>
+          <li><a class="service-link" href="/testing.html#wound"><span class="service-link__name">Wound</span><span class="service-link__text">Non-healing or clinically infected wounds.</span></a></li>
+          <li><a class="service-link" href="/testing.html#respiratory"><span class="service-link__name">Respiratory</span><span class="service-link__text">Symptomatic respiratory illness and facility clusters.</span></a></li>
+          <li><a class="service-link" href="/testing.html#gi"><span class="service-link__name">Gastrointestinal (GI)</span><span class="service-link__text">Acute diarrheal illness and suspected unit outbreaks.</span></a></li>
+          <li><a class="service-link" href="/testing.html#nail"><span class="service-link__name">Nail fungal</span><span class="service-link__text">Suspected onychomycosis before antifungal therapy.</span></a></li>
+          <li><a class="service-link" href="/testing.html#womens-health"><span class="service-link__name">Women&rsquo;s health</span><span class="service-link__text">Vaginitis and vaginosis with overlapping causes.</span></a></li>
+          <li><a class="service-link" href="/testing.html#sti"><span class="service-link__name">STI</span><span class="service-link__text">Symptomatic patients and recommended screening.</span></a></li>
+          <li><a class="service-link" href="/testing.html#resistance"><span class="service-link__name">Antibiotic resistance</span><span class="service-link__text">Resistance genes reported with organism results.</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section section--surface" aria-labelledby="method-heading">
+      <div class="container">
+        <div class="section__intro">
+          <h2 id="method-heading">Molecular results, used alongside culture</h2>
         </div>
         <div class="grid grid--3">
-          <article class="card">
-            <h3>Read directly from the specimen</h3>
-            <p>PCR detects organisms and resistance genes in the sample itself. It doesn&rsquo;t have to wait for anything to grow first.</p>
+          <article class="feature">
+            <h3>Direct detection</h3>
+            <p>Targets are identified from the specimen itself, independent of culture growth.</p>
           </article>
-          <article class="card">
-            <h3>Information for a decision</h3>
-            <p>The ordering clinician can use it while weighing precautions, cohorting or an antibiotic choice, alongside the rest of the clinical picture.</p>
+          <article class="feature">
+            <h3>Resistance genes</h3>
+            <p>Resistance markers are reported with organism results to inform antimicrobial selection.</p>
           </article>
-          <article class="card">
-            <h3>Honest about its limits</h3>
-            <p>A positive PCR doesn&rsquo;t by itself diagnose a symptomatic infection, and a resistance gene doesn&rsquo;t by itself decide treatment. Culture and clinical review still matter.</p>
+          <article class="feature">
+            <h3>Clinical context</h3>
+            <p>Results support, and do not replace, culture, susceptibility testing and clinical assessment. <a href="/testing.html#limits-heading">Limitations</a></p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- TESTING AREAS — panel names ONLY. Target organisms, specimen types and target counts stay
-         off the site until the lab director's signed, validated menu exists. -->
-    <section class="section section--surface" aria-labelledby="areas-heading">
-      <div class="container">
-        <div class="section__intro">
-          <h2 id="areas-heading">Testing areas</h2>
-          <p>Innovex tests for respiratory, GI, urinary, wound, STI, women&rsquo;s health and nail fungal infections, plus antibiotic-resistance genes.</p>
-        </div>
-        <ul class="panel-list">
-          <li><a href="/testing.html#uti">UTI</a></li>
-          <li><a href="/testing.html#wound">Wound</a></li>
-          <li><a href="/testing.html#respiratory">Respiratory</a></li>
-          <li><a href="/testing.html#gi">Gastrointestinal (GI)</a></li>
-          <li><a href="/testing.html#nail">Nail fungal</a></li>
-          <li><a href="/testing.html#womens-health">Women&rsquo;s health</a></li>
-          <li><a href="/testing.html#sti">STI</a></li>
-          <li><a href="/testing.html#resistance">Antibiotic resistance</a></li>
-        </ul>
-        <a class="arrow-link" href="/testing.html">What each panel is for</a>
-      </div>
-    </section>
-
-    <!-- VIDEO SLOT (task W05, blocked): the proposed ad video goes here ONLY after claim/rights
-         review, captions and transcript. No autoplay with sound. Keep a panel-review button beside it. -->
-
-    <!-- HOW TO START summary — the offer (test 5). -->
     <section class="section" aria-labelledby="start-heading">
       <div class="container split">
         <div>
-          <h2 id="start-heading">Start with one panel</h2>
-          <p>You don&rsquo;t have to switch labs. Pick the one testing question where a molecular result would help most, and add Innovex for that.</p>
+          <h2 id="start-heading">Getting started</h2>
+          <p>Facilities and practices can add InnovexLab alongside their current reference laboratory, beginning with a single panel.</p>
           <ol class="steps steps--compact">
-            <li><h3>Choose one panel</h3><p>Pick the testing question your team sees most.</p></li>
-            <li><h3>Confirm the specimen with your clinician</h3><p>The ordering clinician reviews the panel and the specimen it needs with the lab.</p></li>
-            <li><h3>Confirm logistics, results and billing</h3><p>We walk through how specimens reach us, how results reach the ordering provider, and the billing path.</p></li>
-            <li><h3>Sign setup and pick a start date</h3><p>Complete the setup paperwork and choose the day you&rsquo;ll send your first appropriate order.</p></li>
+            <li><h3>Consultation</h3><p>Select the panel that fits your most frequent testing question.</p></li>
+            <li><h3>Specimen review</h3><p>The ordering clinician reviews the panel, specimen and collection requirements with the laboratory.</p></li>
+            <li><h3>Logistics, reporting and billing</h3><p>Your administrator confirms specimen transport, result reporting to the ordering provider, and the billing path.</p></li>
+            <li><h3>Go-live</h3><p>Complete the setup paperwork and choose the date of your first order.</p></li>
           </ol>
-          <a class="arrow-link" href="/how-to-start.html">The full How to Start guide</a>
+          <a class="arrow-link" href="/how-to-start.html">Getting started in detail</a>
         </div>
-        <div class="callout" role="note" aria-label="Startup benefit">
-          <!-- CLAIM: owner-confirmed 2026-10-19. Startup only — never imply ordered tests are free. -->
-          <p><strong>No cost to get started.</strong></p>
-          <p>Onboarding is free, and we provide the collection supplies needed to start using our lab. You can keep your current lab and use Innovex as an additional option.</p>
-          <p class="mb-0 text-muted">Tests are billed separately. We review the billing path with you before your first order.</p>
+        <div>
+          <div class="callout" role="note" aria-label="Onboarding">
+            <!-- CLAIM: owner-confirmed 2026-10-19. Startup only — never imply ordered tests are free. -->
+            <p><strong>No-cost onboarding</strong></p>
+            <p>Onboarding is free, and we provide the collection supplies needed to begin. Your current laboratory relationship can stay in place.</p>
+            <p class="mb-0 text-muted">Tests are billed separately. We review the billing path with you before your first order.</p>
+          </div>
+          <div class="audience">
+            <h3>Who we work with</h3>
+            <ul>
+              <li>Skilled nursing and long-term care facilities</li>
+              <li>Physician and specialty practices</li>
+              <li>Wound care, podiatry and dermatology</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- LOCAL LAB — real, already-published contact details. Add consented photos and verified
-         credentials here when available (W06). -->
-    <section class="section section--surface" aria-labelledby="local-heading">
+    <section class="section section--surface" aria-labelledby="contact-heading">
       <div class="container split">
         <div>
-          <h2 id="local-heading">A lab you can call</h2>
-          <p>InnovexLab is a molecular testing laboratory in Gainesville. Questions about a panel, a specimen or getting started go straight to the lab.</p>
+          <h2 id="contact-heading">Contact the laboratory</h2>
+          <p>Questions about a panel, specimen requirements or onboarding go directly to the laboratory.</p>
           <a class="arrow-link" href="/about.html">About InnovexLab</a>
         </div>
         <ul class="contact-facts">
@@ -193,10 +205,10 @@
   <!-- Generated from partials/cta-band.html by tools/sync_partials.py. Edit the partial, not this block. -->
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
-      <h2 id="cta-band-heading">Start with one panel. Keep the lab you already use.</h2>
-      <p>Book 15 minutes with the lab to review one testing question with your ordering clinician and the person who runs operations.</p>
+      <h2 id="cta-band-heading">Discuss a testing program with the laboratory</h2>
+      <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
       <div class="button-row">
-        <a class="button button--on-dark" href="/contact.html#book">Book a 15-minute panel review</a>
+        <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
         <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
       </div>
     </div>
@@ -209,14 +221,15 @@
       <div class="site-footer__grid">
         <div>
           <a class="brand" href="/">Innovex<span>Lab</span></a>
-          <p>Molecular testing laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p>CLIA-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p class="site-footer__ids">CLIA #10D2306552 &middot; COLA ID 33609</p>
           <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
         </div>
         <nav aria-label="Footer">
           <h2>Site</h2>
           <ul>
             <li><a href="/testing.html">Testing</a></li>
-            <li><a href="/how-to-start.html">How to Start</a></li>
+            <li><a href="/how-to-start.html">Getting Started</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>

@@ -23,7 +23,8 @@ What is checked, and why
                descriptions, JSON-LD, alt/aria-label/title/placeholder attributes — contains
                no claim that needs documented proof first (see CLAIM_RULES). Any page that
                talks about Medicare/payer billing must also carry the Part A consolidated-
-               billing exception. Rules come from the internal claim register (proof gates);
+               billing exception. CLIA numbers and COLA IDs must equal CLIA_NUMBER / COLA_ID.
+               Rules come from the internal claim register (proof gates);
                when a gate closes with evidence, update CLAIM_RULES in the same pull request
                as the copy.
 6. form        No patient-information fields; patient-info warning beside free text; every
@@ -71,6 +72,10 @@ INBOX = "info@innovex-lab.com"
 FORM_ACTION = f"https://formsubmit.co/{INBOX}"
 FORM_HIDDEN_REQUIRED = {"_subject", "_template", "_next", "lead_source"}
 NON_INDEXABLE = {"404.html", "thankyou.html"}
+# Laboratory identifiers supplied by the owner on 2026-11-16 (company forms; COLA ID from the
+# report template). Any CLIA-style number or COLA ID shown on the site must match exactly.
+CLIA_NUMBER = "10D2306552"
+COLA_ID = "33609"
 # Folders that never contain public pages.
 SKIP_DIRS = {".git", ".github", "partials", "tools", "docs", "tests", "node_modules"}
 
@@ -111,9 +116,14 @@ CLAIM_RULES: list[tuple[str, str]] = [
      "numeric turnaround/timing needs LIS evidence"),
     (r"turn-?around|same[- ]day|next[- ]day|overnight|\brapid\w*|\bfast(er|est)?\b|\bquick(ly|er)?\b|results in\b",
      "speed claims need measured receipt-to-report data"),
-    # Credentials
-    (r"\b(CLIA|CAP|COLA|accredit\w*|certified|licen[cs]ed)\b|clinical (molecular )?(testing )?lab",
-     "accreditation/licence (incl. 'clinical laboratory') needs transcribed certificates"),
+    # Credentials. CLIA certification and COLA accreditation were supplied by the owner on
+    # 2026-11-16 (company forms + report template) and may be stated; CREDENTIAL_IDS below pins
+    # the exact numbers. Anything else (Florida licence, CAP, ISO, FDA status, other
+    # accreditation) still needs records first.
+    (r"\b(CAP|ISO\s?15189|licen[cs]ed?|FDA[- ](approved|cleared))\b",
+     "licence/CAP/ISO/FDA claims need documented certificates (only CLIA and COLA are on record)"),
+    (r"(?<!COLA-)(?<!COLA )\baccredit\w*(?! by COLA)",
+     "only COLA accreditation is on record; write 'COLA-accredited'"),
     # Logistics, results channels, service area
     (r"\b(courier|pick-?up|driver)s?\b", "courier/pickup coverage is not documented"),
     (r"\b(fax|EHR|EMR|HL7|interface)\w*\b", "result-delivery channels are not documented"),
@@ -417,6 +427,14 @@ def main() -> int:
             for m in re.finditer(pattern, visible, re.I):
                 snippet = visible[max(0, m.start() - 40): m.end() + 40].strip()
                 fail(f"{name}: claim rule — {reason}: “…{snippet}…”")
+        for clia in set(re.findall(r"\b\d{2}D\d{7}\b", visible)):
+            if clia != CLIA_NUMBER:
+                fail(f"{name}: CLIA number {clia} does not match the record ({CLIA_NUMBER})")
+        if re.search(r"\bCLIA\s*#", visible) and CLIA_NUMBER not in visible:
+            fail(f"{name}: CLIA # shown without the recorded number {CLIA_NUMBER}")
+        for cola in set(re.findall(r"COLA ID\s*#?\s*(\w+)", visible)):
+            if cola != COLA_ID:
+                fail(f"{name}: COLA ID {cola} does not match the record ({COLA_ID})")
         if BILLING_MENTION_RE.search(visible) and not PART_A_RE.search(visible):
             fail(f"{name}: mentions payer/Medicare billing without the Part A consolidated-billing exception")
 
