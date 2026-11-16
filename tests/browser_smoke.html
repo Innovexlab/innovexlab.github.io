@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<!--
+  Browser smoke tests for assets/js/site.js — run in a real browser.
+
+  How to run
+    1. python -m http.server 8765            (from the repo root)
+    2. open http://127.0.0.1:8765/tests/browser_smoke.html
+       or headless: python tools/run_browser_smoke.py
+  Each test loads a real page in a same-origin <iframe> (390px wide = phone),
+  interacts with it, and asserts on the DOM. Results are written into
+  <pre id="results">; the last line is "SUMMARY: PASS" or "SUMMARY: FAIL".
+
+  SAFETY: the form test blocks the real submission (a window-level submit
+  listener calls preventDefault), so nothing is ever sent to FormSubmit.
+
+  This folder is excluded from the public site by _config.yml.
+-->
+<html lang="en">
+<head><meta charset="utf-8"><title>InnovexLab browser smoke tests</title></head>
+<body>
+<h1>InnovexLab browser smoke tests</h1>
+<iframe id="frame" title="page under test" style="width:390px;height:700px;border:1px solid #ccc"></iframe>
+<pre id="results">running…</pre>
+<script>
+(function () {
+  "use strict";
+  var frame = document.getElementById("frame");
+  var lines = [];
+  var failed = 0;
+
+  function check(name, condition) {
+    lines.push((condition ? "PASS " : "FAIL ") + name);
+    if (!condition) failed++;
+  }
+
+  // Load a URL into the iframe; resolve with its window once fully loaded.
+  function load(url) {
+    return new Promise(function (resolve) {
+      frame.onload = function () { setTimeout(function () { resolve(frame.contentWindow); }, 50); };
+      frame.src = url;
+    });
+  }
+
+  function visible(win, el) {
+    return !!el && win.getComputedStyle(el).display !== "none" && !el.closest("[hidden]");
+  }
+
+  // --- colour contrast helpers (WCAG 2.x relative luminance) ---------------
+  function rgba(str) {
+    var m = str.match(/rgba?\(([^)]+)\)/);
+    if (!m) return null;
+    var p = m[1].split(/[ ,\/]+/).filter(Boolean).map(Number);
+    return { r: p[0], g: p[1], b: p[2], a: p.length > 3 ? p[3] : 1 };
+  }
+  function lum(c) {
+    function ch(v) { v /= 255; return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4); }
+    return 0.2126 * ch(c.r) + 0.7152 * ch(c.g) + 0.0722 * ch(c.b);
+  }
+  function ratio(a, b) {
+    var x = lum(a), y = lum(b);
+    return (Math.max(x, y) + 0.05) / (Math.min(x, y) + 0.05);
+  }
+  // Effective background: first ancestor with an opaque colour. Returns null
+  // when a background image/gradient is involved (can't be computed reliably).
+  function backgroundOf(win, el) {
+    for (var n = el; n && n.nodeType === 1; n = n.parentElement) {
+      var cs = win.getComputedStyle(n);
+      if (cs.backgroundImage && cs.backgroundImage !== "none") return null;
+      var c = rgba(cs.backgroundColor);
+      if (c && c.a >= 0.99) return c;
+    }
+    return { r: 255, g: 255, b: 255, a: 1 };
+  }
+  // Every visible element that directly holds text must meet 4.5:1 (3:1 large).
+  function contrastFailures(win) {
+    var bad = [], skipped = 0;
+    win.document.querySelectorAll("body *").forEach(function (el) {
+      var own = Array.prototype.some.call(el.childNodes, function (n) {
+        return n.nodeType === 3 && n.textContent.trim();
+      });
+      if (!own || !visible(win, el) || el.closest(".visually-hidden, .hp-field, [aria-hidden=true]")) return;
+      var cs = win.getComputedStyle(el);
+      if (cs.visibility === "hidden" || el.getClientRects().length === 0) return;
+      var fg = rgba(cs.color), bg = backgroundOf(win, el);
+      if (!fg || !bg) { skipped++; return; }
+      var size = parseFloat(cs.fontSize), bold = parseInt(cs.fontWeight, 10) >= 700;
+      var need = (size >= 24 || (bold && size >= 18.66)) ? 3 : 4.5;
+      var r = ratio(fg, bg);
+      if (r < need) bad.push(el.tagName.toLowerCase() + "." + (el.className || "") + " " + r.toFixed(2) + ":1");
+    });
+    return { bad: bad, skipped: skipped };
+  }
+  // Each focusable control must show a focus indicator (outline or box-shadow).
+  function focusFailures(win) {
+    var bad = [];
+    win.document.querySelectorAll("a[href], button, input:not([type=hidden]), select, textarea").forEach(function (el) {
+      if (!visible(win, el) || el.closest(".hp-field") || el.getClientRects().length === 0) return;
+      el.focus();
+      if (win.document.activeElement !== el) return;
+      var cs = win.getComputedStyle(el);
+      var ring = (cs.outlineStyle !== "none" && parseFloat(cs.outlineWidth) >= 2) || cs.boxShadow !== "none";
+      if (!ring) bad.push(el.tagName.toLowerCase() + ":" + (el.textContent || el.id || "").trim().slice(0, 30));
+    });
+    if (win.document.activeElement) win.document.activeElement.blur();
+    return bad;
+  }
+  function noOverflow(win) {
+    var de = win.document.documentElement;
+    return de.scrollWidth <= de.clientWidth + 1;
+  }
+  var PAGES = ["/index.html", "/testing.html", "/how-to-start.html", "/about.html",
+               "/contact.html", "/thankyou.html", "/404.html"];
+
+  async function run() {
+    // 1. Mobile navigation ---------------------------------------------------
+    var w = await load("/index.html");
+    var d = w.document;
+    var toggle = d.querySelector(".nav-toggle");
+    var nav = d.getElementById("site-nav");
+    check("enhancements loaded (INNOVEX_READY)", w.INNOVEX_READY === true);
+    check("menu starts closed on phone", !visible(w, nav) && toggle.getAttribute("aria-expanded") === "false");
+    toggle.click();
+    check("menu opens on click, aria-expanded=true", visible(w, nav) && toggle.getAttribute("aria-expanded") === "true");
+    d.dispatchEvent(new w.KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
+    check("Escape closes menu", !visible(w, nav) && toggle.getAttribute("aria-expanded") === "false");
+    check("menu button has accessible name 'Menu'", toggle.textContent.trim() === "Menu");
+    check("menu button controls the nav (aria-controls=site-nav)", toggle.getAttribute("aria-controls") === "site-nav");
+
+    // 1b. Choosing a menu link closes the menu (navigation itself is cancelled
+    //     by a window-level listener so the test stays on this page).
+    toggle.click();
+    var stay = function (e) { e.preventDefault(); };
+    w.addEventListener("click", stay);
+    nav.querySelector("a[href]").click();
+    w.removeEventListener("click", stay);
+    check("choosing a menu link closes the menu", !visible(w, nav) && toggle.getAttribute("aria-expanded") === "false");
+    var navLinks = Array.prototype.map.call(nav.querySelectorAll("a[href]:not([data-portal-link])"),
+      function (a) { return a.getAttribute("href"); });
+    check("menu lists Testing, How to Start, About, Contact",
+      ["/testing.html", "/how-to-start.html", "/about.html", "/contact.html"].every(function (h) { return navLinks.indexOf(h) >= 0; }));
+
+    // 2. Client Portal hidden while portalUrl is empty -------------------------
+    var portal = d.querySelectorAll("[data-portal-link]");
+    var anyVisible = Array.prototype.some.call(portal, function (el) { return visible(w, el); });
+    check("portal links hidden when portalUrl is empty", portal.length > 0 && !anyVisible);
+    var fallback = d.querySelector("[data-portal-fallback]");
+    check("'call for account help' fallback shown", visible(w, fallback));
+
+    // 3. Footer year ----------------------------------------------------------
+    check("footer year is current", d.querySelector("[data-year]").textContent === String(new Date().getFullYear()));
+
+    // 4. Panel preselect ------------------------------------------------------
+    w = await load("/contact.html?panel=wound#book");
+    d = w.document;
+    check("?panel=wound preselects Wound", d.getElementById("panel").value === "wound");
+
+    // 5. Form validation: empty submit ----------------------------------------
+    var sent = 0;
+    w.addEventListener("submit", function (e) { if (!e.defaultPrevented) sent++; e.preventDefault(); });
+    var form = d.querySelector("form[data-validate]");
+    d.getElementById("panel").value = "";
+    form.querySelector("button[type=submit]").click();
+    var summary = d.querySelector(".error-summary");
+    check("empty submit is blocked", sent === 0);
+    check("error summary shown and focused", visible(w, summary) && d.activeElement === summary);
+    check("name marked aria-invalid with message",
+      d.getElementById("name").getAttribute("aria-invalid") === "true" &&
+      d.getElementById("name-error").textContent.length > 0);
+    check("optional phone not flagged when empty", !d.getElementById("phone").hasAttribute("aria-invalid"));
+
+    // 6. Form validation: bad email + bad phone --------------------------------
+    d.getElementById("email").value = "not-an-email";
+    d.getElementById("phone").value = "123";
+    form.querySelector("button[type=submit]").click();
+    check("bad email flagged", /email address/i.test(d.getElementById("email-error").textContent));
+    check("short phone flagged", /phone/i.test(d.getElementById("phone-error").textContent));
+
+    // 6b. Spaces only don't count as an answer; typed answers survive a failed submit
+    d.getElementById("name").value = "   ";
+    d.getElementById("organization").value = "Kept Facility";
+    form.querySelector("button[type=submit]").click();
+    check("name of spaces only is flagged", d.getElementById("name").getAttribute("aria-invalid") === "true");
+    check("typed answers are kept after a failed submit", d.getElementById("organization").value === "Kept Facility" && sent === 0);
+    check("each error-summary link points at a real field",
+      Array.prototype.every.call(summary.querySelectorAll("a"), function (a) {
+        return !!d.getElementById(a.getAttribute("href").slice(1));
+      }) && summary.querySelectorAll("a").length > 0);
+
+    // 7. Form validation: valid submit passes (and is intercepted) ------------
+    d.getElementById("name").value = "Test Person";
+    d.getElementById("role").value = "Administrator";
+    d.getElementById("organization").value = "Test Facility";
+    d.getElementById("email").value = "test@example.com";
+    d.getElementById("phone").value = "(352) 555-0100";
+    d.getElementById("panel").value = "uti";
+    d.getElementById("meeting").value = "Phone call";
+    form.querySelector("button[type=submit]").click();
+    check("valid form passes validation", sent === 1 && summary.hidden === true);
+    check("no field left aria-invalid", d.querySelectorAll("[aria-invalid=true]").length === 0);
+    check("submit button shows Sending…", /Sending/.test(form.querySelector("button[type=submit]").textContent));
+
+    // 7b. Retry / Back behaviour ---------------------------------------------
+    form.querySelector("button[type=submit]").click();
+    check("second click while Sending… does not resubmit", sent === 1);
+    w.dispatchEvent(new w.PageTransitionEvent("pageshow", { persisted: true }));
+    var btn = form.querySelector("button[type=submit]");
+    check("Back (pageshow) re-enables the button with its label",
+      !btn.disabled && btn.textContent === "Request my panel review");
+    var fb = d.querySelector(".form-fallback");
+    check("fallback phone + email shown beside the form",
+      visible(w, fb) && !!fb.querySelector("a[href^='tel:']") && !!fb.querySelector("a[href^='mailto:']"));
+
+    // 7c. Lead source (business-only measurement) ------------------------------
+    try { w.sessionStorage.removeItem("innovex_src"); } catch (e) {}
+    w = await load("/contact.html?src=%3Cscript%3E");
+    check("invalid ?src= is ignored (lead_source=website)", w.document.getElementById("lead-source").value === "website");
+    w = await load("/contact.html?src=" + "a".repeat(41));
+    check("over-long ?src= (41 chars) is ignored", w.document.getElementById("lead-source").value === "website");
+    w = await load("/contact.html?src=qr%20uti");
+    check("?src= with a space is ignored", w.document.getElementById("lead-source").value === "website");
+    w = await load("/testing.html?src=Flyer-UTI");
+    w = await load("/contact.html");
+    check("?src= code carried to the form within the tab", w.document.getElementById("lead-source").value === "flyer-uti");
+    try { w.sessionStorage.removeItem("innovex_src"); } catch (e) {}
+
+    // 7d. Form without JavaScript still validates natively and posts -----------
+    w = await load("/tests/fixture_no_js_contact.html");
+    d = w.document;
+    var nf = d.querySelector("form[data-validate]");
+    var req = ["name", "role", "organization", "email", "panel", "meeting"].every(function (id) {
+      return d.getElementById(id).required;
+    });
+    check("no-JS form: native validation on (no novalidate), required fields marked",
+      !nf.hasAttribute("novalidate") && req && d.getElementById("email").type === "email");
+    check("no-JS form: empty form fails native checkValidity()", nf.checkValidity() === false);
+    check("no-JS form: POSTs to the form service", nf.method === "post" && /^https:\/\/formsubmit\.co\//.test(nf.action));
+
+    // 7e. Portal enabled (dummy https URL) and blocked (non-https) ------------
+    w = await load("/tests/fixture_portal.html");
+    d = w.document;
+    var links = Array.prototype.slice.call(d.querySelectorAll("[data-portal-link]"));
+    check("enabled portal: every link revealed with href, new tab, noopener, SR label",
+      links.length >= 3 && links.every(function (a) {
+        return !a.hidden && !a.closest("[hidden]") && a.href === "https://portal.example.test/login" &&
+          a.target === "_blank" && /noopener/.test(a.rel) && !!a.querySelector(".visually-hidden");
+      }));
+    check("enabled portal: 'call for account help' fallback hidden", !visible(w, d.querySelector("[data-portal-fallback]")));
+    frame.style.width = "1366px";
+    w = await load("/tests/fixture_portal.html");
+    check("enabled portal: a portal link is visible on desktop",
+      Array.prototype.some.call(w.document.querySelectorAll("[data-portal-link]"), function (a) { return visible(w, a); }));
+    frame.style.width = "390px";
+    w = await load("/tests/fixture_portal_bad.html");
+    check("non-https portalUrl keeps every portal link hidden",
+      Array.prototype.every.call(w.document.querySelectorAll("[data-portal-link]"), function (a) {
+        return a.hidden && !a.hasAttribute("href");
+      }));
+
+    // 7f. Every page: no sideways scroll, contrast, focus ring (phone, then desktop)
+    // 320px = WCAG 1.4.10 reflow width (also 400% zoom on a 1280px screen); 768/1024 = tablets.
+    var widths = [320, 390, 768, 1024, 1366];
+    for (var wi = 0; wi < widths.length; wi++) {
+      frame.style.width = widths[wi] + "px";
+      var overflow = [], contrast = [], focus = [];
+      for (var pi = 0; pi < PAGES.length; pi++) {
+        w = await load(PAGES[pi]);
+        if (!noOverflow(w)) overflow.push(PAGES[pi]);
+        contrastFailures(w).bad.forEach(function (b) { contrast.push(PAGES[pi] + " " + b); });
+        focusFailures(w).forEach(function (b) { focus.push(PAGES[pi] + " " + b); });
+      }
+      check(widths[wi] + "px: no horizontal overflow on any page" + (overflow.length ? " — " + overflow.join(", ") : ""), overflow.length === 0);
+      check(widths[wi] + "px: text contrast ≥ 4.5:1 (3:1 large) on solid backgrounds" +
+        (contrast.length ? " — " + contrast.slice(0, 6).join("; ") : ""), contrast.length === 0);
+      check(widths[wi] + "px: every focusable control shows a focus ring" +
+        (focus.length ? " — " + focus.slice(0, 6).join("; ") : ""), focus.length === 0);
+    }
+    w = await load("/index.html");
+    check("1366px: nav shown and menu button hidden on desktop",
+      visible(w, w.document.getElementById("site-nav")) && !visible(w, w.document.querySelector(".nav-toggle")));
+    frame.style.width = "390px";
+
+    // 8. Fail-safe: if site.js never loads, the menu must not be stuck closed ----
+    w = await load("/tests/fixture_no_js.html");
+    d = w.document;
+    check("no-JS fail-safe removes .js so nav is visible",
+      !d.documentElement.classList.contains("js") && visible(w, d.getElementById("site-nav")));
+
+    lines.push("SUMMARY: " + (failed ? "FAIL (" + failed + " failed)" : "PASS"));
+    document.getElementById("results").textContent = lines.join("\n");
+  }
+
+  run().catch(function (err) {
+    document.getElementById("results").textContent = lines.join("\n") + "\nERROR " + err + "\nSUMMARY: FAIL";
+  });
+})();
+</script>
+</body>
+</html>

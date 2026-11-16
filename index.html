@@ -1,224 +1,239 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>InnovexLab | Gainesville, Florida Clinical Pathogen Testing Laboratory</title>
-  <meta name="description" content="InnovexLab is a clinical laboratory located in Gainesville, Florida offering advanced pathogen testing panels including UTI, respiratory, STI, wound, GI, nail fungus, antibiotic resistance, and women’s health." />
-  <link rel="canonical" href="https://innovexlab.com/" />
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f7fb;
-      color: #333;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Browser security policy (docs/SECURITY.md). GitHub Pages cannot send headers, so it is a
+       <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>InnovexLab | Molecular Infection Testing Lab in Gainesville, FL</title>
+  <meta name="description" content="InnovexLab is a Gainesville, Florida molecular testing lab. Add one focused infection panel alongside your current lab. Book a 15-minute panel review.">
+  <link rel="canonical" href="https://www.innovexlab.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="InnovexLab">
+  <meta property="og:title" content="InnovexLab | Molecular infection testing in Gainesville, FL">
+  <meta property="og:description" content="Add one focused molecular testing panel alongside your current lab. Book a 15-minute panel review.">
+  <meta property="og:url" content="https://www.innovexlab.com/">
+  <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/css/site.css">
+  <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
+       removed on window load so the menu is shown instead of being stuck closed. -->
+  <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
+  <script src="/assets/js/site-config.js" defer></script>
+  <script src="/assets/js/site.js" defer></script>
+  <!-- Business details below match what the site already publishes (address, phone).
+       Do not add hours, accreditation or service area here until verified. -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    "name": "InnovexLab",
+    "url": "https://www.innovexlab.com/",
+    "telephone": "+1-352-328-3066",
+    "email": "info@innovex-lab.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1135 NW 23rd Ave, Ste L",
+      "addressLocality": "Gainesville",
+      "addressRegion": "FL",
+      "postalCode": "32609",
+      "addressCountry": "US"
     }
-
-    header {
-      background-color: #0b2c4a;
-      color: white;
-      padding: 16px 32px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    header h1 a {
-      color: white;
-      text-decoration: none;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      background: linear-gradient(to right, #0b2c4a, #0077a8);
-      color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 800px;
-      margin: 0 auto 20px;
-    }
-
-    .hero .cta a {
-      display: inline-block;
-      margin: 8px;
-      padding: 10px 20px;
-      background-color: white;
-      color: #0b2c4a;
-      border-radius: 4px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .hero .cta a:hover {
-      background-color: #e0e0e0;
-    }
-
-    main {
-      padding: 40px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    .panels {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-    }
-
-    .panel-card {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
-    }
-
-    .panel-card:hover {
-      transform: translateY(-4px);
-    }
-
-    .panel-card h3 {
-      margin-top: 0;
-      color: #0b2c4a;
-      font-size: 1.2rem;
-    }
-
-    .panel-card p {
-      font-size: 0.95rem;
-      margin-bottom: 0;
-    }
-
-    .contact-box {
-      background-color: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-top: 40px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .contact-box p {
-      margin: 6px 0;
-      font-size: 1rem;
-    }
-
-    footer {
-      background-color: #0b2c4a;
-      color: white;
-      text-align: center;
-      padding: 16px;
-      margin-top: 40px;
-      font-size: 0.9rem;
-    }
-
-    a[href^="mailto:"] {
-      color: #0077a8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    a[href^="mailto:"]:hover {
-      text-decoration: underline;
-    }
-  </style>
+  }
+  </script>
 </head>
-
-<body>
-  <header>
-    <h1><a href="index.html">InnovexLab</a></h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="about.html">About Us</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Advanced Pathogen Testing in Gainesville, Florida</h2>
-    <p>
-      InnovexLab is a high-quality clinical laboratory located in Gainesville, Florida, specializing in molecular and microbiological testing for infectious diseases. We support healthcare providers with accurate, timely results across a focused menu of diagnostic panels.
-    </p>
-    <p>
-      From urinary tract and respiratory infections to complex women’s health and antimicrobial resistance, InnovexLab delivers precision diagnostics with responsive service.
-    </p>
-    <div class="cta">
-      <a href="#panels">View Panels</a>
-      <a href="contact.html">Contact Us</a>
+<body data-page="home">
+  <!-- PARTIAL:header -->
+  <!-- Generated from partials/header.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
+    <div class="utility-bar">
+      <div class="container utility-bar__inner">
+        <span class="utility-bar__place">Molecular testing laboratory &middot; Gainesville, Florida</span>
+        <div class="utility-bar__links">
+          <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
+          <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
+          <a class="portal-link" data-portal-link hidden>Client Portal</a>
+        </div>
+      </div>
     </div>
-  </section>
+    <div class="container site-header__main">
+      <a class="brand" href="/">Innovex<span>Lab</span></a>
+      <a class="button button--primary header-cta" href="/contact.html#book">
+        <span class="label-long">Book a 15-minute panel review</span>
+        <span class="label-short">Book a review</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/testing.html" data-nav="testing">Testing</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start">How to Start</a></li>
+          <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/contact.html" data-nav="contact">Contact</a></li>
+          <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- /PARTIAL:header -->
 
-  <main>
-    <section id="panels">
-      <h2 style="text-align:center; color:#0b2c4a;">Our Diagnostic Panels</h2>
-      <div class="panels">
-        <div class="panel-card">
-          <h3>UTI Panel</h3>
-          <p>Molecular detection of uropathogens including <em>E. coli</em>, <em>Klebsiella</em>, and <em>Enterococcus</em>.</p>
-        </div>
-        <div class="panel-card">
-          <h3>Respiratory Panel</h3>
-          <p>Screening for viral and bacterial respiratory pathogens including <em>Influenza A/B</em>, <em>RSV</em>, and <em>Mycoplasma pneumoniae</em>.</p>
-        </div>
-        <div class="panel-card">
-          <h3>STI Panel</h3>
-          <p>NAAT-based detection of <em>Chlamydia trachomatis</em>, <em>Neisseria gonorrhoeae</em>, and <em>Trichomonas vaginalis</em>.</p>
-        </div>
-        <div class="panel-card">
-          <h3>Wound Panel</h3>
-          <p>Identification of aerobic and anaerobic bacteria including MRSA and <em>Pseudomonas aeruginosa</em>.</p>
-        </div>
-        <div class="panel-card">
-          <h3>GI Panel</h3>
-          <p>Detection of enteric pathogens such as <em>Salmonella</em>, <em>Shigella</em>, and <em>Clostridioides difficile</em>.</p>
-        </div>
-        <div class="panel-card">
-          <h3>Nail Fungus Panel</h3>
-          <p>PCR-based detection of dermatophytes including <em>Trichophyton rubrum</em> and <em>Candida</em> species.</p>
-        </div>
-        <div class="panel-card">
-          <h3>Antibiotic Resistance Panel</h3>
-          <p>Screening for resistance genes including ESBL, carbapenemase, and MRSA markers.</p>
-        </div>
-        <div class="panel-card">
-          <h3>Women’s Health Panel</h3>
-          <p>Vaginal microbiome assessment including <em>Gardnerella vaginalis</em>, <em>Atopobium vaginae</em>, and <em>Candida</em> species.</p>
+  <main id="main">
+    <!-- HERO — opens on a recognizable clinical moment (marketing standard, test 1: tension). -->
+    <section class="hero" aria-labelledby="hero-heading">
+      <div class="container">
+        <span class="eyebrow">Molecular testing lab &middot; Gainesville, Florida</span>
+        <h1 id="hero-heading">Add a focused molecular testing option to your current lab.</h1>
+        <!-- SITUATION: must be a clinician-assessed infection question. Do not use a sign that,
+             alone, could suggest urine testing (e.g. confusion). Pending lab-director review. -->
+        <p class="situation">Several residents on one hall start coughing in the same week. Their clinician has to decide on precautions and cohorting today.</p>
+        <!-- CLAIM: "reads organisms and resistance genes directly from the specimen" is the approved
+             general PCR line. Do NOT add turnaround times, accuracy or "faster than" language here. -->
+        <p>When the ordering clinician needs pathogen or resistance-gene information for an infection question, our molecular panels read it directly from the specimen, without waiting for culture growth. Start with one panel. Keep the lab you already use.</p>
+        <div class="button-row">
+          <a class="button button--on-dark" href="/contact.html#book">Book a 15-minute panel review</a>
+          <a class="button button--ghost-on-dark" href="/testing.html">See testing areas</a>
         </div>
       </div>
     </section>
 
-    <section class="contact-box">
-      <h2 style="color:#0b2c4a;">Contact InnovexLab</h2>
-      <p><strong>Email:</strong> <a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
-      <p><strong>Phone:</strong> <a href="tel:+13523283066">(352) 328-3066</a></p>
-      <p><strong>Address:</strong> 1135 NW 23rd Ave Ste L, Gainesville, FL 32609</p>
+    <!-- WHAT A RESULT ADDS — mechanism, decision, honest limit (tests 2–4). -->
+    <section class="section" aria-labelledby="adds-heading">
+      <div class="container">
+        <div class="section__intro">
+          <h2 id="adds-heading">What a molecular result adds</h2>
+          <p>Culture tells you what grows. Molecular testing reads the genetic material that is already in the sample.</p>
+        </div>
+        <div class="grid grid--3">
+          <article class="card">
+            <h3>Read directly from the specimen</h3>
+            <p>PCR detects organisms and resistance genes in the sample itself. It doesn&rsquo;t have to wait for anything to grow first.</p>
+          </article>
+          <article class="card">
+            <h3>Information for a decision</h3>
+            <p>The ordering clinician can use it while weighing precautions, cohorting or an antibiotic choice, alongside the rest of the clinical picture.</p>
+          </article>
+          <article class="card">
+            <h3>Honest about its limits</h3>
+            <p>A positive PCR doesn&rsquo;t by itself diagnose a symptomatic infection, and a resistance gene doesn&rsquo;t by itself decide treatment. Culture and clinical review still matter.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTING AREAS — panel names ONLY. Target organisms, specimen types and target counts stay
+         off the site until the lab director's signed, validated menu exists. -->
+    <section class="section section--surface" aria-labelledby="areas-heading">
+      <div class="container">
+        <div class="section__intro">
+          <h2 id="areas-heading">Testing areas</h2>
+          <p>Innovex tests for respiratory, GI, urinary, wound, STI, women&rsquo;s health and nail fungal infections, plus antibiotic-resistance genes.</p>
+        </div>
+        <ul class="panel-list">
+          <li><a href="/testing.html#uti">UTI</a></li>
+          <li><a href="/testing.html#wound">Wound</a></li>
+          <li><a href="/testing.html#respiratory">Respiratory</a></li>
+          <li><a href="/testing.html#gi">Gastrointestinal (GI)</a></li>
+          <li><a href="/testing.html#nail">Nail fungal</a></li>
+          <li><a href="/testing.html#womens-health">Women&rsquo;s health</a></li>
+          <li><a href="/testing.html#sti">STI</a></li>
+          <li><a href="/testing.html#resistance">Antibiotic resistance</a></li>
+        </ul>
+        <a class="arrow-link" href="/testing.html">What each panel is for</a>
+      </div>
+    </section>
+
+    <!-- VIDEO SLOT (task W05, blocked): the proposed ad video goes here ONLY after claim/rights
+         review, captions and transcript. No autoplay with sound. Keep a panel-review button beside it. -->
+
+    <!-- HOW TO START summary — the offer (test 5). -->
+    <section class="section" aria-labelledby="start-heading">
+      <div class="container split">
+        <div>
+          <h2 id="start-heading">Start with one panel</h2>
+          <p>You don&rsquo;t have to switch labs. Pick the one testing question where a molecular result would help most, and add Innovex for that.</p>
+          <ol class="steps steps--compact">
+            <li><h3>Choose one panel</h3><p>Pick the testing question your team sees most.</p></li>
+            <li><h3>Confirm the specimen with your clinician</h3><p>The ordering clinician reviews the panel and the specimen it needs with the lab.</p></li>
+            <li><h3>Confirm logistics, results and billing</h3><p>We walk through how specimens reach us, how results reach the ordering provider, and the billing path.</p></li>
+            <li><h3>Sign setup and pick a start date</h3><p>Complete the setup paperwork and choose the day you&rsquo;ll send your first appropriate order.</p></li>
+          </ol>
+          <a class="arrow-link" href="/how-to-start.html">The full How to Start guide</a>
+        </div>
+        <div class="callout" role="note" aria-label="Startup benefit">
+          <!-- CLAIM: owner-confirmed 2026-10-19. Startup only — never imply ordered tests are free. -->
+          <p><strong>No cost to get started.</strong></p>
+          <p>Onboarding is free, and we provide the collection supplies needed to start using our lab. You can keep your current lab and use Innovex as an additional option.</p>
+          <p class="mb-0 text-muted">Tests are billed separately. We review the billing path with you before your first order.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAL LAB — real, already-published contact details. Add consented photos and verified
+         credentials here when available (W06). -->
+    <section class="section section--surface" aria-labelledby="local-heading">
+      <div class="container split">
+        <div>
+          <h2 id="local-heading">A lab you can call</h2>
+          <p>InnovexLab is a molecular testing laboratory in Gainesville. Questions about a panel, a specimen or getting started go straight to the lab.</p>
+          <a class="arrow-link" href="/about.html">About InnovexLab</a>
+        </div>
+        <ul class="contact-facts">
+          <li><strong>Phone</strong><a href="tel:+13523283066">(352) 328-3066</a></li>
+          <li><strong>Email</strong><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></li>
+          <li><strong>Address</strong>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</li>
+        </ul>
+      </div>
     </section>
   </main>
 
-  <footer>
-    © <span id="year"></span> InnovexLab. All rights reserved.
+  <!-- PARTIAL:cta-band -->
+  <!-- Generated from partials/cta-band.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <section class="cta-band" aria-labelledby="cta-band-heading">
+    <div class="container">
+      <h2 id="cta-band-heading">Start with one panel. Keep the lab you already use.</h2>
+      <p>Book 15 minutes with the lab to review one testing question with your ordering clinician and the person who runs operations.</p>
+      <div class="button-row">
+        <a class="button button--on-dark" href="/contact.html#book">Book a 15-minute panel review</a>
+        <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
+      </div>
+    </div>
+  </section>
+  <!-- /PARTIAL:cta-band -->
+  <!-- PARTIAL:footer -->
+  <!-- Generated from partials/footer.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">Innovex<span>Lab</span></a>
+          <p>Molecular testing laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Site</h2>
+          <ul>
+            <li><a href="/testing.html">Testing</a></li>
+            <li><a href="/how-to-start.html">How to Start</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Existing clients</h2>
+          <ul>
+            <li data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
+            <li data-portal-fallback>Call <a href="tel:+13523283066">(352) 328-3066</a> for help with your account.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>&copy; <span data-year>2026</span> InnovexLab. All rights reserved.</p>
+        <p>Please don&rsquo;t send patient information through this website or by email.</p>
+      </div>
+    </div>
   </footer>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <!-- /PARTIAL:footer -->
 </body>
 </html>

@@ -1,4 +1,6 @@
+# robots.txt for https://www.innovexlab.com
+# Replaces the old WordPress boilerplate (this is a static site; there is no /wp-admin/).
 User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-content/
-Disallow: /wp-includes/
+Allow: /
+
+Sitemap: https://www.innovexlab.com/sitemap.xml

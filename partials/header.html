@@ -1,0 +1,31 @@
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header">
+  <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
+  <div class="utility-bar">
+    <div class="container utility-bar__inner">
+      <span class="utility-bar__place">Molecular testing laboratory &middot; Gainesville, Florida</span>
+      <div class="utility-bar__links">
+        <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
+        <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
+        <a class="portal-link" data-portal-link hidden>Client Portal</a>
+      </div>
+    </div>
+  </div>
+  <div class="container site-header__main">
+    <a class="brand" href="/">Innovex<span>Lab</span></a>
+    <a class="button button--primary header-cta" href="/contact.html#book">
+      <span class="label-long">Book a 15-minute panel review</span>
+      <span class="label-short">Book a review</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></button>
+    <nav id="site-nav" class="site-nav" aria-label="Primary">
+      <ul>
+        <li><a href="/testing.html" data-nav="testing">Testing</a></li>
+        <li><a href="/how-to-start.html" data-nav="how-to-start">How to Start</a></li>
+        <li><a href="/about.html" data-nav="about">About</a></li>
+        <li><a href="/contact.html" data-nav="contact">Contact</a></li>
+        <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
