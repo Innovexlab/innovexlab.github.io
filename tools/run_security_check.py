@@ -71,7 +71,7 @@ STATE_JS = r"""(() => ({
   panel: (document.getElementById('panel') || {}).value,
   js: document.documentElement.classList.contains('js'),
   ready: window.INNOVEX_READY === true,
-  hasSiteJs: !!document.querySelector('script[src$="/site.js"]'),
+  hasSiteJs: !!document.querySelector('script[src*="/assets/js/site.js"]'),
   csp: !!document.querySelector('meta[http-equiv="Content-Security-Policy"]'),
   css: document.styleSheets.length > 0 && document.styleSheets[0].cssRules.length > 10,
 }))()"""

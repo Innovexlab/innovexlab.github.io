@@ -62,6 +62,7 @@ def build_fixtures() -> list[Path]:
     """Write the temporary fixture pages; return their paths so they can be deleted."""
     def variant(src: str, name: str, title: str, old: str, new: str) -> Path:
         html = (ROOT / src).read_text(encoding="utf-8")
+        html = re.sub(r"(/assets/[a-z/.-]+\.(?:js|css))\?v=[0-9a-f]+", r"\1", html)   # fixtures ignore cache-busting versions
         assert old in html, f"{src}: expected {old!r} (fixture would be meaningless)"
         html = html.replace(old, new).replace("<title>", f"<title>[TEST FIXTURE — {title}] ", 1)
         path = TESTS / name

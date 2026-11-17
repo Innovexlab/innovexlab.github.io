@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Browser security policy (docs/SECURITY.md). GitHub Pages cannot send headers, so it is a
+       <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>All InnovexLab Targets by Organism</title>
+  <meta name="description" content="Every organism detected across InnovexLab panels, listed once with the panels it appears on and a link to its clinical summary.">
+  <link rel="canonical" href="https://www.innovexlab.com/testing/panels/all-targets.html">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="InnovexLab">
+  <meta property="og:title" content="All InnovexLab Targets by Organism">
+  <meta property="og:description" content="Every organism detected across InnovexLab panels, listed once with the panels it appears on and a link to its clinical summary.">
+  <meta property="og:url" content="https://www.innovexlab.com/testing/panels/all-targets.html">
+  <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
+  <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
+       removed on window load so the menu is shown instead of being stuck closed. -->
+  <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
+  <script src="/assets/js/site-config.js?v=7b9cedd1" defer></script>
+  <script src="/assets/js/site.js?v=49a7dd27" defer></script>
+</head>
+<body data-page="testing">
+  <!-- PARTIAL:header -->
+  <!-- Generated from partials/header.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
+    <div class="utility-bar">
+      <div class="container utility-bar__inner">
+        <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
+        <div class="utility-bar__links">
+          <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
+          <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
+          <a class="portal-link" data-portal-link hidden>Client Portal</a>
+        </div>
+      </div>
+    </div>
+    <div class="container site-header__main">
+      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40"><span class="brand__name">Innovex<span>Lab</span></span></a>
+      <a class="button button--primary header-cta" href="/contact.html#book">
+        <span class="label-long">Request a consultation</span>
+        <span class="label-short">Consultation</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span class="nav-toggle__icon" aria-hidden="true"></span><span class="nav-toggle__text">Menu</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary">
+        <ul>
+          <li><a href="/testing.html" data-nav="testing" aria-current="page">Testing</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
+            <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/contact.html" data-nav="contact">Contact</a></li>
+          <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- /PARTIAL:header -->
+
+  <main id="main">
+    <section class="hero hero--page" aria-labelledby="page-heading">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/testing/panels/index.html">Panels</a></nav>
+        <span class="eyebrow">Testing services &middot; Panels</span>
+        <h1 id="page-heading">All targets, by organism</h1>
+        <p>Every organism detected across InnovexLab&rsquo;s panels, once, with the panels it appears on.</p>
+      </div>
+    </section>
+    <section class="section" aria-labelledby="all-heading">
+      <div class="container">
+        <p class="education-notice" role="note"><strong>General medical information for education only, not medical advice.</strong> Targets as listed on InnovexLab&rsquo;s requisition forms. Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
+        <h2 id="all-heading" class="visually-hidden">Organisms and panels</h2>
+        <div class="lib-tools">
+          <label for="organism-filter" class="lib-filter-label" hidden>Find an organism or panel</label>
+          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type an organism or panel, e.g. Candida or Wound" autocomplete="off" aria-describedby="filter-status" hidden>
+          <span id="filter-status" class="lib-status" role="status" aria-live="polite"></span>
+        </div>
+        <p class="lib-jump">Panels: <a href="/testing/panels/uti.html">UTI</a> &middot; <a href="/testing/panels/wound.html">Wound</a> &middot; <a href="/testing/panels/respiratory.html">Respiratory</a> &middot; <a href="/testing/panels/gi.html">Gastrointestinal (GI)</a> &middot; <a href="/testing/panels/sti.html">STI</a> &middot; <a href="/testing/panels/womens-health.html">Women&#x27;s health</a> &middot; <a href="/testing/panels/nail.html">Nail fungal</a> &middot; <a href="/testing/panels/eye.html">Eye infection</a> &middot; <a href="/learn/resistance-genes.html">Resistance genes</a></p>
+
+        <section class="lib-group" aria-labelledby="all-bacteria-gram-negative" data-filter-group>
+          <h2 id="all-bacteria-gram-negative">Bacteria: Gram-negative <span class="lib-count">(29)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Bacteria: Gram-negative: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="acinetobacter baumannii  uti wound"><th scope="row"><a href="/learn/organisms/acinetobacter-baumannii.html"><i>Acinetobacter baumannii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="bacteroides fragilis  wound"><th scope="row"><a href="/learn/organisms/bacteroides-fragilis.html"><i>Bacteroides fragilis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="bordetella species bordetella pertussis; bordetella parapertussis; bordetella holmesii respiratory"><th scope="row"><a href="/learn/organisms/bordetella.html"><i>Bordetella species</i></a><br><span class=lib-aka>Bordetella pertussis; Bordetella parapertussis; Bordetella holmesii</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="campylobacter campylobacter jejuni; campylobacter coli; campylobacter spp. gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/campylobacter.html"><i>Campylobacter</i></a><br><span class=lib-aka>Campylobacter jejuni; Campylobacter coli; Campylobacter spp.</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="citrobacter freundii  uti wound"><th scope="row"><a href="/learn/organisms/citrobacter-freundii.html"><i>Citrobacter freundii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="coxiella burnetii  respiratory"><th scope="row"><a href="/learn/organisms/coxiella-burnetii.html"><i>Coxiella burnetii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="diarrheagenic escherichia coli shiga toxin-producing e. coli (stec) including o157; enteroaggregative (eaec); enteroinvasive (eiec); enteropathogenic (epec); enterotoxigenic (etec) gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/diarrheagenic-e-coli.html"><i>Diarrheagenic Escherichia coli</i></a><br><span class=lib-aka>Shiga toxin-producing E. coli (STEC) including O157; enteroaggregative (EAEC); enteroinvasive (EIEC); enteropathogenic (EPEC); enterotoxigenic (ETEC)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="enterobacter cloacae complex  uti wound"><th scope="row"><a href="/learn/organisms/enterobacter-cloacae.html"><i>Enterobacter cloacae complex</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="escherichia coli e. coli uti wound women&#x27;s health"><th scope="row"><a href="/learn/organisms/escherichia-coli.html"><i>Escherichia coli</i></a><br><span class=lib-aka>E. coli</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="haemophilus ducreyi  sti"><th scope="row"><a href="/learn/organisms/haemophilus-ducreyi.html"><i>Haemophilus ducreyi</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li></ul></td></tr>
+            <tr data-filter-text="haemophilus influenzae including h. influenzae type b (hib) respiratory"><th scope="row"><a href="/learn/organisms/haemophilus-influenzae.html"><i>Haemophilus influenzae</i></a><br><span class=lib-aka>including H. influenzae type b (Hib)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="helicobacter pylori  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/helicobacter-pylori.html"><i>Helicobacter pylori</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="kingella kingae  wound"><th scope="row"><a href="/learn/organisms/kingella-kingae.html"><i>Kingella kingae</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="klebsiella aerogenes formerly enterobacter aerogenes uti wound"><th scope="row"><a href="/learn/organisms/klebsiella-aerogenes.html"><i>Klebsiella aerogenes</i></a><br><span class=lib-aka>formerly Enterobacter aerogenes</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="klebsiella oxytoca  uti wound"><th scope="row"><a href="/learn/organisms/klebsiella-oxytoca.html"><i>Klebsiella oxytoca</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="klebsiella pneumoniae  uti wound respiratory"><th scope="row"><a href="/learn/organisms/klebsiella-pneumoniae.html"><i>Klebsiella pneumoniae</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="legionella species legionella pneumophila; legionella longbeachae respiratory"><th scope="row"><a href="/learn/organisms/legionella.html"><i>Legionella species</i></a><br><span class=lib-aka>Legionella pneumophila; Legionella longbeachae</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="moraxella catarrhalis  respiratory"><th scope="row"><a href="/learn/organisms/moraxella-catarrhalis.html"><i>Moraxella catarrhalis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="morganella morganii  uti wound"><th scope="row"><a href="/learn/organisms/morganella-morganii.html"><i>Morganella morganii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="neisseria gonorrhoeae  sti women&#x27;s health"><th scope="row"><a href="/learn/organisms/neisseria-gonorrhoeae.html"><i>Neisseria gonorrhoeae</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="plesiomonas shigelloides  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/plesiomonas-shigelloides.html"><i>Plesiomonas shigelloides</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="proteus mirabilis and proteus vulgaris proteus mirabilis; proteus vulgaris uti wound"><th scope="row"><a href="/learn/organisms/proteus.html"><i>Proteus mirabilis and Proteus vulgaris</i></a><br><span class=lib-aka>Proteus mirabilis; Proteus vulgaris</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="providencia stuartii  uti"><th scope="row"><a href="/learn/organisms/providencia-stuartii.html"><i>Providencia stuartii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li></ul></td></tr>
+            <tr data-filter-text="pseudomonas aeruginosa  uti wound eye infection"><th scope="row"><a href="/learn/organisms/pseudomonas-aeruginosa.html"><i>Pseudomonas aeruginosa</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+            <tr data-filter-text="salmonella salmonella spp. gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/salmonella.html"><i>Salmonella</i></a><br><span class=lib-aka>Salmonella spp.</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="serratia marcescens  uti"><th scope="row"><a href="/learn/organisms/serratia-marcescens.html"><i>Serratia marcescens</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li></ul></td></tr>
+            <tr data-filter-text="shigella shigella spp. gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/shigella.html"><i>Shigella</i></a><br><span class=lib-aka>Shigella spp.</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="vibrio species vibrio cholerae; vibrio parahaemolyticus; vibrio vulnificus gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/vibrio.html"><i>Vibrio species</i></a><br><span class=lib-aka>Vibrio cholerae; Vibrio parahaemolyticus; Vibrio vulnificus</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="yersinia enterocolitica  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/yersinia-enterocolitica.html"><i>Yersinia enterocolitica</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-bacteria-gram-positive" data-filter-group>
+          <h2 id="all-bacteria-gram-positive">Bacteria: Gram-positive <span class="lib-count">(11)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Bacteria: Gram-positive: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="clostridioides difficile c. difficile, including hypervirulent ribotype 027 gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/clostridioides-difficile.html"><i>Clostridioides difficile</i></a><br><span class=lib-aka>C. difficile, including hypervirulent ribotype 027</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="clostridium perfringens, c. septicum and c. novyi clostridium perfringens; clostridium septicum; clostridium novyi wound gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/histotoxic-clostridia.html"><i>Clostridium perfringens, C. septicum and C. novyi</i></a><br><span class=lib-aka>Clostridium perfringens; Clostridium septicum; Clostridium novyi</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="enterococcus faecalis  uti wound women&#x27;s health"><th scope="row"><a href="/learn/organisms/enterococcus-faecalis.html"><i>Enterococcus faecalis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="enterococcus faecium  uti wound"><th scope="row"><a href="/learn/organisms/enterococcus-faecium.html"><i>Enterococcus faecium</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="group a streptococcus streptococcus pyogenes respiratory"><th scope="row"><a href="/learn/organisms/group-a-streptococcus.html"><i>Group A Streptococcus</i></a><br><span class=lib-aka>Streptococcus pyogenes</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="group b streptococcus streptococcus agalactiae uti respiratory women&#x27;s health"><th scope="row"><a href="/learn/organisms/group-b-streptococcus.html"><i>Group B Streptococcus</i></a><br><span class=lib-aka>Streptococcus agalactiae</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="group c and g streptococcus streptococcus dysgalactiae and related species respiratory"><th scope="row"><a href="/learn/organisms/group-c-g-streptococcus.html"><i>Group C and G Streptococcus</i></a><br><span class=lib-aka>Streptococcus dysgalactiae and related species</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="listeria monocytogenes  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/listeria-monocytogenes.html"><i>Listeria monocytogenes</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="staphylococcus aureus including methicillin-resistant s. aureus (mrsa) uti wound respiratory women&#x27;s health eye infection"><th scope="row"><a href="/learn/organisms/staphylococcus-aureus.html"><i>Staphylococcus aureus</i></a><br><span class=lib-aka>including methicillin-resistant S. aureus (MRSA)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+            <tr data-filter-text="staphylococcus saprophyticus  uti wound"><th scope="row"><a href="/learn/organisms/staphylococcus-saprophyticus.html"><i>Staphylococcus saprophyticus</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="streptococcus pneumoniae pneumococcus uti respiratory eye infection"><th scope="row"><a href="/learn/organisms/streptococcus-pneumoniae.html"><i>Streptococcus pneumoniae</i></a><br><span class=lib-aka>pneumococcus</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-bacteria-atypical-and-cell-wall-deficient" data-filter-group>
+          <h2 id="all-bacteria-atypical-and-cell-wall-deficient">Bacteria: atypical and cell-wall-deficient <span class="lib-count">(7)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Bacteria: atypical and cell-wall-deficient: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="chlamydia pneumoniae chlamydophila pneumoniae respiratory"><th scope="row"><a href="/learn/organisms/chlamydia-pneumoniae.html"><i>Chlamydia pneumoniae</i></a><br><span class=lib-aka>Chlamydophila pneumoniae</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="chlamydia trachomatis  sti eye infection"><th scope="row"><a href="/learn/organisms/chlamydia-trachomatis.html"><i>Chlamydia trachomatis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+            <tr data-filter-text="mycoplasma genitalium  sti"><th scope="row"><a href="/learn/organisms/mycoplasma-genitalium.html"><i>Mycoplasma genitalium</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li></ul></td></tr>
+            <tr data-filter-text="mycoplasma hominis  uti sti women&#x27;s health"><th scope="row"><a href="/learn/organisms/mycoplasma-hominis.html"><i>Mycoplasma hominis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/sti.html">STI</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="mycoplasma pneumoniae  respiratory"><th scope="row"><a href="/learn/organisms/mycoplasma-pneumoniae.html"><i>Mycoplasma pneumoniae</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="treponema pallidum  sti"><th scope="row"><a href="/learn/organisms/treponema-pallidum.html"><i>Treponema pallidum</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li></ul></td></tr>
+            <tr data-filter-text="ureaplasma urealyticum and ureaplasma parvum ureaplasma urealyticum; ureaplasma parvum uti sti women&#x27;s health"><th scope="row"><a href="/learn/organisms/ureaplasma.html"><i>Ureaplasma urealyticum and Ureaplasma parvum</i></a><br><span class=lib-aka>Ureaplasma urealyticum; Ureaplasma parvum</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/sti.html">STI</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-vaginal-microbiome-bacteria" data-filter-group>
+          <h2 id="all-vaginal-microbiome-bacteria">Vaginal microbiome bacteria <span class="lib-count">(3)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Vaginal microbiome bacteria: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="atopobium vaginae, bvab2 and megasphaera atopobium vaginae (fannyhessea vaginae); bv-associated bacterium 2 (bvab2); megasphaera type 1; megasphaera type 2 women&#x27;s health"><th scope="row"><a href="/learn/organisms/bv-associated-bacteria.html"><i>Atopobium vaginae, BVAB2 and Megasphaera</i></a><br><span class=lib-aka>Atopobium vaginae (Fannyhessea vaginae); BV-associated bacterium 2 (BVAB2); Megasphaera type 1; Megasphaera type 2</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="gardnerella vaginalis  women&#x27;s health"><th scope="row"><a href="/learn/organisms/gardnerella-vaginalis.html"><i>Gardnerella vaginalis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+            <tr data-filter-text="lactobacillus species lactobacillus crispatus; lactobacillus jensenii; lactobacillus iners women&#x27;s health"><th scope="row"><a href="/learn/organisms/lactobacillus.html"><i>Lactobacillus species</i></a><br><span class=lib-aka>Lactobacillus crispatus; Lactobacillus jensenii; Lactobacillus iners</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-viruses-respiratory" data-filter-group>
+          <h2 id="all-viruses-respiratory">Viruses: respiratory <span class="lib-count">(12)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Viruses: respiratory: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="adenovirus adenovirus (respiratory and gastrointestinal panels) respiratory gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/adenovirus.html"><i>Adenovirus</i></a><br><span class=lib-aka>Adenovirus (respiratory and gastrointestinal panels)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="enteroviruses enterovirus (respiratory panel); enterovirus pan (gastrointestinal panel) respiratory gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/enterovirus.html"><i>Enteroviruses</i></a><br><span class=lib-aka>Enterovirus (respiratory panel); Enterovirus PAN (gastrointestinal panel)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="human bocavirus  respiratory"><th scope="row"><a href="/learn/organisms/bocavirus.html"><i>Human bocavirus</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="human metapneumovirus metapneumovirus a and b respiratory"><th scope="row"><a href="/learn/organisms/human-metapneumovirus.html"><i>Human metapneumovirus</i></a><br><span class=lib-aka>Metapneumovirus A and B</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="human parainfluenza viruses parainfluenza virus 1; 2; 3; 4 respiratory"><th scope="row"><a href="/learn/organisms/parainfluenza.html"><i>Human parainfluenza viruses</i></a><br><span class=lib-aka>Parainfluenza virus 1; 2; 3; 4</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="human parechovirus parechovirus (respiratory panel); human parechovirus (gastrointestinal panel) respiratory gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/parechovirus.html"><i>Human parechovirus</i></a><br><span class=lib-aka>Parechovirus (respiratory panel); Human parechovirus (gastrointestinal panel)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="influenza viruses influenza a (including subtypes h1n1-2009 and h3); influenza b; influenza c respiratory"><th scope="row"><a href="/learn/organisms/influenza.html"><i>Influenza viruses</i></a><br><span class=lib-aka>Influenza A (including subtypes H1N1-2009 and H3); Influenza B; Influenza C</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="respiratory syncytial virus (rsv) rsv a; rsv b respiratory"><th scope="row"><a href="/learn/organisms/rsv.html"><i>Respiratory syncytial virus (RSV)</i></a><br><span class=lib-aka>RSV A; RSV B</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="rhinovirus  respiratory"><th scope="row"><a href="/learn/organisms/rhinovirus.html"><i>Rhinovirus</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="sars-cov and mers-cov sars (sars-cov-1); mers (middle east respiratory syndrome coronavirus) respiratory"><th scope="row"><a href="/learn/organisms/sars-mers.html"><i>SARS-CoV and MERS-CoV</i></a><br><span class=lib-aka>SARS (SARS-CoV-1); MERS (Middle East respiratory syndrome coronavirus)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="sars-cov-2 (covid-19)  respiratory"><th scope="row"><a href="/learn/organisms/sars-cov-2.html"><i>SARS-CoV-2 (COVID-19)</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+            <tr data-filter-text="seasonal human coronaviruses coronavirus 229e; coronavirus hku1; coronavirus nl63; coronavirus oc43 respiratory"><th scope="row"><a href="/learn/organisms/seasonal-coronaviruses.html"><i>Seasonal human coronaviruses</i></a><br><span class=lib-aka>Coronavirus 229E; Coronavirus HKU1; Coronavirus NL63; Coronavirus OC43</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-viruses-gastrointestinal" data-filter-group>
+          <h2 id="all-viruses-gastrointestinal">Viruses: gastrointestinal <span class="lib-count">(4)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Viruses: gastrointestinal: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="astrovirus  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/astrovirus.html"><i>Astrovirus</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="norovirus norovirus gi; norovirus gii gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/norovirus.html"><i>Norovirus</i></a><br><span class=lib-aka>Norovirus GI; Norovirus GII</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="rotavirus rotavirus a; rotavirus b/c gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/rotavirus.html"><i>Rotavirus</i></a><br><span class=lib-aka>Rotavirus A; Rotavirus B/C</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="sapovirus  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/sapovirus.html"><i>Sapovirus</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-viruses-skin-eye-and-genital" data-filter-group>
+          <h2 id="all-viruses-skin-eye-and-genital">Viruses: skin, eye and genital <span class="lib-count">(3)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Viruses: skin, eye and genital: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="herpes simplex virus (hsv-1 and hsv-2) hsv-1; hsv-2 wound sti eye infection"><th scope="row"><a href="/learn/organisms/herpes-simplex.html"><i>Herpes simplex virus (HSV-1 and HSV-2)</i></a><br><span class=lib-aka>HSV-1; HSV-2</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/sti.html">STI</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+            <tr data-filter-text="human papillomavirus types 16 and 18 hpv-16; hpv-18 wound"><th scope="row"><a href="/learn/organisms/hpv.html"><i>Human papillomavirus types 16 and 18</i></a><br><span class=lib-aka>HPV-16; HPV-18</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li></ul></td></tr>
+            <tr data-filter-text="varicella-zoster virus (hhv-3)  wound eye infection"><th scope="row"><a href="/learn/organisms/varicella-zoster.html"><i>Varicella-zoster virus (HHV-3)</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/eye.html">Eye infection</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-fungi-yeasts" data-filter-group>
+          <h2 id="all-fungi-yeasts">Fungi: yeasts <span class="lib-count">(3)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Fungi: yeasts: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="candida albicans  uti wound women&#x27;s health nail fungal"><th scope="row"><a href="/learn/organisms/candida-albicans.html"><i>Candida albicans</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="candida auris  uti wound nail fungal"><th scope="row"><a href="/learn/organisms/candida-auris.html"><i>Candida auris</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="other candida species candida glabrata (nakaseomyces glabratus); candida krusei (pichia kudriavzevii); candida parapsilosis; candida tropicalis; candida lusitaniae (clavispora lusitaniae) uti wound women&#x27;s health nail fungal"><th scope="row"><a href="/learn/organisms/other-candida.html"><i>Other Candida species</i></a><br><span class=lib-aka>Candida glabrata (Nakaseomyces glabratus); Candida krusei (Pichia kudriavzevii); Candida parapsilosis; Candida tropicalis; Candida lusitaniae (Clavispora lusitaniae)</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/uti.html">UTI</a></li><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/womens-health.html">Women&#x27;s health</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-fungi-molds-and-dermatophytes" data-filter-group>
+          <h2 id="all-fungi-molds-and-dermatophytes">Fungi: molds and dermatophytes <span class="lib-count">(5)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Fungi: molds and dermatophytes: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="alternaria, acremonium and neofusicoccum alternaria alternata; acremonium strictum; neofusicoccum mangiferae nail fungal"><th scope="row"><a href="/learn/organisms/non-dermatophyte-molds.html"><i>Alternaria, Acremonium and Neofusicoccum</i></a><br><span class=lib-aka>Alternaria alternata; Acremonium strictum; Neofusicoccum mangiferae</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="aspergillus terreus and aspergillus niger aspergillus terreus; aspergillus niger wound nail fungal"><th scope="row"><a href="/learn/organisms/aspergillus.html"><i>Aspergillus terreus and Aspergillus niger</i></a><br><span class=lib-aka>Aspergillus terreus; Aspergillus niger</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="dermatophytes trichophyton spp. (including t. rubrum); trichophyton interdigitale; epidermophyton floccosum; microsporum audouinii; microsporum canis wound nail fungal"><th scope="row"><a href="/learn/organisms/dermatophytes.html"><i>Dermatophytes</i></a><br><span class=lib-aka>Trichophyton spp. (including T. rubrum); Trichophyton interdigitale; Epidermophyton floccosum; Microsporum audouinii; Microsporum canis</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="fusarium solani  wound nail fungal"><th scope="row"><a href="/learn/organisms/fusarium-solani.html"><i>Fusarium solani</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/wound.html">Wound</a></li><li><a href="/testing/panels/nail.html">Nail fungal</a></li></ul></td></tr>
+            <tr data-filter-text="pneumocystis jirovecii  respiratory"><th scope="row"><a href="/learn/organisms/pneumocystis-jirovecii.html"><i>Pneumocystis jirovecii</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/respiratory.html">Respiratory</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="lib-group" aria-labelledby="all-parasites" data-filter-group>
+          <h2 id="all-parasites">Parasites <span class="lib-count">(6)</span></h2>
+          <div class="table-wrap" role="region" aria-label="Parasites: organisms and panels" tabindex="0">
+            <table class="data-table data-table--targets">
+              <thead><tr><th scope="col">Organism</th><th scope="col">Panels</th></tr></thead>
+              <tbody>
+            <tr data-filter-text="cryptosporidium cryptosporidium spp. gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/cryptosporidium.html"><i>Cryptosporidium</i></a><br><span class=lib-aka>Cryptosporidium spp.</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="cyclospora cayetanensis  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/cyclospora.html"><i>Cyclospora cayetanensis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="dientamoeba fragilis  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/dientamoeba-fragilis.html"><i>Dientamoeba fragilis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="entamoeba histolytica  gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/entamoeba-histolytica.html"><i>Entamoeba histolytica</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="giardia duodenalis giardia lamblia gastrointestinal (gi)"><th scope="row"><a href="/learn/organisms/giardia.html"><i>Giardia duodenalis</i></a><br><span class=lib-aka>Giardia lamblia</span></th><td><ul class="panel-tags"><li><a href="/testing/panels/gi.html">Gastrointestinal (GI)</a></li></ul></td></tr>
+            <tr data-filter-text="trichomonas vaginalis  sti"><th scope="row"><a href="/learn/organisms/trichomonas-vaginalis.html"><i>Trichomonas vaginalis</i></a></th><td><ul class="panel-tags"><li><a href="/testing/panels/sti.html">STI</a></li></ul></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <div class="disclaimer" role="note" aria-labelledby="disclaimer-heading"><h2 id="disclaimer-heading">Medical disclaimer</h2><p>This page is general educational information summarized from published public-health and professional-society guidance. It is not medical advice, a diagnosis or a treatment recommendation, and reading it does not create a clinician&ndash;patient relationship with InnovexLab. Decisions about testing, diagnosis and treatment belong to the treating clinician, using the patient&rsquo;s history and examination, laboratory and susceptibility results, local resistance patterns and current guidelines. Guidance changes over time; consult the original sources for the latest version. InnovexLab provides this information as is and does not warrant that it is complete or current.</p><p>Patients with questions about their health should contact their own healthcare provider. In an emergency, call 911.</p><p><a class="arrow-link" href="/learn/sources.html">Sources, image credits and editorial policy</a></p></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- PARTIAL:cta-band -->
+  <!-- Generated from partials/cta-band.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <section class="cta-band" aria-labelledby="cta-band-heading">
+    <div class="container">
+      <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
+      <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
+      <div class="button-row">
+        <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
+        <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
+      </div>
+    </div>
+  </section>
+  <!-- /PARTIAL:cta-band -->
+  <!-- PARTIAL:footer -->
+  <!-- Generated from partials/footer.html by tools/sync_partials.py. Edit the partial, not this block. -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__grid">
+        <div>
+          <a class="brand" href="/">Innovex<span>Lab</span></a>
+          <p>CLIA-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p class="site-footer__ids">CLIA #10D2306552 &middot; COLA ID 33609</p>
+          <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
+        </div>
+        <nav aria-label="Footer">
+          <h2>Site</h2>
+          <ul>
+            <li><a href="/testing.html">Testing</a></li>
+            <li><a href="/how-to-start.html">Getting Started</a></li>
+            <li><a href="/learn/patients.html">For Patients</a></li>
+            <li><a href="/learn/infections.html">Clinical overview</a></li>
+            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+            <li><a href="/learn/organisms/index.html">Organism library</a></li>
+            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Existing clients</h2>
+          <ul>
+            <li data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
+            <li data-portal-fallback>Call <a href="tel:+13523283066">(352) 328-3066</a> for help with your account.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer__legal">
+        <p>&copy; <span data-year>2026</span> InnovexLab. All rights reserved.</p>
+        <p>Please don&rsquo;t send patient information through this website or by email.</p>
+        <p class="site-footer__disclaimer">Information on this website is for general education and is not medical advice. <a href="/learn/sources.html">Sources and medical disclaimer</a>.</p>
+      </div>
+    </div>
+  </footer>
+  <!-- /PARTIAL:footer -->
+</body>
+</html>

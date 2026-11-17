@@ -17,12 +17,12 @@
   <meta property="og:url" content="https://www.innovexlab.com/testing.html">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
-  <script src="/assets/js/site-config.js" defer></script>
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site-config.js?v=7b9cedd1" defer></script>
+  <script src="/assets/js/site.js?v=49a7dd27" defer></script>
 </head>
 <body data-page="testing">
   <!-- PARTIAL:header -->
@@ -34,14 +34,14 @@
       <div class="container utility-bar__inner">
         <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
-          <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
+          <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
           <a class="portal-link" data-portal-link hidden>Client Portal</a>
         </div>
       </div>
     </div>
     <div class="container site-header__main">
-      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40">Innovex<span>Lab</span></a>
+      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40"><span class="brand__name">Innovex<span>Lab</span></span></a>
       <a class="button button--primary header-cta" href="/contact.html#book">
         <span class="label-long">Request a consultation</span>
         <span class="label-short">Consultation</span>
@@ -51,7 +51,8 @@
         <ul>
           <li><a href="/testing.html" data-nav="testing" aria-current="page">Testing</a></li>
           <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
-          <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
+            <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -76,7 +77,7 @@
       <div class="container">
         <div class="section__intro">
           <h2 id="panels-heading">Testing areas</h2>
-          <p>Target menus, accepted specimen types and collection requirements are provided by the laboratory during consultation.</p>
+          <p>Target menus, accepted specimen types and collection requirements are provided by InnovexLab during consultation.</p>
         </div>
         <div class="grid grid--2">
           <article class="card panel-card" id="uti" aria-labelledby="uti-h">
@@ -86,8 +87,11 @@
               <dd>Urinary symptoms, or fever or other systemic signs without another likely source, where the clinician suspects a urinary source.</dd>
               <dt>Clinical use</dt>
               <dd>Organism and resistance-gene results to support antimicrobial decisions while culture and clinical assessment proceed.</dd>
+              <dt>Collection</dt>
+              <dd>Validated for swab collection, without catheterization.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=uti#book">Discuss the UTI panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/uti.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=uti#book">Discuss the UTI panel</a></span>
           </article>
 
           <article class="card panel-card" id="wound" aria-labelledby="wound-h">
@@ -98,7 +102,8 @@
               <dt>Clinical use</dt>
               <dd>Detection of targeted organisms and resistance genes to support treatment decisions alongside the clinical exam.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=wound#book">Discuss the wound panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/wound.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=wound#book">Discuss the wound panel</a></span>
           </article>
 
           <article class="card panel-card" id="respiratory" aria-labelledby="respiratory-h">
@@ -109,7 +114,8 @@
               <dt>Clinical use</dt>
               <dd>Identification of targeted pathogens to support isolation, cohorting and treatment decisions.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=respiratory#book">Discuss the respiratory panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/respiratory.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=respiratory#book">Discuss the respiratory panel</a></span>
           </article>
 
           <article class="card panel-card" id="gi" aria-labelledby="gi-h">
@@ -120,7 +126,8 @@
               <dt>Clinical use</dt>
               <dd>Identification of targeted enteric pathogens to support infection-control measures and clinical management.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=gi#book">Discuss the GI panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/gi.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=gi#book">Discuss the GI panel</a></span>
           </article>
 
           <article class="card panel-card" id="nail" aria-labelledby="nail-h">
@@ -131,7 +138,8 @@
               <dt>Clinical use</dt>
               <dd>Determines whether fungal organisms are detected before antifungal therapy, for dermatology and podiatry decisions.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=nail#book">Discuss the nail fungal panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/nail.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=nail#book">Discuss the nail fungal panel</a></span>
           </article>
 
           <article class="card panel-card" id="womens-health" aria-labelledby="womens-health-h">
@@ -142,7 +150,8 @@
               <dt>Clinical use</dt>
               <dd>Identification of organisms to support targeted therapy.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=womens-health#book">Discuss the women&rsquo;s health panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/womens-health.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=womens-health#book">Discuss the women&rsquo;s health panel</a></span>
           </article>
 
           <article class="card panel-card" id="sti" aria-labelledby="sti-h">
@@ -153,7 +162,8 @@
               <dt>Clinical use</dt>
               <dd>Identification of infections to support treatment and partner management.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=sti#book">Discuss the STI panel</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/sti.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=sti#book">Discuss the STI panel</a></span>
           </article>
 
           <article class="card panel-card" id="resistance" aria-labelledby="resistance-h">
@@ -164,7 +174,8 @@
               <dt>Clinical use</dt>
               <dd>Resistance-gene results, interpreted together with culture and susceptibility testing.</dd>
             </dl>
-            <a class="arrow-link" href="/contact.html?panel=resistance#book">Discuss resistance testing</a>
+            <span class="card-links"><a class="arrow-link" href="/testing/panels/resistance.html">View all targets</a>
+            <a class="arrow-link" href="/contact.html?panel=resistance#book">Discuss resistance testing</a></span>
           </article>
         </div>
       </div>
@@ -183,7 +194,7 @@
           </ul>
         </div>
         <div>
-          <h2>Consult with the laboratory</h2>
+          <h2>Consult with InnovexLab</h2>
           <p>A short consultation covers the panel, its specimen requirements and how results are reported to the ordering provider.</p>
           <a class="button button--primary" href="/contact.html#book">Request a consultation</a>
         </div>
@@ -195,7 +206,7 @@
   <!-- Generated from partials/cta-band.html by tools/sync_partials.py. Edit the partial, not this block. -->
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
-      <h2 id="cta-band-heading">Discuss a testing program with the laboratory</h2>
+      <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
       <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
       <div class="button-row">
         <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
@@ -220,6 +231,11 @@
           <ul>
             <li><a href="/testing.html">Testing</a></li>
             <li><a href="/how-to-start.html">Getting Started</a></li>
+            <li><a href="/learn/patients.html">For Patients</a></li>
+            <li><a href="/learn/infections.html">Clinical overview</a></li>
+            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+            <li><a href="/learn/organisms/index.html">Organism library</a></li>
+            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
@@ -235,6 +251,7 @@
       <div class="site-footer__legal">
         <p>&copy; <span data-year>2026</span> InnovexLab. All rights reserved.</p>
         <p>Please don&rsquo;t send patient information through this website or by email.</p>
+        <p class="site-footer__disclaimer">Information on this website is for general education and is not medical advice. <a href="/learn/sources.html">Sources and medical disclaimer</a>.</p>
       </div>
     </div>
   </footer>

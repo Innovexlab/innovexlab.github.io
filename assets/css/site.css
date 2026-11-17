@@ -253,6 +253,8 @@ a:hover { color: var(--color-action-hover); }
   border-radius: 50%;
 }
 .brand span { color: #8fd3ee; }
+.brand .brand__name { color: inherit; }   /* the name stays white; only "Lab" is light blue */
+.brand__name span { color: #8fd3ee; }
 .brand:hover { color: #fff; }
 
 /* Mobile menu button — only shown when JavaScript is running (.js on <html>),
@@ -710,3 +712,111 @@ input:focus, select:focus, textarea:focus { border-color: var(--color-action); }
 .card + .card { margin-top: var(--space-5); }
 
 .site-footer__ids { font-size: var(--text-sm); opacity: 0.85; }
+
+/* 12. Education pages (learn/) ============================================ */
+.share { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3) var(--space-4); max-width: none; }
+.share__url { font-size: var(--text-sm); color: var(--color-muted); overflow-wrap: anywhere; }
+.share__text { color: var(--color-ink); }
+.share__status { font-size: var(--text-sm); font-weight: 600; color: var(--color-navy); }
+.education-notice {
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-navy);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-sm);
+  max-width: none;
+  margin-bottom: var(--space-6);
+}
+.prose { max-width: 48rem; }
+.prose h2 { margin-top: var(--space-6); }
+.term-list dt { font-weight: 700; color: var(--color-navy); margin-top: var(--space-4); }
+.term-list dd { margin: var(--space-1) 0 0; color: var(--color-ink); }
+.urgent {
+  border: 1px solid var(--color-error);
+  background: var(--color-error-bg);
+  border-radius: var(--radius);
+  padding: var(--space-3) var(--space-4);
+}
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: var(--text-sm); min-width: 40rem; }
+.data-table th, .data-table td { text-align: left; vertical-align: top; padding: var(--space-3); border-bottom: 1px solid var(--color-line); }
+.data-table thead th { color: var(--color-navy); border-bottom: 2px solid var(--color-navy); }
+.data-table tbody th { color: var(--color-navy); white-space: nowrap; }
+.guide-card dt { font-size: var(--text-sm); font-weight: 700; color: var(--color-navy); }
+.guide-card dd { margin: 0 0 var(--space-3); color: var(--color-muted); }
+.draft-banner {
+  border: 2px dashed var(--color-error);
+  background: var(--color-error-bg);
+  color: var(--color-ink);
+  padding: var(--space-3) var(--space-4);
+  max-width: none;
+  margin-bottom: var(--space-6);
+}
+/* Panel target tables: same column widths in every group */
+.data-table--targets { table-layout: fixed; }
+.data-table--targets th:nth-child(1) { width: 26%; }
+.data-table--targets th:nth-child(2) { width: 42%; }
+
+/* Panel pages: micrographs and diagrams */
+.figure-row { display: grid; gap: var(--space-4); grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); margin: 0 0 var(--space-4); }
+.micro, .diagram { margin: 0; }
+.micro img { display: block; width: 100%; height: 11rem; object-fit: cover; border-radius: var(--radius); border: 1px solid var(--color-line); background: #000; }
+.diagram img { display: block; width: 100%; max-width: 28rem; height: auto; }
+.diagram--wide img { max-width: 44rem; }
+.micro figcaption, .diagram figcaption { font-size: 0.8125rem; color: var(--color-muted); margin-top: var(--space-2); max-width: none; }
+.data-table--targets tbody th { white-space: normal; }
+
+/* 13. Organism library and panel pages ===================================== */
+.breadcrumb { font-size: var(--text-sm); margin-bottom: var(--space-3); color: #b9cfe2; }
+.hero .breadcrumb a { color: #fff; }
+.org-aka { color: #d3e0ec; font-size: var(--text-base); }
+.org-layout { display: grid; gap: var(--space-6); }
+@media (min-width: 60rem) { .org-layout { grid-template-columns: minmax(0, 1fr) 20rem; } }
+.org-aside { display: grid; gap: var(--space-4); align-content: start; }
+.org-figure { margin: 0; }
+.org-figure img { display: block; width: 100%; height: auto; border: 1px solid var(--color-line); border-radius: var(--radius); background: #fff; }
+.org-figure figcaption { font-size: 0.8125rem; color: var(--color-muted); margin-top: var(--space-2); }
+.org-pager { display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--space-3); margin-top: var(--space-7); padding-top: var(--space-4); border-top: 1px solid var(--color-line); font-weight: 600; }
+.lib-tools { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); margin-bottom: var(--space-4); }
+.lib-filter { min-height: var(--tap); width: min(28rem, 100%); padding: var(--space-2) var(--space-3); font: inherit; border: 1px solid var(--color-muted); border-radius: 4px; }
+.lib-status { font-size: var(--text-sm); color: var(--color-muted); }
+.lib-jump { font-size: var(--text-sm); max-width: none; }
+.lib-group { margin-top: var(--space-7); }
+.lib-count { font-weight: 400; color: var(--color-muted); font-size: var(--text-base); }
+.lib-list { list-style: none; padding: 0; margin: 0 0 var(--space-5); max-width: none; display: grid; gap: var(--space-2); grid-template-columns: 1fr; }
+@media (min-width: 48rem) { .lib-list { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72rem) { .lib-list { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.lib-list li { margin: 0; }
+.lib-list a { display: block; height: 100%; padding: var(--space-3) var(--space-4); border: 1px solid var(--color-line); border-left: 3px solid var(--color-navy); border-radius: var(--radius); background: var(--color-bg); text-decoration: none; }
+.lib-list a:hover { border-left-color: var(--color-action); }
+.lib-name { display: block; font-weight: 700; color: var(--color-navy); }
+.lib-aka { display: block; font-size: var(--text-sm); color: var(--color-muted); }
+.lib-letters { font-size: var(--text-sm); color: var(--color-muted); letter-spacing: 0.2em; }
+.lib-az { columns: 16rem; max-width: none; padding-left: 1.1rem; }
+.lib-az li { break-inside: avoid; }
+.card-links { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-5); margin-top: auto; padding-top: var(--space-3); }
+.card-links .arrow-link { margin: 0; padding: 0; }
+.mt-6 { margin-top: var(--space-6); }
+.diagram { margin-bottom: var(--space-6); }
+.panel-tags { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--space-2); max-width: none; }
+.panel-tags li { margin: 0; }
+.panel-tags a { display: inline-block; padding: 0.15rem 0.6rem; border: 1px solid var(--color-navy); border-radius: 999px; font-size: var(--text-sm); text-decoration: none; color: var(--color-navy); }
+.panel-tags a:hover { background: var(--color-navy); color: #fff; }
+
+/* 14. Sources and medical disclaimer ======================================= */
+.sources { margin-top: var(--space-6); max-width: 48rem; }
+.ref-list { padding-left: 1.4rem; font-size: var(--text-sm); }
+.ref-list li { margin-bottom: var(--space-2); }
+.ref-note { font-size: 0.8125rem; color: var(--color-muted); }
+.disclaimer {
+  margin-top: var(--space-6);
+  border: 1px solid var(--color-line);
+  border-left: 3px solid var(--color-navy);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  padding: var(--space-4) var(--space-5);
+  font-size: var(--text-sm);
+  max-width: 48rem;
+}
+.disclaimer h2 { font-size: 1rem; margin: 0 0 var(--space-2); }
+.disclaimer p { max-width: none; }
+.site-footer__disclaimer { max-width: 48rem; }

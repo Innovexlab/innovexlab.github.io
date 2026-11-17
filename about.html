@@ -17,12 +17,12 @@
   <meta property="og:url" content="https://www.innovexlab.com/about.html">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
-  <script src="/assets/js/site-config.js" defer></script>
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site-config.js?v=7b9cedd1" defer></script>
+  <script src="/assets/js/site.js?v=49a7dd27" defer></script>
 </head>
 <body data-page="about">
   <!-- PARTIAL:header -->
@@ -34,14 +34,14 @@
       <div class="container utility-bar__inner">
         <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
-          <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
+          <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
           <a class="portal-link" data-portal-link hidden>Client Portal</a>
         </div>
       </div>
     </div>
     <div class="container site-header__main">
-      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40">Innovex<span>Lab</span></a>
+      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40"><span class="brand__name">Innovex<span>Lab</span></span></a>
       <a class="button button--primary header-cta" href="/contact.html#book">
         <span class="label-long">Request a consultation</span>
         <span class="label-short">Consultation</span>
@@ -51,7 +51,8 @@
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
           <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
-          <li><a href="/about.html" data-nav="about" aria-current="page">About</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
+            <li><a href="/about.html" data-nav="about" aria-current="page">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -86,12 +87,23 @@
     <section class="section" aria-labelledby="what-heading">
       <div class="container split">
         <div>
-          <h2 id="what-heading">The laboratory</h2>
+          <h2 id="what-heading">The InnovexLab laboratory</h2>
           <p>InnovexLab performs PCR testing for respiratory, gastrointestinal, urinary, wound, STI, women&rsquo;s health and nail infections, with antibiotic-resistance gene detection.</p>
           <p>Molecular methods identify organisms and resistance genes directly from the specimen, without waiting for culture growth. Results are reported to the ordering provider for interpretation alongside culture and the clinical exam.</p>
+          <h2>Laboratory-developed testing</h2>
+          <!-- SOURCE: UTI Report Template_InnovexLab.pdf p.4 ("This test was developed, and its performance
+               characteristics were determined by InnovexLab. It has not been cleared or approved by the FDA.").
+               Historical statement about the UTI test only — do not extend to other panels until confirmed. -->
+          <p>InnovexLab&rsquo;s UTI test was developed, and its performance characteristics were determined, by InnovexLab. It has not been cleared or approved by the FDA. InnovexLab is regulated under CLIA as qualified to perform high-complexity testing.</p>
           <h2>Working with practices and facilities</h2>
-          <p>Clients typically begin with a single panel for a frequent testing question and keep their current laboratory for other testing. Ordering clinicians and administrators have direct access to the laboratory.</p>
+          <p>Clients typically begin with a single panel for a frequent testing question and keep their current laboratory for other testing. Ordering clinicians and administrators have direct access to InnovexLab.</p>
           <a class="arrow-link" href="/how-to-start.html">Getting started</a>
+          <h2>Clinical resources</h2>
+          <ul>
+            <li><a href="/learn/infections.html">Infection testing: a clinical overview</a></li>
+            <li><a href="/learn/resistance-genes.html">Antibiotic-resistance genes: a clinical guide</a></li>
+            <li><a href="/learn/patients.html">Information for patients</a></li>
+          </ul>
         </div>
         <div>
           <div class="card">
@@ -127,8 +139,8 @@
           </ul>
         </div>
         <div>
-          <h2>Consult with the laboratory</h2>
-          <p>Review a panel with the laboratory, your ordering clinician and your operational lead.</p>
+          <h2>Consult with InnovexLab</h2>
+          <p>Review a panel with InnovexLab, your ordering clinician and your operational lead.</p>
           <a class="button button--primary" href="/contact.html#book">Request a consultation</a>
         </div>
       </div>
@@ -139,7 +151,7 @@
   <!-- Generated from partials/cta-band.html by tools/sync_partials.py. Edit the partial, not this block. -->
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
-      <h2 id="cta-band-heading">Discuss a testing program with the laboratory</h2>
+      <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
       <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
       <div class="button-row">
         <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
@@ -164,6 +176,11 @@
           <ul>
             <li><a href="/testing.html">Testing</a></li>
             <li><a href="/how-to-start.html">Getting Started</a></li>
+            <li><a href="/learn/patients.html">For Patients</a></li>
+            <li><a href="/learn/infections.html">Clinical overview</a></li>
+            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+            <li><a href="/learn/organisms/index.html">Organism library</a></li>
+            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
@@ -179,6 +196,7 @@
       <div class="site-footer__legal">
         <p>&copy; <span data-year>2026</span> InnovexLab. All rights reserved.</p>
         <p>Please don&rsquo;t send patient information through this website or by email.</p>
+        <p class="site-footer__disclaimer">Information on this website is for general education and is not medical advice. <a href="/learn/sources.html">Sources and medical disclaimer</a>.</p>
       </div>
     </div>
   </footer>

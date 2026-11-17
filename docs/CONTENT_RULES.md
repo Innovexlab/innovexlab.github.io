@@ -39,7 +39,7 @@ placeholders.
 
 | Topic | Examples of what NOT to write yet | Reviewer |
 |---|---|---|
-| Targets, specimens, devices, methods per panel | organism names, target counts, "urine or swab", platform names | Lab director (signed validated menu) |
+| Targets, specimens, devices, methods per panel | organism names outside `testing/panels/` and `learn/`, target counts, specimen types other than the UTI swab statement, platform names | Owner decision 2026-11-16: the requisition forms are the menu of record, and their target lists may appear on `testing/panels/` pages. Everything else in this row still needs the lab director |
 | Turnaround / speed | "24-hour results", "same-day", "fast", "faster than your lab" | Lab director + measured lab data |
 | Accuracy / performance | "accurate", "high specificity", "precision diagnostics", percentages | Lab director (validation data) |
 | Accreditation and licences | CLIA certification and COLA accreditation **may be stated**, only with the recorded numbers (`CLIA_NUMBER`, `COLA_ID` in `check_site.py`; owner-supplied 2026-11-16). Florida licence, CAP, ISO, FDA status or any other accreditation still need records | Owner, transcribed from current certificates |
@@ -110,7 +110,7 @@ These parts are **evidence tasks**. Each goes live as soon as its evidence is si
 | Measured speed (receipt-to-report time) | LIS turnaround data over a stated period, signed by the lab director | Publish the measured figure with its basis; relax the speed rule in `CLAIM_RULES` for that exact wording |
 | Accuracy / performance | Per-target validation data | Name the performance claim per panel |
 | Brief-material (incontinence-brief) collection | Validation for that specimen type plus lab-director approval | Feature it on the UTI page and in the video |
-| Named targets per panel | Signed validated menu | Organism names on Testing and focused pages |
+| Named targets per panel | Done for `testing/panels/` (owner adopted the requisition forms, 2026-11-16) | Organism names elsewhere, e.g. the Testing page, still need the lab director |
 | Courier / service area | Operations confirmation | "We pick up from facilities in …" |
 
 Ask for this evidence every review cycle. Don't let a gated element be dropped by default.
@@ -135,3 +135,17 @@ sign (for example, a change in mental status) as the reason to test. `CLAIM_RULE
 - Keep the patient-information warning next to any free-text box.
 - Do not add analytics that capture form contents. Measure delivered inquiries and booked meetings,
   not clicks alone.
+
+## Clinical resources: disclaimer and citations
+
+Every page under `learn/` and `testing/panels/` must show:
+
+- the notice "General medical information for education only, not medical advice.";
+- the **Medical disclaimer** block from `tools/build_library.py` (`DISCLAIMER`): not medical advice, no
+  clinician–patient relationship, decisions belong to the treating clinician, call 911 in an emergency;
+- organism and panel pages also need a **Sources** list.
+
+Cite only public-health agencies and professional-society guidelines, using `tools/content/references.py`.
+Open every new URL in a browser before adding it; cdc.gov refuses scripted link checks.
+Credit each image in its caption, link its source page, and list it on `learn/sources.html`.
+`tools/check_site.py` enforces the notice, the disclaimer and the Sources list.

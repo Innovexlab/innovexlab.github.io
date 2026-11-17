@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" role="img" aria-labelledby="t d">
+  <title id="t">Organism shapes on the UTI panel</title>
+  <desc id="d">Schematic, not to scale. Gram-negative rods stain pink: E. coli, Klebsiella, Proteus, Pseudomonas. Gram-positive cocci in clusters stain purple: Staphylococcus. Gram-positive cocci in pairs and chains stain purple: Enterococcus, Streptococcus. Yeasts are oval budding cells that can form pseudohyphae: Candida. Mycoplasma and Ureaplasma have no cell wall and are not seen on Gram stain.</desc>
+  <rect width="700" height="230" fill="#ffffff"/>
+  <g fill="#f4f7fb" stroke="#d6dee8"><rect x="4" y="4" width="132" height="222" rx="6"/><rect x="144" y="4" width="132" height="222" rx="6"/><rect x="284" y="4" width="132" height="222" rx="6"/><rect x="424" y="4" width="132" height="222" rx="6"/><rect x="564" y="4" width="132" height="222" rx="6"/></g>
+  <!-- 1 Gram-negative rods -->
+  <g fill="#e07a93" stroke="#a8435d" stroke-width="1.5">
+    <rect x="28" y="30" width="44" height="16" rx="8"/><rect x="78" y="44" width="40" height="16" rx="8" transform="rotate(25 98 52)"/>
+    <rect x="34" y="68" width="42" height="16" rx="8" transform="rotate(-20 55 76)"/><rect x="74" y="86" width="44" height="16" rx="8"/>
+    <rect x="22" y="100" width="40" height="16" rx="8" transform="rotate(35 42 108)"/>
+  </g>
+  <!-- 2 Gram-positive cocci in clusters -->
+  <g fill="#6a4c9c" stroke="#3f2a63" stroke-width="1.5">
+    <circle cx="190" cy="50" r="10"/><circle cx="210" cy="48" r="10"/><circle cx="230" cy="54" r="10"/><circle cx="180" cy="68" r="10"/><circle cx="200" cy="68" r="10"/><circle cx="220" cy="72" r="10"/><circle cx="240" cy="74" r="10"/><circle cx="192" cy="88" r="10"/><circle cx="212" cy="90" r="10"/><circle cx="232" cy="94" r="10"/><circle cx="204" cy="108" r="10"/>
+  </g>
+  <!-- 3 Gram-positive cocci in pairs and chains -->
+  <g fill="#6a4c9c" stroke="#3f2a63" stroke-width="1.5">
+    <circle cx="306" cy="40" r="9"/><circle cx="324" cy="44" r="9"/><circle cx="342" cy="50" r="9"/><circle cx="358" cy="60" r="9"/><circle cx="370" cy="75" r="9"/><circle cx="378" cy="92" r="9"/>
+    <circle cx="310" cy="90" r="9"/><circle cx="328" cy="92" r="9"/>
+    <circle cx="320" cy="118" r="9"/><circle cx="338" cy="116" r="9"/>
+  </g>
+  <!-- 4 Yeast with buds and pseudohyphae -->
+  <g fill="#b9a6d8" stroke="#5b4a7e" stroke-width="1.5">
+    <ellipse cx="458" cy="48" rx="14" ry="10"/><ellipse cx="476" cy="40" rx="7" ry="5"/>
+    <ellipse cx="520" cy="56" rx="13" ry="10"/>
+    <rect x="446" y="86" width="34" height="11" rx="5.5"/><rect x="478" y="88" width="34" height="11" rx="5.5" transform="rotate(12 495 93)"/><rect x="508" y="98" width="30" height="11" rx="5.5" transform="rotate(-8 523 103)"/>
+    <ellipse cx="470" cy="115" rx="7" ry="5"/>
+  </g>
+  <!-- 5 No cell wall: small pleomorphic cells, dashed outline -->
+  <g fill="none" stroke="#5b6b7b" stroke-width="1.5" stroke-dasharray="3 3">
+    <circle cx="600" cy="48" r="7"/><ellipse cx="626" cy="60" rx="9" ry="6"/><circle cx="660" cy="46" r="5"/><ellipse cx="610" cy="88" rx="6" ry="9"/><circle cx="642" cy="94" r="8"/><circle cx="668" cy="80" r="5"/>
+  </g>
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#0b2c4a" text-anchor="middle" font-size="12">
+    <text x="70" y="150" font-weight="700">Gram-negative</text><text x="70" y="166" font-weight="700">rods</text>
+    <text font-style="italic" x="70" y="186">E. coli, Klebsiella,</text><text font-style="italic" x="70" y="201">Proteus, Pseudomonas</text>
+    <text x="210" y="150" font-weight="700">Gram-positive</text><text x="210" y="166" font-weight="700">cocci in clusters</text>
+    <text font-style="italic" x="210" y="186">Staphylococcus</text>
+    <text x="350" y="150" font-weight="700">Gram-positive cocci</text><text x="350" y="166" font-weight="700">in pairs and chains</text>
+    <text font-style="italic" x="350" y="186">Enterococcus,</text><text font-style="italic" x="350" y="201">Streptococcus</text>
+    <text x="490" y="150" font-weight="700">Yeast: budding</text><text x="490" y="166" font-weight="700">cells, pseudohyphae</text>
+    <text font-style="italic" x="490" y="186">Candida</text>
+    <text x="630" y="150" font-weight="700">No cell wall</text><text x="630" y="166" font-weight="700">(not seen on Gram)</text>
+    <text font-style="italic" x="630" y="186">Mycoplasma,</text><text font-style="italic" x="630" y="201">Ureaplasma</text>
+  </g>
+</svg>

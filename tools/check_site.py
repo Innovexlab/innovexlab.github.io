@@ -102,7 +102,22 @@ FORBIDDEN_TRACKED = re.compile(r"\.(bundle|env|pem|key|p12|pfx|csv|xlsx?|sqlite|
                                r"REPO_MAP|LAUNCH_CHECKLIST|FIELD_LINKS|OWNER_REVIEW_PACKET)\b", re.I)
 # Tracked paths GitHub Pages SHOULD publish. Everything else must be in _config.yml exclude
 # (Jekyll already skips names starting with "." or "_").
-PUBLISHED = re.compile(r"^(?:[^/]+\.html|testing/[^/]+\.html|assets/.+|CNAME|robots\.txt|sitemap\.xml)$")
+PUBLISHED = re.compile(r"^(?:[^/]+\.html|(?:testing|learn)/(?:[^/]+/)?[^/]+\.html|assets/.+|CNAME|robots\.txt|sitemap\.xml)$")
+# General clinical education (learn/*.html) and the panel pages (testing/panels/*.html) may name
+# organisms and resistance genes. Panel targets follow the requisition forms, which the owner adopted as
+# the menu of record on 2026-11-16 (private decision register). Every such page must show the
+# education notice, the full medical disclaimer, and (organism and panel pages) a cited Sources list.
+EDUCATION_DIR = "learn/"
+MENU_DIR = "testing/panels/"
+EDUCATION_NOTICE = "General medical information for education only, not medical advice."
+DISCLAIMER_MARKS = ("Medical disclaimer", "It is not medical advice, a diagnosis or a treatment recommendation",
+                    "In an emergency, call 911.")
+SOURCES_REQUIRED = re.compile(r"^(learn/organisms/(?!index\.html)[^/]+|testing/panels/(?!index\.html|all-targets\.html)[^/]+)\.html$")
+MENU_RULE_REASON = "target organisms/markers need the signed validated menu"
+# Panel pages listing targets from the requisition forms are DRAFTS until the lab confirms the menu.
+# They carry class="draft-banner", must be noindex, and FAIL this check unless INNOVEX_ALLOW_DRAFTS=1
+# (set only on a draft branch), so they cannot be published by accident.
+DRAFT_MARKER = 'class="draft-banner"'
 
 # --- Claim rules -----------------------------------------------------------
 # (regex, reason). Case-insensitive. Applied to visible/indexable text only.
@@ -114,7 +129,7 @@ CLAIM_RULES: list[tuple[str, str]] = [
     # Speed / turnaround
     (r"\b\d+\s*-?\s*(hour|hr|h|day)s?\b|twenty-?four|within\s+\w+\s+hours?",
      "numeric turnaround/timing needs LIS evidence"),
-    (r"turn-?around|same[- ]day|next[- ]day|overnight|\brapid\w*|\bfast(er|est)?\b|\bquick(ly|er)?\b|results in\b",
+    (r"turn-?around|same[- ]day|next[- ]day|overnight|\brapid\w*|(?<!acid-)\bfast(er|est)?\b|\bquick(ly|er)?\b|results in\b",
      "speed claims need measured receipt-to-report data"),
     # Credentials. CLIA certification and COLA accreditation were supplied by the owner on
     # 2026-11-16 (company forms + report template) and may be stated; CREDENTIAL_IDS below pins
@@ -334,6 +349,11 @@ def main() -> int:
         parser.feed(p.read_text(encoding="utf-8"))
         parsed[p.relative_to(ROOT).as_posix()] = parser
 
+    # 1b. shared CSS/JS carry a current content-hash version (cache busting) -----
+    stamp = subprocess.run([sys.executable, str(ROOT / "tools" / "stamp_assets.py"), "--check"], capture_output=True, text=True)
+    if stamp.returncode != 0:
+        fail("assets: " + stamp.stdout.strip())
+
     # 1. partials -----------------------------------------------------------
     sync = subprocess.run([sys.executable, str(ROOT / "tools" / "sync_partials.py"), "--check"],
                           capture_output=True, text=True)
@@ -359,7 +379,8 @@ def main() -> int:
                 continue
             if url.scheme == "tel" and link != PHONE_TEL:
                 fail(f"{name}: phone link {link!r} is not the published number {PHONE_TEL}")
-            if url.scheme == "mailto" and url.path != INBOX:
+            # An empty recipient is allowed: "share with my doctor" opens the visitor's own email.
+            if url.scheme == "mailto" and url.path not in (INBOX, ""):
                 fail(f"{name}: email link {link!r} is not the published inbox {INBOX}")
             if url.scheme in ("https", "mailto", "tel"):
                 continue
@@ -388,7 +409,7 @@ def main() -> int:
             if url.fragment and target_name in parsed and url.fragment not in parsed[target_name].ids:
                 fail(f"{name}: link {link!r} points to missing #{url.fragment}")
             panel = parse_qs(url.query).get("panel")
-            if panel:
+            if panel and url.path.endswith("contact.html"):   # ?panel= preselects the contact form
                 panel_links.append((name, panel[0]))
 
         # 3. metadata ---------------------------------------------------------
@@ -423,7 +444,25 @@ def main() -> int:
 
         # 5. claims -----------------------------------------------------------
         visible = re.sub(r"\s+", " ", " ".join(page.text))
+        raw = (ROOT / name).read_text(encoding="utf-8")
+        draft = DRAFT_MARKER in raw
+        if draft and os.environ.get("INNOVEX_ALLOW_DRAFTS") != "1":
+            fail(f"{name}: DRAFT page (target list pending lab confirmation) must not be published; "
+                 "remove it, or set INNOVEX_ALLOW_DRAFTS=1 only on a draft branch")
+        if draft and "noindex" not in page.meta.get("robots", ""):
+            fail(f'{name}: draft page must carry <meta name="robots" content="noindex">')
+        education = name.startswith((EDUCATION_DIR, MENU_DIR)) or draft
+        if education and not draft:
+            if EDUCATION_NOTICE not in visible:
+                fail(f"{name}: education/panel page must show the notice: {EDUCATION_NOTICE!r}")
+            for mark in DISCLAIMER_MARKS:
+                if mark not in visible:
+                    fail(f"{name}: education/panel page is missing the medical disclaimer text {mark!r}")
+            if SOURCES_REQUIRED.match(name) and not re.search(r'<h2 id="[a-z-]*sources-heading">Sources</h2>', raw):
+                fail(f"{name}: organism and panel pages must list their Sources")
         for pattern, reason in CLAIM_RULES:
+            if education and reason == MENU_RULE_REASON:
+                continue   # organism/gene names allowed in general education (notice required above)
             for m in re.finditer(pattern, visible, re.I):
                 snippet = visible[max(0, m.start() - 40): m.end() + 40].strip()
                 fail(f"{name}: claim rule — {reason}: “…{snippet}…”")

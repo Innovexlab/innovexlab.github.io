@@ -68,7 +68,8 @@ from run_browser_smoke import ROOT, build_fixtures, find_browser  # noqa: E402  
 PAGES = ["/index.html", "/testing.html", "/how-to-start.html", "/about.html",
          "/contact.html", "/thankyou.html", "/404.html"]
 # Focused pages (testing/*.html, e.g. the UTI draft) are picked up automatically.
-PAGES += [f"/testing/{p.name}" for p in sorted((ROOT / "testing").glob("*.html"))]
+PAGES += [f"/{d}/{p.name}" for d in ("testing", "learn", "testing/panels", "learn/organisms")
+          for p in sorted((ROOT / d).glob("*.html"))]
 WIDTHS = [(1366, 900), (390, 844)]
 
 
