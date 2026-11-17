@@ -72,7 +72,8 @@ def sync_page(path: Path) -> tuple[str, str]:
 def main(argv: list[str]) -> int:
     check_only = "--check" in argv
     stale = []
-    for page in sorted(ROOT.glob("*.html")):
+    for page in sorted([*ROOT.glob("*.html"), *ROOT.glob("testing/*.html"), *ROOT.glob("learn/*.html"),
+                         *ROOT.glob("testing/panels/*.html"), *ROOT.glob("learn/organisms/*.html")]):
         original, updated = sync_page(page)
         if original == updated:
             continue

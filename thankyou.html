@@ -8,18 +8,18 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Thank You | InnovexLab</title>
-  <meta name="description" content="Thank you for contacting InnovexLab. For time-sensitive questions, call the laboratory at (352) 328-3066.">
+  <meta name="description" content="Thank you for contacting InnovexLab. For time-sensitive questions, call InnovexLab at (352) 328-3066.">
   <!-- Post-submit page: keep it out of search results. -->
   <meta name="robots" content="noindex">
   <link rel="canonical" href="https://www.innovexlab.com/thankyou.html">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
-  <script src="/assets/js/site-config.js" defer></script>
-  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/site-config.js?v=7b9cedd1" defer></script>
+  <script src="/assets/js/site.js?v=49a7dd27" defer></script>
 </head>
 <body data-page="thankyou">
   <!-- PARTIAL:header -->
@@ -31,14 +31,14 @@
       <div class="container utility-bar__inner">
         <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
-          <a href="tel:+13523283066"><span class="visually-hidden">Call the lab: </span>(352) 328-3066</a>
+          <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
           <a class="portal-link" data-portal-link hidden>Client Portal</a>
         </div>
       </div>
     </div>
     <div class="container site-header__main">
-      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40">Innovex<span>Lab</span></a>
+      <a class="brand" href="/"><img class="brand__logo" src="/assets/img/innovex-logo-96.png" alt="" width="40" height="40"><span class="brand__name">Innovex<span>Lab</span></span></a>
       <a class="button button--primary header-cta" href="/contact.html#book">
         <span class="label-long">Request a consultation</span>
         <span class="label-short">Consultation</span>
@@ -48,7 +48,8 @@
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
           <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
-          <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
+            <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -63,7 +64,7 @@
         <span class="eyebrow">Thank you</span>
         <h1 id="page-heading">Thank you for your request.</h1>
         <!-- No delivery claim and no response-time promise (owner has not set one). -->
-        <p>The laboratory will reply to the email address you provided to arrange your consultation. For time-sensitive questions, or if you do not hear back, call <a href="tel:+13523283066">(352) 328-3066</a>.</p>
+        <p>InnovexLab will reply to the email address you provided to arrange your consultation. For time-sensitive questions, or if you do not hear back, call <a href="tel:+13523283066">(352) 328-3066</a>.</p>
       </div>
     </section>
 
@@ -102,6 +103,11 @@
           <ul>
             <li><a href="/testing.html">Testing</a></li>
             <li><a href="/how-to-start.html">Getting Started</a></li>
+            <li><a href="/learn/patients.html">For Patients</a></li>
+            <li><a href="/learn/infections.html">Clinical overview</a></li>
+            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+            <li><a href="/learn/organisms/index.html">Organism library</a></li>
+            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
             <li><a href="/about.html">About</a></li>
             <li><a href="/contact.html">Contact</a></li>
           </ul>
@@ -117,6 +123,7 @@
       <div class="site-footer__legal">
         <p>&copy; <span data-year>2026</span> InnovexLab. All rights reserved.</p>
         <p>Please don&rsquo;t send patient information through this website or by email.</p>
+        <p class="site-footer__disclaimer">Information on this website is for general education and is not medical advice. <a href="/learn/sources.html">Sources and medical disclaimer</a>.</p>
       </div>
     </div>
   </footer>
