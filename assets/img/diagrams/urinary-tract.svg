@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 400" role="img" aria-labelledby="t d">
+  <title id="t">The urinary tract</title>
+  <desc id="d">Schematic front view: two kidneys drain through the ureters into the bladder, which empties through the urethra. Infection of the kidneys is pyelonephritis (upper urinary tract); infection of the bladder is cystitis (lower urinary tract).</desc>
+  <rect width="460" height="400" fill="#ffffff"/>
+  <!-- Kidneys -->
+  <g fill="#f3ddd6" stroke="#0b2c4a" stroke-width="2">
+    <path d="M118 52c-30 0-48 28-48 66s18 66 48 66c18 0 26-12 22-26-3-10-14-16-14-40s11-30 14-40c4-14-4-26-22-26z"/>
+    <path d="M222 52c30 0 48 28 48 66s-18 66-48 66c-18 0-26-12-22-26 3-10 14-16 14-40s-11-30-14-40c-4-14 4-26 22-26z"/>
+  </g>
+  <!-- Ureters -->
+  <g fill="none" stroke="#0b2c4a" stroke-width="4" stroke-linecap="round">
+    <path d="M126 118c14 4 18 30 22 60s10 60 13 86"/>
+    <path d="M214 118c-14 4-18 30-22 60s-10 60-13 86"/>
+  </g>
+  <!-- Bladder and urethra -->
+  <path d="M120 300c0-26 24-40 50-40s50 14 50 40c0 30-22 50-50 50s-50-20-50-50z" fill="#f3ddd6" stroke="#0b2c4a" stroke-width="2"/>
+  <path d="M170 350v34" stroke="#0b2c4a" stroke-width="4" stroke-linecap="round"/>
+  <!-- Labels -->
+  <g font-family="Segoe UI, Arial, sans-serif" fill="#0b2c4a">
+    <g stroke="#5b6b7b" stroke-width="1"><path d="M270 92h22"/><path d="M196 200h96"/><path d="M220 300h72"/><path d="M174 378h118"/></g>
+    <text x="298" y="88" font-size="14" font-weight="700">Kidney</text>
+    <text x="298" y="105" font-size="12">Upper urinary tract:</text>
+    <text x="298" y="120" font-size="12">pyelonephritis</text>
+    <text x="298" y="204" font-size="14" font-weight="700">Ureter</text>
+    <text x="298" y="296" font-size="14" font-weight="700">Bladder</text>
+    <text x="298" y="313" font-size="12">Lower urinary tract:</text>
+    <text x="298" y="328" font-size="12">cystitis</text>
+    <text x="298" y="382" font-size="14" font-weight="700">Urethra</text>
+  </g>
+</svg>

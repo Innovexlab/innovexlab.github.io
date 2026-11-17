@@ -214,12 +214,110 @@
     if (field && /^[a-z0-9-]{1,40}$/.test(code)) field.value = code;
   }
 
+  /* 7. Copy link ---------------------------------------------------------- */
+  // Buttons with data-copy-link="<url>" (hidden in HTML) appear only when the Clipboard API exists.
+  // The page address is always shown as text, so visitors without JavaScript can copy it by hand.
+  function initCopyLink() {
+    if (!navigator.clipboard || !window.isSecureContext) return;
+    var buttons = document.querySelectorAll("[data-copy-link]");
+    Array.prototype.forEach.call(buttons, function (button) {
+      var status = button.parentNode.querySelector(".share__status");
+      button.hidden = false;
+      button.addEventListener("click", function () {
+        navigator.clipboard.writeText(button.getAttribute("data-copy-link")).then(function () {
+          if (status) status.textContent = "Link copied. Paste it into a message to your clinician.";
+        }, function () {
+          if (status) status.textContent = "Copying didn't work here. Select the page address and copy it instead.";
+        });
+      });
+    });
+  }
+
+  /* 8. Organism library filter -------------------------------------------- */
+  // Shows the search box (hidden without JavaScript) and filters list items by their data-filter-text.
+  function initListFilter() {
+    var input = document.getElementById("organism-filter");
+    if (!input) return;
+    var label = document.querySelector("label[for=organism-filter]");
+    var status = document.getElementById("filter-status");
+    var groups = document.querySelectorAll("[data-filter-group]");
+    input.hidden = false;
+    if (label) label.hidden = false;
+    input.addEventListener("input", function () {
+      var q = input.value.trim().toLowerCase();
+      var shown = 0;
+      Array.prototype.forEach.call(groups, function (group) {
+        var visible = 0;
+        Array.prototype.forEach.call(group.querySelectorAll("[data-filter-text]"), function (item) {
+          var match = !q || item.getAttribute("data-filter-text").indexOf(q) !== -1;
+          item.hidden = !match;
+          if (match) visible += 1;
+        });
+        group.hidden = visible === 0;
+        shown += visible;
+      });
+      if (status) status.textContent = q ? shown + (shown === 1 ? " organism" : " organisms") + " found" : "";
+    });
+  }
+
+  /* 9. Panel-aware organism pager ----------------------------------------- */
+  // Organism pages opened from a panel page carry ?panel=<id>&list=<slug,slug,...> (the panel's targets in
+  // order). Prev/next then step through that panel only, and the middle link returns to the panel. Every
+  // value is validated: the panel id against a fixed list, slugs against a strict pattern and the page's
+  // own list of known organisms. Without parameters the pager keeps the full-library order.
+  function initPanelPager() {
+    var pager = document.querySelector("[data-pager]");
+    if (!pager || !window.URLSearchParams) return;
+    var params = new URLSearchParams(window.location.search);
+    var PANELS = { "uti": "UTI panel", "wound": "Wound panel", "respiratory": "Respiratory panel", "gi": "GI panel",
+                   "sti": "STI panel", "womens-health": "Women's health panel", "nail": "Nail fungal panel",
+                   "eye": "Eye infection panel", "resistance": "Resistance panel" };
+    var panel = params.get("panel") || "";
+    if (!Object.prototype.hasOwnProperty.call(PANELS, panel)) return;
+    var titles;
+    try { titles = JSON.parse(pager.getAttribute("data-titles") || "{}"); } catch (e) { return; }
+    var list = (params.get("list") || "").split(",").filter(function (s) {
+      return /^[a-z0-9-]{1,60}$/.test(s) && Object.prototype.hasOwnProperty.call(titles, s);
+    });
+    var match = window.location.pathname.match(/\/learn\/organisms\/([a-z0-9-]+)\.html$/);
+    var current = match ? match[1] : "";
+    var i = list.indexOf(current);
+    if (i === -1) return;
+    var query = "?panel=" + encodeURIComponent(panel) + "&list=" + list.join(",");
+
+    function setLink(attr, slug, label) {
+      var old = pager.querySelector("[" + attr + "]");
+      if (!old) return;
+      var el;
+      if (slug) {
+        el = document.createElement("a");
+        el.setAttribute("href", "/learn/organisms/" + slug + ".html" + query);
+        el.textContent = label;
+      } else {
+        el = document.createElement("span");
+      }
+      el.setAttribute(attr, "");
+      old.parentNode.replaceChild(el, old);
+    }
+    setLink("data-pager-prev", list[i - 1], list[i - 1] ? "\u2190 " + titles[list[i - 1]] : "");
+    setLink("data-pager-next", list[i + 1], list[i + 1] ? titles[list[i + 1]] + " \u2192" : "");
+    var home = pager.querySelector("[data-pager-home]");
+    if (home) {
+      home.setAttribute("href", "/testing/panels/" + panel + ".html");
+      home.textContent = "Back to " + PANELS[panel] + " (" + (i + 1) + " of " + list.length + ")";
+    }
+    pager.setAttribute("aria-label", PANELS[panel] + ": organism pages");
+  }
+
   initMobileNav();
   initPortalLinks();
   initFooterYear();
   initPanelPreselect();
   initFormValidation();
   initLeadSource();
+  initCopyLink();
+  initListFilter();
+  initPanelPager();
 
   // Tells the inline <head> script that enhancements loaded (see the fail-safe there).
   window.INNOVEX_READY = true;
