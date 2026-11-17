@@ -85,10 +85,8 @@ def gene_links(text, prefix="/learn/resistance-genes.html"):
 
 
 def sources_block(keys, heading_id="sources-heading"):
-    if not keys:
-        items = '<li>Organism-specific public-health guidance is limited; see the <a href="/learn/sources.html">general sources</a>.</li>'
-    else:
-        items = "".join(f'<li>{esc(REFS[k][0])}. <a href="{esc(REFS[k][2])}" rel="external">{esc(REFS[k][1])}</a>.</li>' for k in keys)
+    assert keys, "every cited page needs at least one verified source"
+    items = "".join(f'<li>{esc(REFS[k][0])}. <a href="{esc(REFS[k][2])}" rel="external">{esc(REFS[k][1])}</a>.</li>' for k in keys)
     return (f'<section class="sources" aria-labelledby="{heading_id}"><h2 id="{heading_id}">Sources</h2>'
             f'<ol class="ref-list">{items}</ol><p class="ref-note">Sources accessed {ACCESSED}. Links open external sites '
             "that InnovexLab does not control.</p></section>")
