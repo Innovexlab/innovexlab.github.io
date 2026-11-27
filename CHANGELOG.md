@@ -3,6 +3,73 @@
 Format: newest first. Record **deployments** separately from implementation: an entry is "Released"
 only when merged to `main` and smoke-tested on the live site.
 
+## Unreleased — home-page video (2026-11-25)
+
+### Added
+- Home page: "InnovexLab in one minute", the owner's commercial (cut_02) in a native video player.
+  It loads only when played (poster image first), is compressed to 18 MB (1080p, H.264) and
+  carries English captions (`assets/video/innovexlab-overview.en.vtt`) and a transcript, with
+  "Tests are billed separately." beneath it.
+
+### Changed
+- Content-Security-Policy on every page adds `media-src 'self'` so the video and captions can load.
+- `check_site.py`: `OWNER_APPROVED_LINES` exempts only the three exact narration sentences the owner
+  approved on 2026-11-25 (speed, brief-based collection, no-cost onboarding); `.mp4` is allowed only
+  under `assets/video/`.
+
+## Unreleased — design polish and copy review (2026-11-18)
+
+### Fixed
+- Cards in two-column grids (testing page, clinical overview) no longer sit out of line: a stacked-card
+  margin also applied inside grids.
+- Medical wording: rotavirus vaccine scope (rotavirus A), influenza C (no seasonal epidemics),
+  Lactobacillus iners (not protective), dermatophytes (main cause as a group), chlamydia and
+  trichomonas ("the cause of" an infection), MERS dated to 2012, trichomonas resistance ("uncommon"),
+  E. coli and ESBL treatment wording, Pneumocystis grouped under its own fungus heading.
+- Awkward acronym expansions: AmpC and TEM glosses shortened, CD4 explained after "count", "DNA gyrase"
+  left as the enzyme name, slash-joined acronyms (IDSA and SHEA; NIAID, NIH) now explained.
+
+### Changed
+- Home hero shows a laboratory photograph beside the headline on desktop; the duplicate home contact
+  section was removed (the call-to-action band and footer carry the same details).
+- Header: the consultation button sits after the navigation on desktop; navigation uses sentence case.
+- Footer: links in two labelled columns (Laboratory, Resources), including Sources and disclaimer.
+- FAQ questions show a plus/minus indicator.
+- Testing page: panel links read "View all targets" and "Discuss this panel" (panel name for screen
+  readers); the repeated consultation block before the call-to-action band became "Adding a panel".
+- About page: clinical resources moved beside the interpretation box; COLA row reads "COLA-accredited".
+- Organism library and panel target cards use one descriptive sentence per organism
+  (`tools/content/cards.py`) instead of alias lists or clipped plural sentences; resistance-gene
+  targets on panel pages say what the genes are, in words.
+- Organism pages: the resistance heading names the drug type (antibiotic, antiviral, antifungal);
+  the notice no longer mentions susceptibility results on virus and parasite pages.
+- Panel pages: full panel names in headings, breadcrumb Testing / Panels, and a gene-specific caveat
+  on the resistance panel.
+- Getting-started photo replaced with one that shows no identifiable person
+  (`lab-sample-tube.jpg`, USDA APHIS 20230621-CDP-APHIS-0498, public domain); `lab-benches.jpg` removed.
+
+## Unreleased — acronyms and laboratory photos (2026-11-17)
+
+### Changed
+- Every acronym is spelled out at its first use on each page (for example, "urinary tract infection
+  (UTI)", "Centers for Disease Control and Prevention (CDC)"); glossary in `tools/content/acronyms.py`,
+  applied by `tools/expand_acronyms.py` and enforced by `check_site.py`. Header, footer and
+  credentials band use `<abbr>` tooltips, and the credentials band has a one-line note that spells
+  out CLIA, COLA and PCR. Testing-area names read "Urinary tract infection (UTI)" and
+  "Sexually transmitted infection (STI)", matching "Gastrointestinal (GI)".
+- Image credits now read "Photographer, CDC" instead of "CDC (Photographer)"; CDC treatment-guideline
+  citations use the full title "Sexually Transmitted Infections Treatment Guidelines".
+- Organism title "SARS-CoV-2 (COVID-19)" is now "SARS-CoV-2"; varicella-zoster virus reads
+  "(human herpesvirus 3, HHV-3)".
+
+### Added
+- Three decorative laboratory photographs (public domain, USDA), on Home, Testing and Getting
+  Started, credited on the sources page with a note that they do not show InnovexLab's facility.
+
+### Fixed
+- Data-table row headers may wrap (`min-width: 12rem` instead of `nowrap`), so long organism names
+  no longer push links off-screen at 390px.
+
 ## Unreleased — professional rewrite
 
 ### Changed

@@ -24,14 +24,14 @@ new service and needs an owner decision; it is not set up.
 ## Content-Security-Policy (every page, in `<head>`)
 
 ```
-default-src 'none'; script-src 'self' 'sha256-…'; style-src 'self'; img-src 'self';
+default-src 'none'; script-src 'self' 'sha256-…'; style-src 'self'; img-src 'self'; media-src 'self';
 font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'
 ```
 
 - **Scripts:** only `/assets/js/*.js` from this site, plus the one small inline `<head>` script
   (the `js` class fail-safe), which is allowed by its sha256 hash. No inline event handlers
   (`onclick=`), no `eval`, no third-party scripts.
-- **Styles, images, fonts:** this site only. No `style=""` attributes, which the policy blocks.
+- **Styles, images, video, captions, fonts:** this site only. No `style=""` attributes, which the policy blocks.
 - **Forms:** may only post to FormSubmit, or to this site. `'self'` is needed because
   browsers also apply `form-action` to the redirect back to `/thankyou.html`.
 - **Everything else** (fetch/XHR, frames, plugins, `<base>`) is blocked.

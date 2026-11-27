@@ -26,6 +26,9 @@ from organisms_other import OTHER  # noqa: E402
 from panels import PANELS, MICROGRAPHS  # noqa: E402
 from references import R as REFS, ORG_REFS, PANEL_REFS  # noqa: E402
 from image_sources import IMAGE_SOURCES  # noqa: E402
+from cards import CARDS, GENE_CARDS  # noqa: E402
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from expand_acronyms import expand_main, expand_page  # noqa: E402
 
 ORGS = BACTERIA + OTHER
 import json as _json  # noqa: E402
@@ -45,10 +48,14 @@ DISCLAIMER = (
     "In an emergency, call 911.</p>"
     '<p><a class="arrow-link" href="/learn/sources.html">Sources, image credits and editorial policy</a></p></div>')
 CTA = "Request a consultation"
+TARGET_CAVEAT = ("Detection of a target does not by itself establish infection or determine treatment; results are interpreted by "
+                 "the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.")
+TARGET_CAVEAT_GENE = ("Detection of a resistance gene does not by itself determine susceptibility or treatment, and an undetected "
+                      "gene does not prove susceptibility; results are interpreted with culture and susceptibility testing.")
 SITE = "https://www.innovexlab.com"
 GROUP_ORDER = ["Bacteria: Gram-negative", "Bacteria: Gram-positive", "Bacteria: atypical and cell-wall-deficient",
                "Vaginal microbiome bacteria", "Viruses: respiratory", "Viruses: gastrointestinal",
-               "Viruses: skin, eye and genital", "Fungi: yeasts", "Fungi: molds and dermatophytes", "Parasites"]
+               "Viruses: skin, eye and genital", "Fungi: yeasts", "Fungi: molds, dermatophytes and Pneumocystis", "Parasites"]
 GENES = {"gene-mecA": "mecA", "gene-van": "vanA/vanB", "gene-esbl": "ESBL genes", "gene-ampc": "AmpC",
          "gene-carbapenemase": "carbapenemases", "gene-qnr": "qnr", "gene-erm": "erm", "gene-mef": "mefA", "gene-pvl": "PVL"}
 MORPH = {  # key: (caption, svg body)
@@ -79,9 +86,13 @@ def esc(t):
 
 
 def gene_links(text, prefix="/learn/resistance-genes.html"):
-    out = esc(text)
-    return re.sub(r"\[\[(gene-[A-Za-z]+)\]\]",
-                  lambda m: f'(<a href="{prefix}#{m.group(1)}">{GENES[m.group(1)]}</a>)', out)
+    # Gene markers are removed from the sentence and listed once at the end, avoiding stacked parentheses.
+    ids = list(dict.fromkeys(re.findall(r"\[\[(gene-[A-Za-z]+)\]\]", text)))
+    out = esc(re.sub(r"\s*\[\[gene-[A-Za-z]+\]\]", "", text))
+    if ids:
+        links = ", ".join(f'<a href="{prefix}#{g}">{GENES[g]}</a>' for g in ids)
+        out += f' <span class="gene-refs">Resistance-gene guide: {links}.</span>'
+    return out
 
 
 def sources_block(keys, heading_id="sources-heading"):
@@ -92,9 +103,43 @@ def sources_block(keys, heading_id="sources-heading"):
             "that InnovexLab does not control.</p></section>")
 
 
+ABBREV = re.compile(r"(?:\b[A-Z]|\bspp|\be\.g|\bi\.e|\bU\.S|\bvs)$")
+
+
+def title_case(name):
+    def cap(w):
+        lead = "(" if w.startswith("(") else ""
+        core = w[len(lead):]
+        return w if core.isupper() else lead + core[:1].upper() + core[1:]
+    return " ".join(cap(w) for w in name.split(" "))
+
+
+def mid_case(name):
+    return name if name[:2].isupper() else name[:1].lower() + name[1:]
+
+
+def card_text(o):
+    """One-line description for library and panel cards (tools/content/cards.py, else the summary's first sentence)."""
+    return CARDS.get(o["slug"]) or first_sentence(o["summary"])
+
+
+def resistance_heading(o):
+    g = o["group"]
+    if g.startswith(("Bacteria", "Vaginal")):
+        return "Antibiotic resistance"
+    if g.startswith("Viruses"):
+        return "Antiviral resistance"
+    if g.startswith("Fungi"):
+        return "Antifungal resistance"
+    return "Drug resistance"
+
+
 def first_sentence(t):
-    m = re.match(r"(.+?\.)(\s|$)", t)
-    return m.group(1) if m else t
+    # A period ends the sentence only when it is not part of an abbreviation such as "E. coli" or "spp.".
+    for m in re.finditer(r"\.(?=\s|$)", t):
+        if not ABBREV.search(t[:m.start()]):
+            return t[:m.end()]
+    return t
 
 
 # ------------------------------------------------------------------ schematic SVGs
@@ -144,6 +189,7 @@ def shell(path, page_id, title, desc, main, noindex=False):
     s = re.sub(r'<meta property="og:description" content="[^"]*">', f'<meta property="og:description" content="{esc(desc)}">', s, count=1)
     s = re.sub(r'<meta property="og:url" content="[^"]*">', f'<meta property="og:url" content="{url}">', s, count=1)
     s = s.replace('<body data-page="about">', f'<body data-page="{page_id}">', 1)
+    main = expand_main(main)[0]  # spell out each acronym at its first use on the page
     s = re.sub(r'  <main id="main">.*?</main>', lambda m: '  <main id="main">\n' + main.strip("\n") + "\n  </main>", s, count=1, flags=re.S)
     (ROOT / path).parent.mkdir(parents=True, exist_ok=True)
     (ROOT / path).write_text(s, encoding="utf-8", newline="\n")
@@ -187,7 +233,7 @@ def organism_page(o, prev_o, next_o):
 
     <section class="section" aria-labelledby="overview-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Treatment considerations summarize published guidance at drug-class level; therapy is chosen by the treating clinician using susceptibility results, local resistance patterns and current guidelines.</p>
+        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Treatment considerations summarize published guidance at drug-class level; therapy is chosen by the treating clinician using laboratory results, the clinical picture and current guidelines.</p>
         <div class="org-layout">
           <div class="prose">
             <h2 id="overview-heading">Overview</h2>
@@ -196,7 +242,7 @@ def organism_page(o, prev_o, next_o):
             <p>{esc(o["infections"])}</p>
             <h2>Signs and symptoms</h2>
             <p>{esc(o["symptoms"])}</p>
-            <h2>Antibiotic and antimicrobial resistance</h2>
+            <h2>{resistance_heading(o)}</h2>
             <p>{gene_links(o["resistance"])}</p>
             <h2>Treatment considerations</h2>
             <p>{esc(o["treatment"])}</p>
@@ -223,7 +269,7 @@ def library_index():
             continue
         lis = "\n".join(
             f'            <li data-filter-text="{esc((o["title"] + " " + o.get("aka", "")).lower())}"><a href="/learn/organisms/{o["slug"]}.html">'
-            f'<span class="lib-name"><i>{esc(o["title"])}</i></span><span class="lib-aka">{esc(o.get("aka", "") or first_sentence(o["summary"]))}</span></a></li>'
+            f'<span class="lib-name" data-acronyms="off"><i>{esc(o["title"])}</i></span><span class="lib-aka">{esc(card_text(o))}</span></a></li>'
             for o in items)
         gid = re.sub(r"[^a-z]+", "-", g.lower()).strip("-")
         groups += f"""
@@ -246,11 +292,11 @@ def library_index():
 
     <section class="section" aria-labelledby="browse-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Each page cites its sources. For InnovexLab&rsquo;s panels and their targets, see <a href="/testing/panels/index.html">Panels</a>. This library does not replace advice from a clinician.</p>
+        <p class="education-notice" role="note"><strong>{NOTICE}</strong> This library does not replace advice from a clinician, and each page cites its sources. For InnovexLab&rsquo;s panels and their targets, see <a href="/testing/panels/index.html">Panels</a>.</p>
         <h2 id="browse-heading" class="visually-hidden">Browse organisms</h2>
         <div class="lib-tools">
           <label for="organism-filter" class="lib-filter-label" hidden>Find an organism</label>
-          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type a name, e.g. Klebsiella" autocomplete="off" aria-describedby="filter-status" hidden>
+          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type a name, e.g., Klebsiella" autocomplete="off" aria-describedby="filter-status" hidden>
           <span id="filter-status" class="lib-status" role="status" aria-live="polite"></span>
         </div>
         <p class="lib-jump">Jump to: {" &middot; ".join(f'<a href="#{re.sub(r"[^a-z]+", "-", g.lower()).strip("-")}">{esc(g)}</a>' for g in GROUP_ORDER if any(o["group"] == g for o in ORGS))} &middot; <a href="#a-z">A&ndash;Z</a></p>
@@ -282,11 +328,12 @@ def panel_page(p):
         lis = ""
         for printed, slug in targets:
             if slug.startswith("gene-"):
-                lis += f'            <li><a href="/learn/resistance-genes.html#{slug}">{esc(printed)}</a></li>\n'
+                lis += (f'            <li><a href="/learn/resistance-genes.html#{slug}"><span class="lib-name" data-acronyms="off">{esc(printed)}</span>'
+                        f'<span class="lib-aka">{esc(GENE_CARDS[slug])}</span></a></li>\n')
                 continue
             o = BY_SLUG[slug]
-            lis += (f'            <li><a href="/learn/organisms/{slug}.html{ctx}"><span class="lib-name"><i>{esc(printed)}</i></span>'
-                    f'<span class="lib-aka">{esc(first_sentence(o["summary"]))}</span></a></li>\n')
+            lis += (f'            <li><a href="/learn/organisms/{slug}.html{ctx}"><span class="lib-name" data-acronyms="off"><i>{esc(printed)}</i></span>'
+                    f'<span class="lib-aka">{esc(card_text(o))}</span></a></li>\n')
         rows += f"""
         <h3>{esc(section)} <span class="lib-count">({len(targets)})</span></h3>
         <ul class="lib-list">
@@ -294,16 +341,16 @@ def panel_page(p):
     n = sum(len(t) for _, t in p["sections"])
     main = f"""    <section class="hero hero--page" aria-labelledby="page-heading">
       <div class="container">
-        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/testing/panels/index.html">Panels</a> <span aria-hidden="true">/</span> <a href="/testing/panels/all-targets.html">All targets</a></nav>
+        <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/testing.html">Testing</a> <span aria-hidden="true">/</span> <a href="/testing/panels/index.html">Panels</a></nav>
         <span class="eyebrow">Testing services &middot; Panels</span>
-        <h1 id="page-heading">InnovexLab {esc(p["name"])} panel</h1>
+        <h1 id="page-heading">{esc(p["name"])} panel</h1>
         <p>{esc(p["intro"])}</p>
       </div>
     </section>
 
     <section class="section" aria-labelledby="targets-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets as listed on InnovexLab&rsquo;s requisition forms ({esc(p["source"])}). Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
+        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets are listed as they appear on InnovexLab&rsquo;s {esc(p["source"])}. {TARGET_CAVEAT_GENE if p["id"] == "resistance" else TARGET_CAVEAT}</p>
         <div class="split">
           <div>
             <h2>When to consider testing</h2>
@@ -316,15 +363,15 @@ def panel_page(p):
         </div>
         {p.get("figure", "")}
         <h2 id="targets-heading">Targets ({n})</h2>
-        <p>Select a target for its clinical summary, symptoms, resistance and treatment considerations.</p>
+        <p>{"Select a gene for its mechanism and clinical significance." if p["id"] == "resistance" else "Select a target for its clinical summary, symptoms, resistance and treatment considerations."}</p>
 {rows}
         <p class="mt-6"><a class="button button--primary" href="/contact.html?panel={p["panel_param"]}#book">{CTA}</a></p>
         {sources_block(PANEL_REFS[p["id"]])}
         {DISCLAIMER}
       </div>
     </section>"""
-    shell(f"testing/panels/{p['id']}.html", "testing", f"InnovexLab {p['name']} Panel | Targets",
-          desc_trim(f"InnovexLab {p['name']} panel: every target, each linked to its clinical summary, symptoms, resistance and treatment considerations."), main)
+    shell(f"testing/panels/{p['id']}.html", "testing", f"{title_case(p['name'])} Panel Targets | InnovexLab",
+          desc_trim(f"Every target on the InnovexLab {mid_case(p['name'])} panel, each linked to its clinical summary, symptoms, resistance and treatment considerations."), main)
 
 
 def all_targets():
@@ -371,11 +418,11 @@ def all_targets():
     </section>
     <section class="section" aria-labelledby="all-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets as listed on InnovexLab&rsquo;s requisition forms. Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
+        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets are listed as they appear on InnovexLab&rsquo;s requisition forms. Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
         <h2 id="all-heading" class="visually-hidden">Organisms and panels</h2>
         <div class="lib-tools">
           <label for="organism-filter" class="lib-filter-label" hidden>Find an organism or panel</label>
-          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type an organism or panel, e.g. Candida or Wound" autocomplete="off" aria-describedby="filter-status" hidden>
+          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type an organism or panel, e.g., Candida or Wound" autocomplete="off" aria-describedby="filter-status" hidden>
           <span id="filter-status" class="lib-status" role="status" aria-live="polite"></span>
         </div>
         <p class="lib-jump">Panels: {" &middot; ".join(f'<a href="/testing/panels/{p["id"]}.html">{esc(p["name"])}</a>' for p in PANELS if p["id"] != "resistance")} &middot; <a href="/learn/resistance-genes.html">Resistance genes</a></p>
@@ -389,7 +436,7 @@ def all_targets():
 
 def panel_index():
     lis = "\n".join(f'          <li><a href="/testing/panels/{p["id"]}.html"><span class="lib-name">{esc(p["name"])}</span>'
-                    f'<span class="lib-aka">Targets as printed: {sum(len(t) for _, t in p["sections"])} &middot; {esc(p["source"])}</span></a></li>'
+                    f'<span class="lib-aka">Targets as printed: {sum(len(t) for _, t in p["sections"])}</span></a></li>'
                     for p in PANELS)
     main = f"""    <section class="hero hero--page" aria-labelledby="page-heading">
       <div class="container">
@@ -400,7 +447,7 @@ def panel_index():
     </section>
     <section class="section" aria-labelledby="panels-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets as listed on InnovexLab&rsquo;s requisition forms. Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
+        <p class="education-notice" role="note"><strong>{NOTICE}</strong> Targets are listed as they appear on InnovexLab&rsquo;s requisition forms. Detection of a target does not by itself establish infection or determine treatment; results are interpreted by the ordering clinician with the clinical picture and, where indicated, culture and susceptibility testing.</p>
         <h2 id="panels-heading">Panels</h2>
         <ul class="lib-list">
 {lis}
@@ -420,7 +467,7 @@ def gene_anchors():
     for gid, label in {"gene-mecA": "mecA", "gene-van": "vanA, vanB", "gene-esbl": "CTX-M, SHV, TEM", "gene-ampc": "AmpC",
                        "gene-carbapenemase": "KPC, NDM, VIM, IMP, OXA-48", "gene-qnr": "qnrA, qnrB", "gene-erm": "ermA, ermB",
                        "gene-mef": "mefA", "gene-pvl": "PVL"}.items():
-        s = s.replace(f'<tr><th scope="row">{label}</th>', f'<tr id="{gid}"><th scope="row">{label}</th>', 1)
+        s = s.replace(f'<tr><th scope="row" data-acronyms="off">{label}</th>', f'<tr id="{gid}"><th scope="row" data-acronyms="off">{label}</th>', 1)
     p.write_text(s, encoding="utf-8", newline="\n")
 
 
@@ -450,10 +497,15 @@ def sources_page():
     used = sorted({k for v in keysets for k in v}, key=lambda k: (REFS[k][0], REFS[k][1].lower()))
     refs = "\n".join(f'          <li>{esc(REFS[k][0])}. <a href="{esc(REFS[k][2])}" rel="external">{esc(REFS[k][1])}</a>.</li>' for k in used)
     rows = "\n".join(
-        f'              <tr><th scope="row"><a href="/learn/organisms/{slug}.html"><i>{esc(BY_SLUG[slug]["title"])}</i></a></th>'
+        f'              <tr><th scope="row" data-acronyms="off"><a href="/learn/organisms/{slug}.html"><i>{esc(BY_SLUG[slug]["title"])}</i></a></th>'
         f'<td>{MICROGRAPHS[slug][4]}</td><td>{esc(IMAGE_SOURCES[slug][1])}</td>'
         f'<td><a href="{esc(IMAGE_SOURCES[slug][0])}" rel="external">Wikimedia Commons file page</a></td></tr>'
         for slug in sorted(MICROGRAPHS, key=lambda s: BY_SLUG[s]["title"].lower()))
+    photo_rows = "\n".join(
+        f'          <li>{esc(what)}: <a href="https://commons.wikimedia.org/wiki/File:APHIS-Moore_Air_Base_in_Texas-Plant_Protection_and_Quarantine_Science_and_Technology_Insect_Management_and_Molecular_Diagnostics_Laboratory_(20230621-CDP-APHIS-{num}).jpg" rel="external">Wikimedia Commons file page</a></li>'
+        for what, num in (("Multichannel pipette over a tube strip (home page)", "0577"),
+                          ("Pipette tip and sample tube (testing page)", "0661"),
+                          ("Gloved hands holding a sample tube (getting-started page)", "0498")))
     disclaimer = DISCLAIMER.replace('<p><a class="arrow-link" href="/learn/sources.html">Sources, image credits and editorial policy</a></p>', "")
     main = f"""    <section class="hero hero--page" aria-labelledby="page-heading">
       <div class="container">
@@ -491,6 +543,11 @@ def sources_page():
             </tbody>
           </table>
         </div>
+        <h3>Decorative laboratory photographs</h3>
+        <p>The laboratory photographs on the home, testing and getting-started pages are public-domain images from the U.S. Department of Agriculture (Animal and Plant Health Inspection Service, 2023), obtained through Wikimedia Commons. They were taken in a federal laboratory and do not show InnovexLab&rsquo;s facility or staff.</p>
+        <ul>
+{photo_rows}
+        </ul>
       </div>
     </section>
 
@@ -500,7 +557,7 @@ def sources_page():
       </div>
     </section>"""
     shell("learn/sources.html", "resources", "Sources, Image Credits and Disclaimer | InnovexLab",
-          "Editorial policy, cited CDC and IDSA sources, image credits and the medical disclaimer for InnovexLab's clinical resources.", main)
+          "Editorial policy, cited CDC and IDSA sources, image credits and the medical disclaimer for InnovexLab’s clinical resources.", main)
 
 
 def main():
@@ -519,6 +576,9 @@ def main():
     panel_index()
     all_targets()
     legal_blocks()
+    for path in HAND_PAGES:  # legal_blocks re-inserts plain source lists; expand them again
+        p = ROOT / path
+        p.write_text(expand_page(p.read_text(encoding="utf-8"))[0], encoding="utf-8", newline="\n")
     sources_page()
     print(f"built {len(ordered)} organism pages, library index, {len(PANELS)} panel pages + panel index, {len(MORPH)} schematics")
 
