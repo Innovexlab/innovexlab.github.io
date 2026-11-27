@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Browser security policy (docs/SECURITY.md). GitHub Pages cannot send headers, so it is a
        <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Organism Library | Clinical Resources | InnovexLab</title>
   <meta name="description" content="Organism library: bacteria, viruses, fungi and parasites, with the infections and symptoms they cause, resistance and treatment considerations.">
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://www.innovexlab.com/learn/organisms/">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
+  <link rel="stylesheet" href="/assets/css/site.css?v=48cc9728">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
@@ -32,7 +32,7 @@
     <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
     <div class="utility-bar">
       <div class="container utility-bar__inner">
-        <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
+        <span class="utility-bar__place"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
           <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
@@ -50,9 +50,9 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
-          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
-          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
-            <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting started</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For patients</a></li>
+          <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -73,146 +73,146 @@
 
     <section class="section" aria-labelledby="browse-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>General medical information for education only, not medical advice.</strong> Each page cites its sources. For InnovexLab&rsquo;s panels and their targets, see <a href="/testing/panels/index.html">Panels</a>. This library does not replace advice from a clinician.</p>
+        <p class="education-notice" role="note"><strong>General medical information for education only, not medical advice.</strong> This library does not replace advice from a clinician, and each page cites its sources. For InnovexLab&rsquo;s panels and their targets, see <a href="/testing/panels/index.html">Panels</a>.</p>
         <h2 id="browse-heading" class="visually-hidden">Browse organisms</h2>
         <div class="lib-tools">
           <label for="organism-filter" class="lib-filter-label" hidden>Find an organism</label>
-          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type a name, e.g. Klebsiella" autocomplete="off" aria-describedby="filter-status" hidden>
+          <input id="organism-filter" class="lib-filter" type="search" placeholder="Type a name, e.g., Klebsiella" autocomplete="off" aria-describedby="filter-status" hidden>
           <span id="filter-status" class="lib-status" role="status" aria-live="polite"></span>
         </div>
-        <p class="lib-jump">Jump to: <a href="#bacteria-gram-negative">Bacteria: Gram-negative</a> &middot; <a href="#bacteria-gram-positive">Bacteria: Gram-positive</a> &middot; <a href="#bacteria-atypical-and-cell-wall-deficient">Bacteria: atypical and cell-wall-deficient</a> &middot; <a href="#vaginal-microbiome-bacteria">Vaginal microbiome bacteria</a> &middot; <a href="#viruses-respiratory">Viruses: respiratory</a> &middot; <a href="#viruses-gastrointestinal">Viruses: gastrointestinal</a> &middot; <a href="#viruses-skin-eye-and-genital">Viruses: skin, eye and genital</a> &middot; <a href="#fungi-yeasts">Fungi: yeasts</a> &middot; <a href="#fungi-molds-and-dermatophytes">Fungi: molds and dermatophytes</a> &middot; <a href="#parasites">Parasites</a> &middot; <a href="#a-z">A&ndash;Z</a></p>
+        <p class="lib-jump">Jump to: <a href="#bacteria-gram-negative">Bacteria: Gram-negative</a> &middot; <a href="#bacteria-gram-positive">Bacteria: Gram-positive</a> &middot; <a href="#bacteria-atypical-and-cell-wall-deficient">Bacteria: atypical and cell-wall-deficient</a> &middot; <a href="#vaginal-microbiome-bacteria">Vaginal microbiome bacteria</a> &middot; <a href="#viruses-respiratory">Viruses: respiratory</a> &middot; <a href="#viruses-gastrointestinal">Viruses: gastrointestinal</a> &middot; <a href="#viruses-skin-eye-and-genital">Viruses: skin, eye and genital</a> &middot; <a href="#fungi-yeasts">Fungi: yeasts</a> &middot; <a href="#fungi-molds-dermatophytes-and-pneumocystis">Fungi: molds, dermatophytes and Pneumocystis</a> &middot; <a href="#parasites">Parasites</a> &middot; <a href="#a-z">A&ndash;Z</a></p>
 
         <section class="lib-group" aria-labelledby="bacteria-gram-negative" data-filter-group>
           <h2 id="bacteria-gram-negative">Bacteria: Gram-negative <span class="lib-count">(29)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="acinetobacter baumannii "><a href="/learn/organisms/acinetobacter-baumannii.html"><span class="lib-name"><i>Acinetobacter baumannii</i></span><span class="lib-aka">A Gram-negative coccobacillus that survives on dry surfaces and causes healthcare-associated outbreaks.</span></a></li>
-            <li data-filter-text="bacteroides fragilis "><a href="/learn/organisms/bacteroides-fragilis.html"><span class="lib-name"><i>Bacteroides fragilis</i></span><span class="lib-aka">An anaerobic Gram-negative rod and the most frequent anaerobe in serious infections; part of the normal colon flora.</span></a></li>
-            <li data-filter-text="bordetella species bordetella pertussis; bordetella parapertussis; bordetella holmesii"><a href="/learn/organisms/bordetella.html"><span class="lib-name"><i>Bordetella species</i></span><span class="lib-aka">Bordetella pertussis; Bordetella parapertussis; Bordetella holmesii</span></a></li>
-            <li data-filter-text="campylobacter campylobacter jejuni; campylobacter coli; campylobacter spp."><a href="/learn/organisms/campylobacter.html"><span class="lib-name"><i>Campylobacter</i></span><span class="lib-aka">Campylobacter jejuni; Campylobacter coli; Campylobacter spp.</span></a></li>
-            <li data-filter-text="citrobacter freundii "><a href="/learn/organisms/citrobacter-freundii.html"><span class="lib-name"><i>Citrobacter freundii</i></span><span class="lib-aka">A gut and environmental Gram-negative rod causing opportunistic infection.</span></a></li>
-            <li data-filter-text="coxiella burnetii "><a href="/learn/organisms/coxiella-burnetii.html"><span class="lib-name"><i>Coxiella burnetii</i></span><span class="lib-aka">An intracellular bacterium from livestock and their birth products; it cannot be seen on routine Gram stain.</span></a></li>
-            <li data-filter-text="diarrheagenic escherichia coli shiga toxin-producing e. coli (stec) including o157; enteroaggregative (eaec); enteroinvasive (eiec); enteropathogenic (epec); enterotoxigenic (etec)"><a href="/learn/organisms/diarrheagenic-e-coli.html"><span class="lib-name"><i>Diarrheagenic Escherichia coli</i></span><span class="lib-aka">Shiga toxin-producing E. coli (STEC) including O157; enteroaggregative (EAEC); enteroinvasive (EIEC); enteropathogenic (EPEC); enterotoxigenic (ETEC)</span></a></li>
-            <li data-filter-text="enterobacter cloacae complex "><a href="/learn/organisms/enterobacter-cloacae.html"><span class="lib-name"><i>Enterobacter cloacae complex</i></span><span class="lib-aka">Gram-negative rods common in healthcare settings, notable for inducible AmpC beta-lactamase.</span></a></li>
-            <li data-filter-text="escherichia coli e. coli"><a href="/learn/organisms/escherichia-coli.html"><span class="lib-name"><i>Escherichia coli</i></span><span class="lib-aka">E. coli</span></a></li>
-            <li data-filter-text="haemophilus ducreyi "><a href="/learn/organisms/haemophilus-ducreyi.html"><span class="lib-name"><i>Haemophilus ducreyi</i></span><span class="lib-aka">A Gram-negative coccobacillus that causes chancroid, a sexually transmitted genital ulcer disease now uncommon in the United States.</span></a></li>
-            <li data-filter-text="haemophilus influenzae including h. influenzae type b (hib)"><a href="/learn/organisms/haemophilus-influenzae.html"><span class="lib-name"><i>Haemophilus influenzae</i></span><span class="lib-aka">including H. influenzae type b (Hib)</span></a></li>
-            <li data-filter-text="helicobacter pylori "><a href="/learn/organisms/helicobacter-pylori.html"><span class="lib-name"><i>Helicobacter pylori</i></span><span class="lib-aka">A curved Gram-negative rod that colonizes the stomach lining.</span></a></li>
-            <li data-filter-text="kingella kingae "><a href="/learn/organisms/kingella-kingae.html"><span class="lib-name"><i>Kingella kingae</i></span><span class="lib-aka">A Gram-negative coccobacillus that colonizes the throat of young children.</span></a></li>
-            <li data-filter-text="klebsiella aerogenes formerly enterobacter aerogenes"><a href="/learn/organisms/klebsiella-aerogenes.html"><span class="lib-name"><i>Klebsiella aerogenes</i></span><span class="lib-aka">formerly Enterobacter aerogenes</span></a></li>
-            <li data-filter-text="klebsiella oxytoca "><a href="/learn/organisms/klebsiella-oxytoca.html"><span class="lib-name"><i>Klebsiella oxytoca</i></span><span class="lib-aka">A Klebsiella species found in the gut and the healthcare environment.</span></a></li>
-            <li data-filter-text="klebsiella pneumoniae "><a href="/learn/organisms/klebsiella-pneumoniae.html"><span class="lib-name"><i>Klebsiella pneumoniae</i></span><span class="lib-aka">An encapsulated gut organism and a major cause of healthcare-associated infection, frequently carrying resistance genes.</span></a></li>
-            <li data-filter-text="legionella species legionella pneumophila; legionella longbeachae"><a href="/learn/organisms/legionella.html"><span class="lib-name"><i>Legionella species</i></span><span class="lib-aka">Legionella pneumophila; Legionella longbeachae</span></a></li>
-            <li data-filter-text="moraxella catarrhalis "><a href="/learn/organisms/moraxella-catarrhalis.html"><span class="lib-name"><i>Moraxella catarrhalis</i></span><span class="lib-aka">A Gram-negative diplococcus of the upper airway.</span></a></li>
-            <li data-filter-text="morganella morganii "><a href="/learn/organisms/morganella-morganii.html"><span class="lib-name"><i>Morganella morganii</i></span><span class="lib-aka">A urease-producing Gram-negative rod causing opportunistic and healthcare-associated infection.</span></a></li>
-            <li data-filter-text="neisseria gonorrhoeae "><a href="/learn/organisms/neisseria-gonorrhoeae.html"><span class="lib-name"><i>Neisseria gonorrhoeae</i></span><span class="lib-aka">A Gram-negative diplococcus transmitted sexually and the cause of gonorrhea.</span></a></li>
-            <li data-filter-text="plesiomonas shigelloides "><a href="/learn/organisms/plesiomonas-shigelloides.html"><span class="lib-name"><i>Plesiomonas shigelloides</i></span><span class="lib-aka">A Gram-negative rod from fresh water and seafood.</span></a></li>
-            <li data-filter-text="proteus mirabilis and proteus vulgaris proteus mirabilis; proteus vulgaris"><a href="/learn/organisms/proteus.html"><span class="lib-name"><i>Proteus mirabilis and Proteus vulgaris</i></span><span class="lib-aka">Proteus mirabilis; Proteus vulgaris</span></a></li>
-            <li data-filter-text="providencia stuartii "><a href="/learn/organisms/providencia-stuartii.html"><span class="lib-name"><i>Providencia stuartii</i></span><span class="lib-aka">A Gram-negative rod strongly associated with long-term urinary catheters in older adults.</span></a></li>
-            <li data-filter-text="pseudomonas aeruginosa "><a href="/learn/organisms/pseudomonas-aeruginosa.html"><span class="lib-name"><i>Pseudomonas aeruginosa</i></span><span class="lib-aka">A non-fermenting Gram-negative rod thriving in moist environments; a major healthcare-associated pathogen.</span></a></li>
-            <li data-filter-text="salmonella salmonella spp."><a href="/learn/organisms/salmonella.html"><span class="lib-name"><i>Salmonella</i></span><span class="lib-aka">Salmonella spp.</span></a></li>
-            <li data-filter-text="serratia marcescens "><a href="/learn/organisms/serratia-marcescens.html"><span class="lib-name"><i>Serratia marcescens</i></span><span class="lib-aka">An environmental Gram-negative rod associated with healthcare outbreaks, catheters and contaminated solutions.</span></a></li>
-            <li data-filter-text="shigella shigella spp."><a href="/learn/organisms/shigella.html"><span class="lib-name"><i>Shigella</i></span><span class="lib-aka">Shigella spp.</span></a></li>
-            <li data-filter-text="vibrio species vibrio cholerae; vibrio parahaemolyticus; vibrio vulnificus"><a href="/learn/organisms/vibrio.html"><span class="lib-name"><i>Vibrio species</i></span><span class="lib-aka">Vibrio cholerae; Vibrio parahaemolyticus; Vibrio vulnificus</span></a></li>
-            <li data-filter-text="yersinia enterocolitica "><a href="/learn/organisms/yersinia-enterocolitica.html"><span class="lib-name"><i>Yersinia enterocolitica</i></span><span class="lib-aka">A Gram-negative rod acquired mainly from undercooked pork; grows at refrigeration temperatures.</span></a></li>
+            <li data-filter-text="acinetobacter baumannii "><a href="/learn/organisms/acinetobacter-baumannii.html"><span class="lib-name" data-acronyms="off"><i>Acinetobacter baumannii</i></span><span class="lib-aka">A Gram-negative coccobacillus that survives on dry surfaces and causes healthcare-associated outbreaks.</span></a></li>
+            <li data-filter-text="bacteroides fragilis "><a href="/learn/organisms/bacteroides-fragilis.html"><span class="lib-name" data-acronyms="off"><i>Bacteroides fragilis</i></span><span class="lib-aka">An anaerobic Gram-negative rod and the most frequent anaerobe in serious infections; part of the normal colon flora.</span></a></li>
+            <li data-filter-text="bordetella species bordetella pertussis; bordetella parapertussis; bordetella holmesii"><a href="/learn/organisms/bordetella.html"><span class="lib-name" data-acronyms="off"><i>Bordetella species</i></span><span class="lib-aka">A small Gram-negative coccobacillus; B. pertussis causes whooping cough, and related species cause a similar illness.</span></a></li>
+            <li data-filter-text="campylobacter campylobacter jejuni; campylobacter coli; campylobacter spp."><a href="/learn/organisms/campylobacter.html"><span class="lib-name" data-acronyms="off"><i>Campylobacter</i></span><span class="lib-aka">A curved Gram-negative rod and a common bacterial cause of diarrhea, mainly from undercooked poultry.</span></a></li>
+            <li data-filter-text="citrobacter freundii "><a href="/learn/organisms/citrobacter-freundii.html"><span class="lib-name" data-acronyms="off"><i>Citrobacter freundii</i></span><span class="lib-aka">A gut and environmental Gram-negative rod causing opportunistic infection.</span></a></li>
+            <li data-filter-text="coxiella burnetii "><a href="/learn/organisms/coxiella-burnetii.html"><span class="lib-name" data-acronyms="off"><i>Coxiella burnetii</i></span><span class="lib-aka">An intracellular bacterium from livestock and their birth products; it cannot be seen on routine Gram stain.</span></a></li>
+            <li data-filter-text="diarrheagenic escherichia coli shiga toxin-producing e. coli (stec) including o157; enteroaggregative (eaec); enteroinvasive (eiec); enteropathogenic (epec); enterotoxigenic (etec)"><a href="/learn/organisms/diarrheagenic-e-coli.html"><span class="lib-name" data-acronyms="off"><i>Diarrheagenic Escherichia coli</i></span><span class="lib-aka">A diarrhea-causing type of E. coli that acts through toxins or by attaching to or invading the intestinal lining.</span></a></li>
+            <li data-filter-text="enterobacter cloacae complex "><a href="/learn/organisms/enterobacter-cloacae.html"><span class="lib-name" data-acronyms="off"><i>Enterobacter cloacae complex</i></span><span class="lib-aka">A Gram-negative rod common in healthcare settings, notable for inducible AmpC (a class C beta-lactamase) production.</span></a></li>
+            <li data-filter-text="escherichia coli e. coli"><a href="/learn/organisms/escherichia-coli.html"><span class="lib-name" data-acronyms="off"><i>Escherichia coli</i></span><span class="lib-aka">A normal inhabitant of the human gut and the most common cause of urinary tract infection.</span></a></li>
+            <li data-filter-text="haemophilus ducreyi "><a href="/learn/organisms/haemophilus-ducreyi.html"><span class="lib-name" data-acronyms="off"><i>Haemophilus ducreyi</i></span><span class="lib-aka">A Gram-negative coccobacillus that causes chancroid, a sexually transmitted genital ulcer disease now uncommon in the United States.</span></a></li>
+            <li data-filter-text="haemophilus influenzae including h. influenzae type b (hib)"><a href="/learn/organisms/haemophilus-influenzae.html"><span class="lib-name" data-acronyms="off"><i>Haemophilus influenzae</i></span><span class="lib-aka">A small Gram-negative coccobacillus of the upper airway.</span></a></li>
+            <li data-filter-text="helicobacter pylori "><a href="/learn/organisms/helicobacter-pylori.html"><span class="lib-name" data-acronyms="off"><i>Helicobacter pylori</i></span><span class="lib-aka">A curved Gram-negative rod that colonizes the stomach lining.</span></a></li>
+            <li data-filter-text="kingella kingae "><a href="/learn/organisms/kingella-kingae.html"><span class="lib-name" data-acronyms="off"><i>Kingella kingae</i></span><span class="lib-aka">A Gram-negative coccobacillus that colonizes the throat of young children.</span></a></li>
+            <li data-filter-text="klebsiella aerogenes formerly enterobacter aerogenes"><a href="/learn/organisms/klebsiella-aerogenes.html"><span class="lib-name" data-acronyms="off"><i>Klebsiella aerogenes</i></span><span class="lib-aka">A healthcare-associated Gram-negative rod, often in catheterized or ventilated patients.</span></a></li>
+            <li data-filter-text="klebsiella oxytoca "><a href="/learn/organisms/klebsiella-oxytoca.html"><span class="lib-name" data-acronyms="off"><i>Klebsiella oxytoca</i></span><span class="lib-aka">A Klebsiella species found in the gut and the healthcare environment.</span></a></li>
+            <li data-filter-text="klebsiella pneumoniae "><a href="/learn/organisms/klebsiella-pneumoniae.html"><span class="lib-name" data-acronyms="off"><i>Klebsiella pneumoniae</i></span><span class="lib-aka">An encapsulated gut organism and a major cause of healthcare-associated infection, frequently carrying resistance genes.</span></a></li>
+            <li data-filter-text="legionella species legionella pneumophila; legionella longbeachae"><a href="/learn/organisms/legionella.html"><span class="lib-name" data-acronyms="off"><i>Legionella species</i></span><span class="lib-aka">A Gram-negative rod from water systems or soil and potting mix, acquired by inhaling contaminated aerosols or dust.</span></a></li>
+            <li data-filter-text="moraxella catarrhalis "><a href="/learn/organisms/moraxella-catarrhalis.html"><span class="lib-name" data-acronyms="off"><i>Moraxella catarrhalis</i></span><span class="lib-aka">A Gram-negative diplococcus of the upper airway.</span></a></li>
+            <li data-filter-text="morganella morganii "><a href="/learn/organisms/morganella-morganii.html"><span class="lib-name" data-acronyms="off"><i>Morganella morganii</i></span><span class="lib-aka">A urease-producing Gram-negative rod causing opportunistic and healthcare-associated infection.</span></a></li>
+            <li data-filter-text="neisseria gonorrhoeae "><a href="/learn/organisms/neisseria-gonorrhoeae.html"><span class="lib-name" data-acronyms="off"><i>Neisseria gonorrhoeae</i></span><span class="lib-aka">A Gram-negative diplococcus transmitted sexually and the cause of gonorrhea.</span></a></li>
+            <li data-filter-text="plesiomonas shigelloides "><a href="/learn/organisms/plesiomonas-shigelloides.html"><span class="lib-name" data-acronyms="off"><i>Plesiomonas shigelloides</i></span><span class="lib-aka">A Gram-negative rod from fresh water and seafood.</span></a></li>
+            <li data-filter-text="proteus mirabilis and proteus vulgaris proteus mirabilis; proteus vulgaris"><a href="/learn/organisms/proteus.html"><span class="lib-name" data-acronyms="off"><i>Proteus mirabilis and Proteus vulgaris</i></span><span class="lib-aka">A motile, urease-producing Gram-negative rod; a cause of complicated and catheter-associated urinary infection and urinary stones.</span></a></li>
+            <li data-filter-text="providencia stuartii "><a href="/learn/organisms/providencia-stuartii.html"><span class="lib-name" data-acronyms="off"><i>Providencia stuartii</i></span><span class="lib-aka">A Gram-negative rod strongly associated with long-term urinary catheters in older adults.</span></a></li>
+            <li data-filter-text="pseudomonas aeruginosa "><a href="/learn/organisms/pseudomonas-aeruginosa.html"><span class="lib-name" data-acronyms="off"><i>Pseudomonas aeruginosa</i></span><span class="lib-aka">A non-fermenting Gram-negative rod thriving in moist environments; a major healthcare-associated pathogen.</span></a></li>
+            <li data-filter-text="salmonella salmonella spp."><a href="/learn/organisms/salmonella.html"><span class="lib-name" data-acronyms="off"><i>Salmonella</i></span><span class="lib-aka">A Gram-negative rod acquired from contaminated food (poultry, eggs, produce) and animal contact.</span></a></li>
+            <li data-filter-text="serratia marcescens "><a href="/learn/organisms/serratia-marcescens.html"><span class="lib-name" data-acronyms="off"><i>Serratia marcescens</i></span><span class="lib-aka">An environmental Gram-negative rod associated with healthcare outbreaks, catheters and contaminated solutions.</span></a></li>
+            <li data-filter-text="shigella shigella spp."><a href="/learn/organisms/shigella.html"><span class="lib-name" data-acronyms="off"><i>Shigella</i></span><span class="lib-aka">A highly transmissible Gram-negative rod; a very small inoculum causes infection, so spread in group settings is common.</span></a></li>
+            <li data-filter-text="vibrio species vibrio cholerae; vibrio parahaemolyticus; vibrio vulnificus"><a href="/learn/organisms/vibrio.html"><span class="lib-name" data-acronyms="off"><i>Vibrio species</i></span><span class="lib-aka">A curved Gram-negative rod from salt and brackish water, including Gulf Coast waters, and raw or undercooked shellfish.</span></a></li>
+            <li data-filter-text="yersinia enterocolitica "><a href="/learn/organisms/yersinia-enterocolitica.html"><span class="lib-name" data-acronyms="off"><i>Yersinia enterocolitica</i></span><span class="lib-aka">A Gram-negative rod acquired mainly from undercooked pork; grows at refrigeration temperatures.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="bacteria-gram-positive" data-filter-group>
           <h2 id="bacteria-gram-positive">Bacteria: Gram-positive <span class="lib-count">(11)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="clostridioides difficile c. difficile, including hypervirulent ribotype 027"><a href="/learn/organisms/clostridioides-difficile.html"><span class="lib-name"><i>Clostridioides difficile</i></span><span class="lib-aka">C. difficile, including hypervirulent ribotype 027</span></a></li>
-            <li data-filter-text="clostridium perfringens, c. septicum and c. novyi clostridium perfringens; clostridium septicum; clostridium novyi"><a href="/learn/organisms/histotoxic-clostridia.html"><span class="lib-name"><i>Clostridium perfringens, C. septicum and C. novyi</i></span><span class="lib-aka">Clostridium perfringens; Clostridium septicum; Clostridium novyi</span></a></li>
-            <li data-filter-text="enterococcus faecalis "><a href="/learn/organisms/enterococcus-faecalis.html"><span class="lib-name"><i>Enterococcus faecalis</i></span><span class="lib-aka">A Gram-positive coccus in pairs and short chains from the gut; hardy in the healthcare environment.</span></a></li>
-            <li data-filter-text="enterococcus faecium "><a href="/learn/organisms/enterococcus-faecium.html"><span class="lib-name"><i>Enterococcus faecium</i></span><span class="lib-aka">A gut enterococcus and the species most often resistant to vancomycin (VRE).</span></a></li>
-            <li data-filter-text="group a streptococcus streptococcus pyogenes"><a href="/learn/organisms/group-a-streptococcus.html"><span class="lib-name"><i>Group A Streptococcus</i></span><span class="lib-aka">Streptococcus pyogenes</span></a></li>
-            <li data-filter-text="group b streptococcus streptococcus agalactiae"><a href="/learn/organisms/group-b-streptococcus.html"><span class="lib-name"><i>Group B Streptococcus</i></span><span class="lib-aka">Streptococcus agalactiae</span></a></li>
-            <li data-filter-text="group c and g streptococcus streptococcus dysgalactiae and related species"><a href="/learn/organisms/group-c-g-streptococcus.html"><span class="lib-name"><i>Group C and G Streptococcus</i></span><span class="lib-aka">Streptococcus dysgalactiae and related species</span></a></li>
-            <li data-filter-text="listeria monocytogenes "><a href="/learn/organisms/listeria-monocytogenes.html"><span class="lib-name"><i>Listeria monocytogenes</i></span><span class="lib-aka">A Gram-positive rod from soil and foods such as deli meats, soft cheeses and smoked seafood; grows at refrigeration temperatures.</span></a></li>
-            <li data-filter-text="staphylococcus aureus including methicillin-resistant s. aureus (mrsa)"><a href="/learn/organisms/staphylococcus-aureus.html"><span class="lib-name"><i>Staphylococcus aureus</i></span><span class="lib-aka">including methicillin-resistant S. aureus (MRSA)</span></a></li>
-            <li data-filter-text="staphylococcus saprophyticus "><a href="/learn/organisms/staphylococcus-saprophyticus.html"><span class="lib-name"><i>Staphylococcus saprophyticus</i></span><span class="lib-aka">A coagulase-negative staphylococcus and a common cause of cystitis in young, sexually active women.</span></a></li>
-            <li data-filter-text="streptococcus pneumoniae pneumococcus"><a href="/learn/organisms/streptococcus-pneumoniae.html"><span class="lib-name"><i>Streptococcus pneumoniae</i></span><span class="lib-aka">pneumococcus</span></a></li>
+            <li data-filter-text="clostridioides difficile c. difficile, including hypervirulent ribotype 027"><a href="/learn/organisms/clostridioides-difficile.html"><span class="lib-name" data-acronyms="off"><i>Clostridioides difficile</i></span><span class="lib-aka">A spore-forming anaerobic Gram-positive rod and a major cause of antibiotic-associated and healthcare-associated diarrhea.</span></a></li>
+            <li data-filter-text="clostridium perfringens, c. septicum and c. novyi clostridium perfringens; clostridium septicum; clostridium novyi"><a href="/learn/organisms/histotoxic-clostridia.html"><span class="lib-name" data-acronyms="off"><i>Clostridium perfringens, C. septicum and C. novyi</i></span><span class="lib-aka">A spore-forming anaerobic Gram-positive rod from soil and the gut that produces tissue-damaging toxins.</span></a></li>
+            <li data-filter-text="enterococcus faecalis "><a href="/learn/organisms/enterococcus-faecalis.html"><span class="lib-name" data-acronyms="off"><i>Enterococcus faecalis</i></span><span class="lib-aka">A Gram-positive coccus in pairs and short chains from the gut; hardy in the healthcare environment.</span></a></li>
+            <li data-filter-text="enterococcus faecium "><a href="/learn/organisms/enterococcus-faecium.html"><span class="lib-name" data-acronyms="off"><i>Enterococcus faecium</i></span><span class="lib-aka">A gut enterococcus and the species most often resistant to vancomycin (VRE).</span></a></li>
+            <li data-filter-text="group a streptococcus streptococcus pyogenes"><a href="/learn/organisms/group-a-streptococcus.html"><span class="lib-name" data-acronyms="off"><i>Group A Streptococcus</i></span><span class="lib-aka">A beta-hemolytic Gram-positive coccus in chains; a cause of strep throat, skin and soft-tissue infection and invasive disease.</span></a></li>
+            <li data-filter-text="group b streptococcus streptococcus agalactiae"><a href="/learn/organisms/group-b-streptococcus.html"><span class="lib-name" data-acronyms="off"><i>Group B Streptococcus</i></span><span class="lib-aka">A Gram-positive coccus that colonizes the gut and genital tract.</span></a></li>
+            <li data-filter-text="group c and g streptococcus streptococcus dysgalactiae and related species"><a href="/learn/organisms/group-c-g-streptococcus.html"><span class="lib-name" data-acronyms="off"><i>Group C and G Streptococcus</i></span><span class="lib-aka">A beta-hemolytic streptococcus that causes infections resembling group A Streptococcus, particularly in older adults with other conditions.</span></a></li>
+            <li data-filter-text="listeria monocytogenes "><a href="/learn/organisms/listeria-monocytogenes.html"><span class="lib-name" data-acronyms="off"><i>Listeria monocytogenes</i></span><span class="lib-aka">A Gram-positive rod from soil and foods such as deli meats, soft cheeses and smoked seafood; grows at refrigeration temperatures.</span></a></li>
+            <li data-filter-text="staphylococcus aureus including methicillin-resistant s. aureus (mrsa)"><a href="/learn/organisms/staphylococcus-aureus.html"><span class="lib-name" data-acronyms="off"><i>Staphylococcus aureus</i></span><span class="lib-aka">A Gram-positive coccus in clusters carried on the skin and in the nose of many people, and a major cause of skin, soft-tissue and invasive infection.</span></a></li>
+            <li data-filter-text="staphylococcus saprophyticus "><a href="/learn/organisms/staphylococcus-saprophyticus.html"><span class="lib-name" data-acronyms="off"><i>Staphylococcus saprophyticus</i></span><span class="lib-aka">A coagulase-negative staphylococcus and a common cause of cystitis in young, sexually active women.</span></a></li>
+            <li data-filter-text="streptococcus pneumoniae pneumococcus"><a href="/learn/organisms/streptococcus-pneumoniae.html"><span class="lib-name" data-acronyms="off"><i>Streptococcus pneumoniae</i></span><span class="lib-aka">A Gram-positive lancet-shaped diplococcus colonizing the nasopharynx and the most common bacterial cause of community-acquired pneumonia.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="bacteria-atypical-and-cell-wall-deficient" data-filter-group>
           <h2 id="bacteria-atypical-and-cell-wall-deficient">Bacteria: atypical and cell-wall-deficient <span class="lib-count">(7)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="chlamydia pneumoniae chlamydophila pneumoniae"><a href="/learn/organisms/chlamydia-pneumoniae.html"><span class="lib-name"><i>Chlamydia pneumoniae</i></span><span class="lib-aka">Chlamydophila pneumoniae</span></a></li>
-            <li data-filter-text="chlamydia trachomatis "><a href="/learn/organisms/chlamydia-trachomatis.html"><span class="lib-name"><i>Chlamydia trachomatis</i></span><span class="lib-aka">An obligate intracellular bacterium and the most commonly reported sexually transmitted bacterial infection in the United States.</span></a></li>
-            <li data-filter-text="mycoplasma genitalium "><a href="/learn/organisms/mycoplasma-genitalium.html"><span class="lib-name"><i>Mycoplasma genitalium</i></span><span class="lib-aka">A sexually transmitted bacterium without a cell wall.</span></a></li>
-            <li data-filter-text="mycoplasma hominis "><a href="/learn/organisms/mycoplasma-hominis.html"><span class="lib-name"><i>Mycoplasma hominis</i></span><span class="lib-aka">A genitourinary bacterium without a cell wall that often colonizes without causing disease.</span></a></li>
-            <li data-filter-text="mycoplasma pneumoniae "><a href="/learn/organisms/mycoplasma-pneumoniae.html"><span class="lib-name"><i>Mycoplasma pneumoniae</i></span><span class="lib-aka">A small bacterium without a cell wall that spreads by respiratory droplets, often in households, schools and institutions.</span></a></li>
-            <li data-filter-text="treponema pallidum "><a href="/learn/organisms/treponema-pallidum.html"><span class="lib-name"><i>Treponema pallidum</i></span><span class="lib-aka">A spirochete and the cause of syphilis; it does not grow in routine culture.</span></a></li>
-            <li data-filter-text="ureaplasma urealyticum and ureaplasma parvum ureaplasma urealyticum; ureaplasma parvum"><a href="/learn/organisms/ureaplasma.html"><span class="lib-name"><i>Ureaplasma urealyticum and Ureaplasma parvum</i></span><span class="lib-aka">Ureaplasma urealyticum; Ureaplasma parvum</span></a></li>
+            <li data-filter-text="chlamydia pneumoniae chlamydophila pneumoniae"><a href="/learn/organisms/chlamydia-pneumoniae.html"><span class="lib-name" data-acronyms="off"><i>Chlamydia pneumoniae</i></span><span class="lib-aka">An obligate intracellular bacterium spread by respiratory droplets.</span></a></li>
+            <li data-filter-text="chlamydia trachomatis "><a href="/learn/organisms/chlamydia-trachomatis.html"><span class="lib-name" data-acronyms="off"><i>Chlamydia trachomatis</i></span><span class="lib-aka">An obligate intracellular bacterium and the cause of the most commonly reported bacterial sexually transmitted infection in the United States.</span></a></li>
+            <li data-filter-text="mycoplasma genitalium "><a href="/learn/organisms/mycoplasma-genitalium.html"><span class="lib-name" data-acronyms="off"><i>Mycoplasma genitalium</i></span><span class="lib-aka">A sexually transmitted bacterium without a cell wall.</span></a></li>
+            <li data-filter-text="mycoplasma hominis "><a href="/learn/organisms/mycoplasma-hominis.html"><span class="lib-name" data-acronyms="off"><i>Mycoplasma hominis</i></span><span class="lib-aka">A genitourinary bacterium without a cell wall that often colonizes without causing disease.</span></a></li>
+            <li data-filter-text="mycoplasma pneumoniae "><a href="/learn/organisms/mycoplasma-pneumoniae.html"><span class="lib-name" data-acronyms="off"><i>Mycoplasma pneumoniae</i></span><span class="lib-aka">A small bacterium without a cell wall that spreads by respiratory droplets, often in households, schools and institutions.</span></a></li>
+            <li data-filter-text="treponema pallidum "><a href="/learn/organisms/treponema-pallidum.html"><span class="lib-name" data-acronyms="off"><i>Treponema pallidum</i></span><span class="lib-aka">A spirochete and the cause of syphilis; it does not grow in routine culture.</span></a></li>
+            <li data-filter-text="ureaplasma urealyticum and ureaplasma parvum ureaplasma urealyticum; ureaplasma parvum"><a href="/learn/organisms/ureaplasma.html"><span class="lib-name" data-acronyms="off"><i>Ureaplasma urealyticum and Ureaplasma parvum</i></span><span class="lib-aka">A genitourinary bacterium without a cell wall that commonly colonizes the urogenital tract.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="vaginal-microbiome-bacteria" data-filter-group>
           <h2 id="vaginal-microbiome-bacteria">Vaginal microbiome bacteria <span class="lib-count">(3)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="atopobium vaginae, bvab2 and megasphaera atopobium vaginae (fannyhessea vaginae); bv-associated bacterium 2 (bvab2); megasphaera type 1; megasphaera type 2"><a href="/learn/organisms/bv-associated-bacteria.html"><span class="lib-name"><i>Atopobium vaginae, BVAB2 and Megasphaera</i></span><span class="lib-aka">Atopobium vaginae (Fannyhessea vaginae); BV-associated bacterium 2 (BVAB2); Megasphaera type 1; Megasphaera type 2</span></a></li>
-            <li data-filter-text="gardnerella vaginalis "><a href="/learn/organisms/gardnerella-vaginalis.html"><span class="lib-name"><i>Gardnerella vaginalis</i></span><span class="lib-aka">A Gram-variable coccobacillus that overgrows in bacterial vaginosis when protective lactobacilli decline.</span></a></li>
-            <li data-filter-text="lactobacillus species lactobacillus crispatus; lactobacillus jensenii; lactobacillus iners"><a href="/learn/organisms/lactobacillus.html"><span class="lib-name"><i>Lactobacillus species</i></span><span class="lib-aka">Lactobacillus crispatus; Lactobacillus jensenii; Lactobacillus iners</span></a></li>
+            <li data-filter-text="atopobium vaginae, bvab2 and megasphaera atopobium vaginae (fannyhessea vaginae); bv-associated bacterium 2 (bvab2); megasphaera type 1; megasphaera type 2"><a href="/learn/organisms/bv-associated-bacteria.html"><span class="lib-name" data-acronyms="off"><i>Atopobium vaginae, BVAB2 and Megasphaera</i></span><span class="lib-aka">An anaerobic bacterium strongly associated with bacterial vaginosis.</span></a></li>
+            <li data-filter-text="gardnerella vaginalis "><a href="/learn/organisms/gardnerella-vaginalis.html"><span class="lib-name" data-acronyms="off"><i>Gardnerella vaginalis</i></span><span class="lib-aka">A Gram-variable coccobacillus that overgrows in bacterial vaginosis when protective lactobacilli decline.</span></a></li>
+            <li data-filter-text="lactobacillus species lactobacillus crispatus; lactobacillus jensenii; lactobacillus iners"><a href="/learn/organisms/lactobacillus.html"><span class="lib-name" data-acronyms="off"><i>Lactobacillus species</i></span><span class="lib-aka">A Gram-positive rod of the vaginal microbiome; L. crispatus and L. jensenii are protective, while L. iners is linked to shifts toward bacterial vaginosis.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="viruses-respiratory" data-filter-group>
           <h2 id="viruses-respiratory">Viruses: respiratory <span class="lib-count">(12)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="adenovirus adenovirus (respiratory and gastrointestinal panels)"><a href="/learn/organisms/adenovirus.html"><span class="lib-name"><i>Adenovirus</i></span><span class="lib-aka">Adenovirus (respiratory and gastrointestinal panels)</span></a></li>
-            <li data-filter-text="enteroviruses enterovirus (respiratory panel); enterovirus pan (gastrointestinal panel)"><a href="/learn/organisms/enterovirus.html"><span class="lib-name"><i>Enteroviruses</i></span><span class="lib-aka">Enterovirus (respiratory panel); Enterovirus PAN (gastrointestinal panel)</span></a></li>
-            <li data-filter-text="human bocavirus "><a href="/learn/organisms/bocavirus.html"><span class="lib-name"><i>Human bocavirus</i></span><span class="lib-aka">A small DNA virus found in respiratory specimens from young children, often alongside other viruses.</span></a></li>
-            <li data-filter-text="human metapneumovirus metapneumovirus a and b"><a href="/learn/organisms/human-metapneumovirus.html"><span class="lib-name"><i>Human metapneumovirus</i></span><span class="lib-aka">Metapneumovirus A and B</span></a></li>
-            <li data-filter-text="human parainfluenza viruses parainfluenza virus 1; 2; 3; 4"><a href="/learn/organisms/parainfluenza.html"><span class="lib-name"><i>Human parainfluenza viruses</i></span><span class="lib-aka">Parainfluenza virus 1; 2; 3; 4</span></a></li>
-            <li data-filter-text="human parechovirus parechovirus (respiratory panel); human parechovirus (gastrointestinal panel)"><a href="/learn/organisms/parechovirus.html"><span class="lib-name"><i>Human parechovirus</i></span><span class="lib-aka">Parechovirus (respiratory panel); Human parechovirus (gastrointestinal panel)</span></a></li>
-            <li data-filter-text="influenza viruses influenza a (including subtypes h1n1-2009 and h3); influenza b; influenza c"><a href="/learn/organisms/influenza.html"><span class="lib-name"><i>Influenza viruses</i></span><span class="lib-aka">Influenza A (including subtypes H1N1-2009 and H3); Influenza B; Influenza C</span></a></li>
-            <li data-filter-text="respiratory syncytial virus (rsv) rsv a; rsv b"><a href="/learn/organisms/rsv.html"><span class="lib-name"><i>Respiratory syncytial virus (RSV)</i></span><span class="lib-aka">RSV A; RSV B</span></a></li>
-            <li data-filter-text="rhinovirus "><a href="/learn/organisms/rhinovirus.html"><span class="lib-name"><i>Rhinovirus</i></span><span class="lib-aka">The most frequent cause of the common cold; closely related to enteroviruses.</span></a></li>
-            <li data-filter-text="sars-cov and mers-cov sars (sars-cov-1); mers (middle east respiratory syndrome coronavirus)"><a href="/learn/organisms/sars-mers.html"><span class="lib-name"><i>SARS-CoV and MERS-CoV</i></span><span class="lib-aka">SARS (SARS-CoV-1); MERS (Middle East respiratory syndrome coronavirus)</span></a></li>
-            <li data-filter-text="sars-cov-2 (covid-19) "><a href="/learn/organisms/sars-cov-2.html"><span class="lib-name"><i>SARS-CoV-2 (COVID-19)</i></span><span class="lib-aka">The coronavirus that causes COVID-19.</span></a></li>
-            <li data-filter-text="seasonal human coronaviruses coronavirus 229e; coronavirus hku1; coronavirus nl63; coronavirus oc43"><a href="/learn/organisms/seasonal-coronaviruses.html"><span class="lib-name"><i>Seasonal human coronaviruses</i></span><span class="lib-aka">Coronavirus 229E; Coronavirus HKU1; Coronavirus NL63; Coronavirus OC43</span></a></li>
+            <li data-filter-text="adenovirus adenovirus (respiratory and gastrointestinal panels)"><a href="/learn/organisms/adenovirus.html"><span class="lib-name" data-acronyms="off"><i>Adenovirus</i></span><span class="lib-aka">A virus with many types: some cause respiratory illness and conjunctivitis, and enteric types 40 and 41 cause gastroenteritis in children.</span></a></li>
+            <li data-filter-text="enteroviruses enterovirus (respiratory panel); enterovirus pan (gastrointestinal panel; detects enteroviruses as a group)"><a href="/learn/organisms/enterovirus.html"><span class="lib-name" data-acronyms="off"><i>Enteroviruses</i></span><span class="lib-aka">One of a large group of ribonucleic acid (RNA) viruses spread by the fecal-oral and respiratory routes, with a summer and fall peak.</span></a></li>
+            <li data-filter-text="human bocavirus "><a href="/learn/organisms/bocavirus.html"><span class="lib-name" data-acronyms="off"><i>Human bocavirus</i></span><span class="lib-aka">A small deoxyribonucleic acid (DNA) virus found in respiratory specimens from young children, often alongside other viruses.</span></a></li>
+            <li data-filter-text="human metapneumovirus metapneumovirus a and b"><a href="/learn/organisms/human-metapneumovirus.html"><span class="lib-name" data-acronyms="off"><i>Human metapneumovirus</i></span><span class="lib-aka">An RNA virus related to respiratory syncytial virus (RSV), causing late-winter and spring respiratory illness.</span></a></li>
+            <li data-filter-text="human parainfluenza viruses parainfluenza virus types 1, 2, 3 and 4"><a href="/learn/organisms/parainfluenza.html"><span class="lib-name" data-acronyms="off"><i>Human parainfluenza viruses</i></span><span class="lib-aka">An RNA virus causing respiratory infection; types 1 and 2 cause croup in children, and type 3 causes bronchiolitis and pneumonia.</span></a></li>
+            <li data-filter-text="human parechovirus parechovirus (respiratory panel); human parechovirus (gastrointestinal panel)"><a href="/learn/organisms/parechovirus.html"><span class="lib-name" data-acronyms="off"><i>Human parechovirus</i></span><span class="lib-aka">An RNA virus related to enteroviruses; important in young infants.</span></a></li>
+            <li data-filter-text="influenza viruses influenza a (including subtypes h1n1-2009 and h3); influenza b; influenza c"><a href="/learn/organisms/influenza.html"><span class="lib-name" data-acronyms="off"><i>Influenza viruses</i></span><span class="lib-aka">An RNA virus; influenza A and B cause seasonal epidemics, while influenza C usually causes mild infection.</span></a></li>
+            <li data-filter-text="respiratory syncytial virus (rsv) rsv a; rsv b"><a href="/learn/organisms/rsv.html"><span class="lib-name" data-acronyms="off"><i>Respiratory syncytial virus (RSV)</i></span><span class="lib-aka">An RNA virus causing winter respiratory illness; serious in infants, older adults and people with heart or lung disease.</span></a></li>
+            <li data-filter-text="rhinovirus "><a href="/learn/organisms/rhinovirus.html"><span class="lib-name" data-acronyms="off"><i>Rhinovirus</i></span><span class="lib-aka">The most frequent cause of the common cold; closely related to enteroviruses.</span></a></li>
+            <li data-filter-text="sars-cov and mers-cov severe acute respiratory syndrome coronavirus 1 (sars-cov-1); middle east respiratory syndrome coronavirus (mers-cov)"><a href="/learn/organisms/sars-mers.html"><span class="lib-name" data-acronyms="off"><i>SARS-CoV and MERS-CoV</i></span><span class="lib-aka">A coronavirus behind severe outbreaks: severe acute respiratory syndrome (SARS) in 2003 and, since 2012, Middle East respiratory syndrome (MERS).</span></a></li>
+            <li data-filter-text="sars-cov-2 "><a href="/learn/organisms/sars-cov-2.html"><span class="lib-name" data-acronyms="off"><i>SARS-CoV-2</i></span><span class="lib-aka">The coronavirus that causes coronavirus disease 2019 (COVID-19).</span></a></li>
+            <li data-filter-text="seasonal human coronaviruses coronavirus 229e; coronavirus hku1; coronavirus nl63; coronavirus oc43"><a href="/learn/organisms/seasonal-coronaviruses.html"><span class="lib-name" data-acronyms="off"><i>Seasonal human coronaviruses</i></span><span class="lib-aka">A common coronavirus that circulates every year; distinct from severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2).</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="viruses-gastrointestinal" data-filter-group>
           <h2 id="viruses-gastrointestinal">Viruses: gastrointestinal <span class="lib-count">(4)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="astrovirus "><a href="/learn/organisms/astrovirus.html"><span class="lib-name"><i>Astrovirus</i></span><span class="lib-aka">An RNA virus causing mild gastroenteritis, mostly in children and older adults.</span></a></li>
-            <li data-filter-text="norovirus norovirus gi; norovirus gii"><a href="/learn/organisms/norovirus.html"><span class="lib-name"><i>Norovirus</i></span><span class="lib-aka">Norovirus GI; Norovirus GII</span></a></li>
-            <li data-filter-text="rotavirus rotavirus a; rotavirus b/c"><a href="/learn/organisms/rotavirus.html"><span class="lib-name"><i>Rotavirus</i></span><span class="lib-aka">Rotavirus A; Rotavirus B/C</span></a></li>
-            <li data-filter-text="sapovirus "><a href="/learn/organisms/sapovirus.html"><span class="lib-name"><i>Sapovirus</i></span><span class="lib-aka">A calicivirus related to norovirus that causes gastroenteritis and outbreaks.</span></a></li>
+            <li data-filter-text="astrovirus "><a href="/learn/organisms/astrovirus.html"><span class="lib-name" data-acronyms="off"><i>Astrovirus</i></span><span class="lib-aka">An RNA virus causing mild gastroenteritis, mostly in children and older adults.</span></a></li>
+            <li data-filter-text="norovirus norovirus gi; norovirus gii"><a href="/learn/organisms/norovirus.html"><span class="lib-name" data-acronyms="off"><i>Norovirus</i></span><span class="lib-aka">The most common cause of acute gastroenteritis and of outbreaks in long-term care, cruise ships and restaurants.</span></a></li>
+            <li data-filter-text="rotavirus rotavirus a; rotavirus b/c"><a href="/learn/organisms/rotavirus.html"><span class="lib-name" data-acronyms="off"><i>Rotavirus</i></span><span class="lib-aka">A major cause of severe diarrhea in young children worldwide; vaccines against rotavirus A have greatly reduced severe disease.</span></a></li>
+            <li data-filter-text="sapovirus "><a href="/learn/organisms/sapovirus.html"><span class="lib-name" data-acronyms="off"><i>Sapovirus</i></span><span class="lib-aka">A calicivirus related to norovirus that causes gastroenteritis and outbreaks.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="viruses-skin-eye-and-genital" data-filter-group>
           <h2 id="viruses-skin-eye-and-genital">Viruses: skin, eye and genital <span class="lib-count">(3)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="herpes simplex virus (hsv-1 and hsv-2) hsv-1; hsv-2"><a href="/learn/organisms/herpes-simplex.html"><span class="lib-name"><i>Herpes simplex virus (HSV-1 and HSV-2)</i></span><span class="lib-aka">HSV-1; HSV-2</span></a></li>
-            <li data-filter-text="human papillomavirus types 16 and 18 hpv-16; hpv-18"><a href="/learn/organisms/hpv.html"><span class="lib-name"><i>Human papillomavirus types 16 and 18</i></span><span class="lib-aka">HPV-16; HPV-18</span></a></li>
-            <li data-filter-text="varicella-zoster virus (hhv-3) "><a href="/learn/organisms/varicella-zoster.html"><span class="lib-name"><i>Varicella-zoster virus (HHV-3)</i></span><span class="lib-aka">The DNA virus that causes chickenpox and later reactivates as shingles (herpes zoster).</span></a></li>
+            <li data-filter-text="herpes simplex virus (hsv-1 and hsv-2) hsv-1; hsv-2"><a href="/learn/organisms/herpes-simplex.html"><span class="lib-name" data-acronyms="off"><i>Herpes simplex virus (HSV-1 and HSV-2)</i></span><span class="lib-aka">A virus that establishes lifelong latent infection and reactivates, causing oral and genital herpes.</span></a></li>
+            <li data-filter-text="human papillomavirus types 16 and 18 hpv-16; hpv-18"><a href="/learn/organisms/hpv.html"><span class="lib-name" data-acronyms="off"><i>Human papillomavirus types 16 and 18</i></span><span class="lib-aka">A high-risk virus type; types 16 and 18 cause most cervical cancers and many anal and oropharyngeal cancers.</span></a></li>
+            <li data-filter-text="varicella-zoster virus (human herpesvirus 3, hhv-3) "><a href="/learn/organisms/varicella-zoster.html"><span class="lib-name" data-acronyms="off"><i>Varicella-zoster virus (human herpesvirus 3, HHV-3)</i></span><span class="lib-aka">The DNA virus that causes chickenpox and later reactivates as shingles (herpes zoster).</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="fungi-yeasts" data-filter-group>
           <h2 id="fungi-yeasts">Fungi: yeasts <span class="lib-count">(3)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="candida albicans "><a href="/learn/organisms/candida-albicans.html"><span class="lib-name"><i>Candida albicans</i></span><span class="lib-aka">The most common Candida yeast, part of normal oral, gut and vaginal flora.</span></a></li>
-            <li data-filter-text="candida auris "><a href="/learn/organisms/candida-auris.html"><span class="lib-name"><i>Candida auris</i></span><span class="lib-aka">An emerging, often multidrug-resistant yeast that spreads in healthcare facilities, particularly long-term and ventilator care.</span></a></li>
-            <li data-filter-text="other candida species candida glabrata (nakaseomyces glabratus); candida krusei (pichia kudriavzevii); candida parapsilosis; candida tropicalis; candida lusitaniae (clavispora lusitaniae)"><a href="/learn/organisms/other-candida.html"><span class="lib-name"><i>Other Candida species</i></span><span class="lib-aka">Candida glabrata (Nakaseomyces glabratus); Candida krusei (Pichia kudriavzevii); Candida parapsilosis; Candida tropicalis; Candida lusitaniae (Clavispora lusitaniae)</span></a></li>
+            <li data-filter-text="candida albicans "><a href="/learn/organisms/candida-albicans.html"><span class="lib-name" data-acronyms="off"><i>Candida albicans</i></span><span class="lib-aka">The most common Candida yeast, part of normal oral, gut and vaginal flora.</span></a></li>
+            <li data-filter-text="candida auris "><a href="/learn/organisms/candida-auris.html"><span class="lib-name" data-acronyms="off"><i>Candida auris</i></span><span class="lib-aka">An emerging, often multidrug-resistant yeast that spreads in healthcare facilities, particularly long-term and ventilator care.</span></a></li>
+            <li data-filter-text="other candida species candida glabrata (nakaseomyces glabratus); candida krusei (pichia kudriavzevii); candida parapsilosis; candida tropicalis; candida lusitaniae (clavispora lusitaniae)"><a href="/learn/organisms/other-candida.html"><span class="lib-name" data-acronyms="off"><i>Other Candida species</i></span><span class="lib-aka">A non-albicans Candida yeast with species-specific antifungal susceptibility; increasingly common in vaginal, urinary and invasive infection.</span></a></li>
           </ul>
         </section>
-        <section class="lib-group" aria-labelledby="fungi-molds-and-dermatophytes" data-filter-group>
-          <h2 id="fungi-molds-and-dermatophytes">Fungi: molds and dermatophytes <span class="lib-count">(5)</span></h2>
+        <section class="lib-group" aria-labelledby="fungi-molds-dermatophytes-and-pneumocystis" data-filter-group>
+          <h2 id="fungi-molds-dermatophytes-and-pneumocystis">Fungi: molds, dermatophytes and Pneumocystis <span class="lib-count">(5)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="alternaria, acremonium and neofusicoccum alternaria alternata; acremonium strictum; neofusicoccum mangiferae"><a href="/learn/organisms/non-dermatophyte-molds.html"><span class="lib-name"><i>Alternaria, Acremonium and Neofusicoccum</i></span><span class="lib-aka">Alternaria alternata; Acremonium strictum; Neofusicoccum mangiferae</span></a></li>
-            <li data-filter-text="aspergillus terreus and aspergillus niger aspergillus terreus; aspergillus niger"><a href="/learn/organisms/aspergillus.html"><span class="lib-name"><i>Aspergillus terreus and Aspergillus niger</i></span><span class="lib-aka">Aspergillus terreus; Aspergillus niger</span></a></li>
-            <li data-filter-text="dermatophytes trichophyton spp. (including t. rubrum); trichophyton interdigitale; epidermophyton floccosum; microsporum audouinii; microsporum canis"><a href="/learn/organisms/dermatophytes.html"><span class="lib-name"><i>Dermatophytes</i></span><span class="lib-aka">Trichophyton spp. (including T. rubrum); Trichophyton interdigitale; Epidermophyton floccosum; Microsporum audouinii; Microsporum canis</span></a></li>
-            <li data-filter-text="fusarium solani "><a href="/learn/organisms/fusarium-solani.html"><span class="lib-name"><i>Fusarium solani</i></span><span class="lib-aka">An environmental mold and a cause of non-dermatophyte nail and eye infection.</span></a></li>
-            <li data-filter-text="pneumocystis jirovecii "><a href="/learn/organisms/pneumocystis-jirovecii.html"><span class="lib-name"><i>Pneumocystis jirovecii</i></span><span class="lib-aka">A fungus that causes pneumonia in people with weakened immunity (HIV with low CD4 counts, transplant, steroid or chemotherapy treatment).</span></a></li>
+            <li data-filter-text="alternaria, acremonium and neofusicoccum alternaria alternata; acremonium strictum; neofusicoccum mangiferae"><a href="/learn/organisms/non-dermatophyte-molds.html"><span class="lib-name" data-acronyms="off"><i>Alternaria, Acremonium and Neofusicoccum</i></span><span class="lib-aka">An environmental mold occasionally responsible for nail and skin infection; also a frequent contaminant, so repeat detection supports a causal role.</span></a></li>
+            <li data-filter-text="aspergillus terreus and aspergillus niger aspergillus terreus; aspergillus niger"><a href="/learn/organisms/aspergillus.html"><span class="lib-name" data-acronyms="off"><i>Aspergillus terreus and Aspergillus niger</i></span><span class="lib-aka">An environmental mold from soil and decaying matter that can infect nails and the ear and, with weakened immunity, the lungs.</span></a></li>
+            <li data-filter-text="dermatophytes trichophyton spp. (including t. rubrum); trichophyton interdigitale; epidermophyton floccosum; microsporum audouinii; microsporum canis"><a href="/learn/organisms/dermatophytes.html"><span class="lib-name" data-acronyms="off"><i>Dermatophytes</i></span><span class="lib-aka">A keratin-infecting fungus; dermatophytes as a group are the main cause of onychomycosis and tinea.</span></a></li>
+            <li data-filter-text="fusarium solani "><a href="/learn/organisms/fusarium-solani.html"><span class="lib-name" data-acronyms="off"><i>Fusarium solani</i></span><span class="lib-aka">An environmental mold and a cause of non-dermatophyte nail and eye infection.</span></a></li>
+            <li data-filter-text="pneumocystis jirovecii "><a href="/learn/organisms/pneumocystis-jirovecii.html"><span class="lib-name" data-acronyms="off"><i>Pneumocystis jirovecii</i></span><span class="lib-aka">A fungus that causes pneumonia in people with weakened immunity, such as people with human immunodeficiency virus (HIV) and a low CD4 count (a measure of helper T cells, a type of immune cell), transplant recipients and people on steroids or chemotherapy.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="parasites" data-filter-group>
           <h2 id="parasites">Parasites <span class="lib-count">(6)</span></h2>
           <ul class="lib-list">
-            <li data-filter-text="cryptosporidium cryptosporidium spp."><a href="/learn/organisms/cryptosporidium.html"><span class="lib-name"><i>Cryptosporidium</i></span><span class="lib-aka">Cryptosporidium spp.</span></a></li>
-            <li data-filter-text="cyclospora cayetanensis "><a href="/learn/organisms/cyclospora.html"><span class="lib-name"><i>Cyclospora cayetanensis</i></span><span class="lib-aka">A protozoan parasite associated with imported fresh produce and summer outbreaks.</span></a></li>
-            <li data-filter-text="dientamoeba fragilis "><a href="/learn/organisms/dientamoeba-fragilis.html"><span class="lib-name"><i>Dientamoeba fragilis</i></span><span class="lib-aka">An intestinal protozoan whose role in disease is debated; often found without symptoms.</span></a></li>
-            <li data-filter-text="entamoeba histolytica "><a href="/learn/organisms/entamoeba-histolytica.html"><span class="lib-name"><i>Entamoeba histolytica</i></span><span class="lib-aka">A protozoan parasite acquired from contaminated food and water, mainly in travelers and immigrants from endemic areas.</span></a></li>
-            <li data-filter-text="giardia duodenalis giardia lamblia"><a href="/learn/organisms/giardia.html"><span class="lib-name"><i>Giardia duodenalis</i></span><span class="lib-aka">Giardia lamblia</span></a></li>
-            <li data-filter-text="trichomonas vaginalis "><a href="/learn/organisms/trichomonas-vaginalis.html"><span class="lib-name"><i>Trichomonas vaginalis</i></span><span class="lib-aka">A sexually transmitted protozoan parasite and the most common non-viral sexually transmitted infection.</span></a></li>
+            <li data-filter-text="cryptosporidium cryptosporidium spp."><a href="/learn/organisms/cryptosporidium.html"><span class="lib-name" data-acronyms="off"><i>Cryptosporidium</i></span><span class="lib-aka">A chlorine-tolerant protozoan parasite spread through recreational water, contact with animals and from person to person.</span></a></li>
+            <li data-filter-text="cyclospora cayetanensis "><a href="/learn/organisms/cyclospora.html"><span class="lib-name" data-acronyms="off"><i>Cyclospora cayetanensis</i></span><span class="lib-aka">A protozoan parasite associated with imported fresh produce and summer outbreaks.</span></a></li>
+            <li data-filter-text="dientamoeba fragilis "><a href="/learn/organisms/dientamoeba-fragilis.html"><span class="lib-name" data-acronyms="off"><i>Dientamoeba fragilis</i></span><span class="lib-aka">An intestinal protozoan whose role in disease is debated; often found without symptoms.</span></a></li>
+            <li data-filter-text="entamoeba histolytica "><a href="/learn/organisms/entamoeba-histolytica.html"><span class="lib-name" data-acronyms="off"><i>Entamoeba histolytica</i></span><span class="lib-aka">A protozoan parasite acquired from contaminated food and water, mainly in travelers and immigrants from endemic areas.</span></a></li>
+            <li data-filter-text="giardia duodenalis giardia lamblia"><a href="/learn/organisms/giardia.html"><span class="lib-name" data-acronyms="off"><i>Giardia duodenalis</i></span><span class="lib-aka">A protozoan parasite spread through contaminated water and from person to person, including in child care settings.</span></a></li>
+            <li data-filter-text="trichomonas vaginalis "><a href="/learn/organisms/trichomonas-vaginalis.html"><span class="lib-name" data-acronyms="off"><i>Trichomonas vaginalis</i></span><span class="lib-aka">A sexually transmitted protozoan parasite and the cause of the most common non-viral sexually transmitted infection.</span></a></li>
           </ul>
         </section>
         <section class="lib-group" aria-labelledby="a-z">
@@ -224,7 +224,7 @@
             <li><a href="/learn/organisms/non-dermatophyte-molds.html"><i>Alternaria, Acremonium and Neofusicoccum</i></a></li>
             <li><a href="/learn/organisms/aspergillus.html"><i>Aspergillus terreus and Aspergillus niger</i></a></li>
             <li><a href="/learn/organisms/astrovirus.html"><i>Astrovirus</i></a></li>
-            <li><a href="/learn/organisms/bv-associated-bacteria.html"><i>Atopobium vaginae, BVAB2 and Megasphaera</i></a></li>
+            <li><a href="/learn/organisms/bv-associated-bacteria.html"><i>Atopobium vaginae, bacterial vaginosis-associated bacterium 2 (BVAB2) and Megasphaera</i></a></li>
             <li><a href="/learn/organisms/bacteroides-fragilis.html"><i>Bacteroides fragilis</i></a></li>
             <li><a href="/learn/organisms/bordetella.html"><i>Bordetella species</i></a></li>
             <li><a href="/learn/organisms/campylobacter.html"><i>Campylobacter</i></a></li>
@@ -288,8 +288,8 @@
             <li><a href="/learn/organisms/rotavirus.html"><i>Rotavirus</i></a></li>
             <li><a href="/learn/organisms/salmonella.html"><i>Salmonella</i></a></li>
             <li><a href="/learn/organisms/sapovirus.html"><i>Sapovirus</i></a></li>
-            <li><a href="/learn/organisms/sars-mers.html"><i>SARS-CoV and MERS-CoV</i></a></li>
-            <li><a href="/learn/organisms/sars-cov-2.html"><i>SARS-CoV-2 (COVID-19)</i></a></li>
+            <li><a href="/learn/organisms/sars-mers.html"><i>Severe acute respiratory syndrome coronavirus (SARS-CoV) and Middle East respiratory syndrome coronavirus (MERS-CoV)</i></a></li>
+            <li><a href="/learn/organisms/sars-cov-2.html"><i>SARS-CoV-2</i></a></li>
             <li><a href="/learn/organisms/seasonal-coronaviruses.html"><i>Seasonal human coronaviruses</i></a></li>
             <li><a href="/learn/organisms/serratia-marcescens.html"><i>Serratia marcescens</i></a></li>
             <li><a href="/learn/organisms/shigella.html"><i>Shigella</i></a></li>
@@ -299,7 +299,7 @@
             <li><a href="/learn/organisms/treponema-pallidum.html"><i>Treponema pallidum</i></a></li>
             <li><a href="/learn/organisms/trichomonas-vaginalis.html"><i>Trichomonas vaginalis</i></a></li>
             <li><a href="/learn/organisms/ureaplasma.html"><i>Ureaplasma urealyticum and Ureaplasma parvum</i></a></li>
-            <li><a href="/learn/organisms/varicella-zoster.html"><i>Varicella-zoster virus (HHV-3)</i></a></li>
+            <li><a href="/learn/organisms/varicella-zoster.html"><i>Varicella-zoster virus (human herpesvirus 3, HHV-3)</i></a></li>
             <li><a href="/learn/organisms/vibrio.html"><i>Vibrio species</i></a></li>
             <li><a href="/learn/organisms/yersinia-enterocolitica.html"><i>Yersinia enterocolitica</i></a></li>
           </ul>
@@ -314,7 +314,7 @@
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
       <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
-      <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
+      <p>Review the panel that fits your patients, its specimen requirements and how results and billing work.</p>
       <div class="button-row">
         <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
         <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
@@ -329,23 +329,31 @@
       <div class="site-footer__grid">
         <div>
           <a class="brand" href="/">Innovex<span>Lab</span></a>
-          <p>CLIA-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
-          <p class="site-footer__ids">CLIA #10D2306552 &middot; COLA ID 33609</p>
+          <p><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p class="site-footer__ids"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr> #10D2306552 &middot; <abbr title="COLA, a national organization that evaluates clinical laboratories">COLA</abbr> ID 33609</p>
           <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
         </div>
-        <nav aria-label="Footer">
-          <h2>Site</h2>
-          <ul>
-            <li><a href="/testing.html">Testing</a></li>
-            <li><a href="/how-to-start.html">Getting Started</a></li>
-            <li><a href="/learn/patients.html">For Patients</a></li>
-            <li><a href="/learn/infections.html">Clinical overview</a></li>
-            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
-            <li><a href="/learn/organisms/index.html">Organism library</a></li>
-            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div>
+            <h2>Laboratory</h2>
+            <ul>
+              <li><a href="/testing.html">Testing services</a></li>
+              <li><a href="/testing/panels/index.html">Panels and targets</a></li>
+              <li><a href="/how-to-start.html">Getting started</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="/learn/infections.html">Clinical overview</a></li>
+              <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+              <li><a href="/learn/organisms/index.html">Organism library</a></li>
+              <li><a href="/learn/patients.html">For patients</a></li>
+              <li><a href="/learn/sources.html">Sources and disclaimer</a></li>
+            </ul>
+          </div>
         </nav>
         <div>
           <h2>Existing clients</h2>
