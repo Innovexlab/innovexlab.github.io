@@ -86,7 +86,7 @@ SKIP_DIRS = {".git", ".github", "partials", "tools", "docs", "tests", "node_modu
 # new policy to paste into every page.
 #   form-action 'self' — FormSubmit may redirect back to /thankyou.html; Chrome applies
 #                        form-action to redirects too.
-CSP_TEMPLATE = ("default-src 'none'; script-src 'self' {inline}; style-src 'self'; img-src 'self'; "
+CSP_TEMPLATE = ("default-src 'none'; script-src 'self' {inline}; style-src 'self'; img-src 'self'; media-src 'self'; "
                 "font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; "
                 "object-src 'none'")
 CSP_FORBIDDEN = ("'unsafe-inline'", "'unsafe-eval'", "'unsafe-hashes'", " data:", " *", "http:")
@@ -97,7 +97,8 @@ UNSAFE_JS = re.compile(r"\.innerHTML\s*=(?!\s*\"\"\s*;)|\.outerHTML\s*=|insertAd
                        r"\beval\s*\(|new\s+Function\s*\(|set(?:Timeout|Interval)\s*\(\s*[\"'`]|"
                        r"\.(?:href|src|action)\s*=(?!=)(?!\s*\"#\")|location(?:\.href)?\s*=(?!=)|\.srcdoc\b")
 # Never tracked in this PUBLIC repo (backups, exports, secrets, private project records).
-FORBIDDEN_TRACKED = re.compile(r"\.(bundle|env|pem|key|p12|pfx|csv|xlsx?|sqlite|db|zip|tgz|mp4|mov)$|"
+# Video is allowed only as published site media under assets/video/ (owner decision 2026-11-25).
+FORBIDDEN_TRACKED = re.compile(r"^(?!assets/video/[a-z0-9-]+\.mp4$).*\.(bundle|env|pem|key|p12|pfx|csv|xlsx?|sqlite|db|zip|tgz|mp4|mov)$|"
                                r"(^|/)\.env|(^|/)(PROJECT_STATE|SESSION_LOG|TASKS|DECISIONS|FACT_REGISTER|"
                                r"REPO_MAP|LAUNCH_CHECKLIST|FIELD_LINKS|OWNER_REVIEW_PACKET)\b", re.I)
 # Tracked paths GitHub Pages SHOULD publish. Everything else must be in _config.yml exclude
@@ -167,6 +168,18 @@ CLAIM_RULES: list[tuple[str, str]] = [
      r"Staph\w*|Strep\w*|Proteus|\bmecA\b|\bvanA\b|\bKPC\b",
      "target organisms/markers need the signed validated menu"),
 ]
+
+# Exact lines the owner approved for publication although they match a CLAIM_RULES gate.
+# Each entry is one sentence of the home-page video narration (captions and transcript),
+# approved as cut by the owner on 2026-11-25 (private decision register). Only these exact
+# sentences are exempt, and only on the listed page; the rules still apply to all other copy.
+OWNER_APPROVED_LINES: dict[str, tuple[str, ...]] = {
+    "index.html": (
+        "Rapid results equates to a rapid response.",
+        "Innovex offers brief-based specimen collection.",
+        "Onboarding and initial collection supplies are provided at no cost.",
+    ),
+}
 
 # Text that mentions payer billing must also include the Part A exception.
 BILLING_MENTION_RE = re.compile(r"Medicare|bill the payer|insured patients", re.I)
@@ -460,11 +473,14 @@ def main() -> int:
                     fail(f"{name}: education/panel page is missing the medical disclaimer text {mark!r}")
             if SOURCES_REQUIRED.match(name) and not re.search(r'<h2 id="[a-z-]*sources-heading">Sources</h2>', raw):
                 fail(f"{name}: organism and panel pages must list their Sources")
+        claim_text = visible
+        for line in OWNER_APPROVED_LINES.get(name, ()):
+            claim_text = claim_text.replace(line, " ")
         for pattern, reason in CLAIM_RULES:
             if education and reason == MENU_RULE_REASON:
                 continue   # organism/gene names allowed in general education (notice required above)
-            for m in re.finditer(pattern, visible, re.I):
-                snippet = visible[max(0, m.start() - 40): m.end() + 40].strip()
+            for m in re.finditer(pattern, claim_text, re.I):
+                snippet = claim_text[max(0, m.start() - 40): m.end() + 40].strip()
                 fail(f"{name}: claim rule — {reason}: “…{snippet}…”")
         for clia in set(re.findall(r"\b\d{2}D\d{7}\b", visible)):
             if clia != CLIA_NUMBER:
@@ -629,6 +645,23 @@ def main() -> int:
             fail("site-config.js: portalUrl must be empty or a plain https:// URL (host, no credentials, "
                  "no spaces or quotes)")
 
+    # 10. acronyms: each spelled out at its first use in a page's <main> (tools/content/acronyms.py)
+    sys.path.insert(0, str(ROOT / "tools"))
+    from expand_acronyms import expand_page, unknown_caps
+    for p in pages:
+        name = p.relative_to(ROOT).as_posix()
+        s = p.read_text(encoding="utf-8")
+        new, ex = expand_page(s)
+        if new != s:
+            fail(f"{name}: acronym not spelled out at first use ({', '.join(c.split(' ->')[0] for c in ex.changes)}); "
+                 "run python tools/expand_acronyms.py (or rebuild generated pages)")
+        for u in ex.unexplained:
+            fail(f"{name}: acronym needs wording by hand: {u}")
+        unknown = unknown_caps(s)
+        if unknown:
+            fail(f"{name}: abbreviation(s) not in tools/content/acronyms.py: {', '.join(unknown)} "
+                 "(add an expansion, or list it in NOT_ACRONYMS if it is a name or code)")
+
     # The spam-trap container must really be moved off-screen by the CSS.
     css = (ROOT / "assets" / "css" / "site.css").read_text(encoding="utf-8")
     if not re.search(r"\.hp-field\s*\{[^}]*(left:\s*-\d{3,}px|display:\s*none)", css):
@@ -645,7 +678,7 @@ def main() -> int:
             print("  - " + f)
         return 1
     print(f"OK — {len(pages)} pages checked: partials, links, metadata, headings, sitemap, claims, "
-          f"billing caveat, form, portal, ids/a11y, security policy.")
+          f"billing caveat, form, portal, ids/a11y, security policy, acronyms.")
     return 0
 
 

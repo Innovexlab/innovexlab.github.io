@@ -31,6 +31,19 @@ same thing, rewrite it.
 Short sentences, concrete nouns, one argument per page. Warm and confident; don't hedge every
 sentence. American English. No exclamation marks in clinical copy.
 
+**Acronyms.** Spell out every acronym at its first use on each page, as "urinary tract infection
+(UTI)", then use the short form. Glossary: `tools/content/acronyms.py`. Generated pages are expanded
+automatically by `tools/build_library.py`; after editing a hand-written page, run
+`python tools/expand_acronyms.py`. Where the automatic wording would read badly (an acronym already
+inside parentheses, or followed by one), the tool asks for hand wording instead. Headings and column
+headers keep the short form; the text below them carries the expansion. In compact page chrome
+(header, footer, credentials band) use `<abbr title="…">` and spell the term out in nearby text.
+`tools/check_site.py` fails on an unexpanded first use or on an all-caps abbreviation missing from
+the glossary.
+
+**Photographs.** Decorative photos use `alt=""` and are credited on `learn/sources.html`. Stock or
+agency photos must not be presented as InnovexLab's facility, staff or equipment.
+
 ## What needs evidence before it can appear
 
 The following require **documented evidence and a named reviewer's approval** before they are
@@ -128,6 +141,15 @@ sign (for example, a change in mental status) as the reason to test. `CLAIM_RULE
 2. In one pull request: update the copy, update `CLAIM_RULES` in `tools/check_site.py` if a pattern
    becomes allowed, and note the approval in the PR description.
 3. The reviewer named above approves the PR.
+
+### Owner-approved exact lines
+
+When the owner approves a specific sentence for publication although it matches a gate (without
+the evidence above), list that exact sentence, per page, in `OWNER_APPROVED_LINES` in
+`tools/check_site.py` and record the decision in the private decision register. The rule itself
+stays in force for all other copy. Current entries: the three home-page video narration lines on
+speed, brief-based collection and no-cost onboarding (owner approval 2026-11-25). The video's
+"no cost" line is always shown with "Tests are billed separately."
 
 ## Forms and privacy
 

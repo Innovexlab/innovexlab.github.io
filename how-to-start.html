@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Browser security policy (docs/SECURITY.md). GitHub Pages cannot send headers, so it is a
        <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Getting Started | Onboarding with InnovexLab</title>
   <meta name="description" content="How facilities and practices add InnovexLab: consultation, specimen review, logistics, reporting and billing, then go-live. Onboarding is free.">
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://www.innovexlab.com/how-to-start.html">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
+  <link rel="stylesheet" href="/assets/css/site.css?v=48cc9728">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
@@ -32,7 +32,7 @@
     <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
     <div class="utility-bar">
       <div class="container utility-bar__inner">
-        <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
+        <span class="utility-bar__place"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
           <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
@@ -50,9 +50,9 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
-          <li><a href="/how-to-start.html" data-nav="how-to-start" aria-current="page">Getting Started</a></li>
-          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
-            <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start" aria-current="page">Getting started</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For patients</a></li>
+          <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -93,15 +93,16 @@
             </li>
             <li>
               <h3>Logistics, reporting and billing</h3>
-              <p>Your administrator or practice manager confirms specimen transport to InnovexLab, result reporting to the ordering provider, and the billing path for your patients.</p>
+              <p>Your administrator or practice manager confirms specimen transport to InnovexLab, result reporting to the ordering provider and the billing path for your patients.</p>
             </li>
             <li>
               <h3>Go-live</h3>
-              <p>Complete the setup paperwork, receive startup collection supplies, and choose the date of your first order.</p>
+              <p>Complete the setup paperwork, receive startup collection supplies and choose the date of your first order.</p>
             </li>
           </ol>
         </div>
         <div>
+          <figure class="deco-photo"><img src="/assets/img/photos/lab-sample-tube.jpg" width="1200" height="800" loading="lazy" decoding="async" alt=""></figure>
           <div class="callout">
             <!-- CLAIM: owner-confirmed 2026-10-19 (startup only). Keep test billing separate. -->
             <p><strong>No-cost onboarding</strong></p>
@@ -138,7 +139,7 @@
           <details>
             <summary>How is testing billed?</summary>
             <!-- CLAIM: billing line + mandatory Part A exception. Billing team must confirm payer list before release. -->
-            <p>For Medicare Part B and insured patients, we bill the payer directly, with no invoice to your facility. Residents in a covered Medicare Part A skilled nursing stay fall under consolidated billing: the facility, not Medicare, pays the lab for those tests. We review that arrangement with your administrator before you order.</p>
+            <p>For Medicare Part B and insured patients, we bill the payer directly, with no invoice to your facility. Residents in a covered Medicare Part A skilled nursing stay fall under consolidated billing: the facility, not Medicare, pays the laboratory for those tests. We review that arrangement with your administrator before you order.</p>
             <p>Uninsured? Ask us about self-pay options.</p>
           </details>
           <details>
@@ -151,7 +152,7 @@
           </details>
           <details>
             <summary>Which specimens does each panel require?</summary>
-            <p>Accepted specimen types and collection steps are reviewed with the ordering clinician during consultation, to prevent rejected specimens.</p>
+            <p>Accepted specimen types and collection steps are reviewed with the ordering clinician during consultation, so that specimens are not rejected.</p>
           </details>
           <details>
             <summary>Who do we contact with questions?</summary>
@@ -167,7 +168,7 @@
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
       <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
-      <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
+      <p>Review the panel that fits your patients, its specimen requirements and how results and billing work.</p>
       <div class="button-row">
         <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
         <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
@@ -182,23 +183,31 @@
       <div class="site-footer__grid">
         <div>
           <a class="brand" href="/">Innovex<span>Lab</span></a>
-          <p>CLIA-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
-          <p class="site-footer__ids">CLIA #10D2306552 &middot; COLA ID 33609</p>
+          <p><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p class="site-footer__ids"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr> #10D2306552 &middot; <abbr title="COLA, a national organization that evaluates clinical laboratories">COLA</abbr> ID 33609</p>
           <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
         </div>
-        <nav aria-label="Footer">
-          <h2>Site</h2>
-          <ul>
-            <li><a href="/testing.html">Testing</a></li>
-            <li><a href="/how-to-start.html">Getting Started</a></li>
-            <li><a href="/learn/patients.html">For Patients</a></li>
-            <li><a href="/learn/infections.html">Clinical overview</a></li>
-            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
-            <li><a href="/learn/organisms/index.html">Organism library</a></li>
-            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div>
+            <h2>Laboratory</h2>
+            <ul>
+              <li><a href="/testing.html">Testing services</a></li>
+              <li><a href="/testing/panels/index.html">Panels and targets</a></li>
+              <li><a href="/how-to-start.html">Getting started</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="/learn/infections.html">Clinical overview</a></li>
+              <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+              <li><a href="/learn/organisms/index.html">Organism library</a></li>
+              <li><a href="/learn/patients.html">For patients</a></li>
+              <li><a href="/learn/sources.html">Sources and disclaimer</a></li>
+            </ul>
+          </div>
         </nav>
         <div>
           <h2>Existing clients</h2>

@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Browser security policy (docs/SECURITY.md). GitHub Pages cannot send headers, so it is a
        <meta>; it must stay before every script/stylesheet. tools/check_site.py verifies it. -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'sha256-Vs/8gh8Ei8MoebB6pl3ad9mZSxjx7LlcL1BGVREMnOs='; style-src 'self'; img-src 'self'; media-src 'self'; font-src 'self'; form-action 'self' https://formsubmit.co; base-uri 'none'; object-src 'none'">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Antibiotic-Resistance Genes: A Clinical Guide | InnovexLab</title>
   <meta name="description" content="What common antibiotic-resistance genes signal, the antibiotic classes they affect, and how to interpret them with culture and susceptibility results.">
@@ -17,7 +17,7 @@
   <meta property="og:url" content="https://www.innovexlab.com/learn/resistance-genes.html">
   <link rel="icon" href="/assets/img/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
-  <link rel="stylesheet" href="/assets/css/site.css?v=06746117">
+  <link rel="stylesheet" href="/assets/css/site.css?v=48cc9728">
   <!-- Adds class "js" so CSS can collapse the phone menu. If site.js fails to load, the class is
        removed on window load so the menu is shown instead of being stuck closed. -->
   <script>document.documentElement.classList.add("js");addEventListener("load",function(){if(!window.INNOVEX_READY)document.documentElement.classList.remove("js");});</script>
@@ -32,7 +32,7 @@
     <!-- Utility bar: phone + Client Portal (existing clients). Kept apart from the meeting button. -->
     <div class="utility-bar">
       <div class="container utility-bar__inner">
-        <span class="utility-bar__place">CLIA-certified molecular laboratory &middot; Gainesville, Florida</span>
+        <span class="utility-bar__place"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory &middot; Gainesville, Florida</span>
         <div class="utility-bar__links">
           <a href="tel:+13523283066"><span class="visually-hidden">Call InnovexLab: </span>(352) 328-3066</a>
           <!-- Hidden until assets/js/site-config.js holds a VERIFIED portal URL (task W04). -->
@@ -50,9 +50,9 @@
       <nav id="site-nav" class="site-nav" aria-label="Primary">
         <ul>
           <li><a href="/testing.html" data-nav="testing">Testing</a></li>
-          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting Started</a></li>
-          <li><a href="/learn/patients.html" data-nav="patients">For Patients</a></li>
-            <li><a href="/about.html" data-nav="about">About</a></li>
+          <li><a href="/how-to-start.html" data-nav="how-to-start">Getting started</a></li>
+          <li><a href="/learn/patients.html" data-nav="patients">For patients</a></li>
+          <li><a href="/about.html" data-nav="about">About</a></li>
           <li><a href="/contact.html" data-nav="contact">Contact</a></li>
           <li class="site-nav__portal" data-portal-wrapper hidden><a data-portal-link hidden>Client Portal</a></li>
         </ul>
@@ -72,21 +72,21 @@
 
     <section class="section" aria-labelledby="genes-heading">
       <div class="container">
-        <p class="education-notice" role="note"><strong>General medical information for education only, not medical advice.</strong> For the genes each InnovexLab panel reports, see the <a href="/testing/panels/resistance.html">antibiotic-resistance panel</a>. This page is for education and does not replace advice from a clinician.</p>
+        <p class="education-notice" role="note"><strong>General medical information for education only, not medical advice.</strong> It does not replace advice from a clinician. For the genes each InnovexLab panel reports, see the <a href="/testing/panels/resistance.html">antibiotic-resistance panel</a>.</p>
         <h2 id="genes-heading">Common resistance genes</h2>
         <div class="table-wrap" role="region" aria-label="Resistance gene table (scrolls sideways on small screens)" tabindex="0">
           <table class="data-table">
             <thead><tr><th scope="col">Gene or family</th><th scope="col">Mechanism</th><th scope="col">Antibiotics affected</th><th scope="col">Clinical note</th></tr></thead>
             <tbody>
-            <tr id="gene-mecA"><th scope="row">mecA</th><td>Encodes PBP2a, a penicillin-binding protein with low affinity for most beta-lactams.</td><td>Methicillin/oxacillin and most beta-lactams (MRSA, methicillin-resistant coagulase-negative staphylococci).</td><td>femA is a Staphylococcus aureus marker often reported with mecA to support an S. aureus source.</td></tr>
-            <tr id="gene-van"><th scope="row">vanA, vanB</th><td>Alter the peptidoglycan precursor target (D-Ala-D-Lac).</td><td>Vancomycin (vanA: vancomycin and teicoplanin; vanB: vancomycin, teicoplanin usually active).</td><td>Characteristic of vancomycin-resistant enterococci (VRE).</td></tr>
-            <tr id="gene-esbl"><th scope="row">CTX-M, SHV, TEM</th><td>Beta-lactamase gene families. CTX-M enzymes are the most common extended-spectrum beta-lactamases (ESBLs).</td><td>Penicillins, cephalosporins including third-generation agents, and aztreonam (ESBL phenotype).</td><td>SHV and TEM families include narrow-spectrum variants; detection of the family alone does not confirm an ESBL.</td></tr>
-            <tr id="gene-ampc"><th scope="row">AmpC</th><td>Cephalosporinase (chromosomal or plasmid-mediated).</td><td>Cephamycins (e.g. cefoxitin), third-generation cephalosporins and some beta-lactam/inhibitor combinations.</td><td>Cefepime and carbapenems are often less affected; inducible chromosomal AmpC matters in some Enterobacterales.</td></tr>
-            <tr id="gene-carbapenemase"><th scope="row">KPC, NDM, VIM, IMP, OXA-48</th><td>Carbapenemases: KPC (class A), NDM/VIM/IMP (class B metallo-beta-lactamases), OXA-48 (class D).</td><td>Carbapenems and most other beta-lactams (carbapenem-resistant Enterobacterales, CRE).</td><td>The enzyme class affects which newer agents may retain activity; infection-control notification is usually required.</td></tr>
-            <tr id="gene-qnr"><th scope="row">qnrA, qnrB</th><td>Plasmid-mediated proteins that protect DNA gyrase and topoisomerase IV.</td><td>Fluoroquinolones (usually low-level resistance).</td><td>Can combine with chromosomal mutations to produce higher-level resistance.</td></tr>
-            <tr id="gene-erm"><th scope="row">ermA, ermB</th><td>rRNA methylases that alter the macrolide binding site.</td><td>Macrolides, lincosamides (clindamycin) and streptogramin B (MLSB phenotype).</td><td>Resistance to clindamycin may be inducible.</td></tr>
-            <tr id="gene-mef"><th scope="row">mefA</th><td>Efflux pump.</td><td>Macrolides (M phenotype); clindamycin typically unaffected.</td><td></td></tr>
-            <tr id="gene-pvl"><th scope="row">PVL</th><td>Panton-Valentine leukocidin, a toxin, not a resistance mechanism.</td><td>None (virulence factor).</td><td>Associated with community-associated S. aureus skin infections and necrotizing pneumonia.</td></tr>
+            <tr id="gene-mecA"><th scope="row" data-acronyms="off">mecA</th><td>Encodes penicillin-binding protein 2a (PBP2a), which has low affinity for most beta-lactams.</td><td>Methicillin/oxacillin and most beta-lactams, in methicillin-resistant Staphylococcus aureus (MRSA) and methicillin-resistant coagulase-negative staphylococci.</td><td>femA is a Staphylococcus aureus marker often reported with mecA to support an S. aureus source.</td></tr>
+            <tr id="gene-van"><th scope="row" data-acronyms="off">vanA, vanB</th><td>Change the cell-wall building block that vancomycin binds, so it ends in D-lactate instead of D-alanine.</td><td>Vancomycin (vanA: vancomycin and teicoplanin; vanB: vancomycin, teicoplanin usually active).</td><td>Characteristic of vancomycin-resistant enterococci (VRE).</td></tr>
+            <tr id="gene-esbl"><th scope="row" data-acronyms="off">CTX-M, SHV, TEM</th><td>Beta-lactamase gene families: CTX-M (cefotaximase-Munich), SHV (sulfhydryl variable) and TEM (named after the patient in whom it was first found). CTX-M enzymes are the most common extended-spectrum beta-lactamases (ESBLs).</td><td>Penicillins, cephalosporins including third-generation agents, and aztreonam (ESBL phenotype).</td><td>SHV and TEM families include narrow-spectrum variants; detection of the family alone does not confirm an ESBL.</td></tr>
+            <tr id="gene-ampc"><th scope="row" data-acronyms="off">AmpC</th><td>AmpC cephalosporinase (a class C beta-lactamase), chromosomal or plasmid-mediated.</td><td>Cephamycins (e.g., cefoxitin), third-generation cephalosporins and some beta-lactam/inhibitor combinations.</td><td>Cefepime and carbapenems are often less affected; inducible chromosomal AmpC matters in some Enterobacterales.</td></tr>
+            <tr id="gene-carbapenemase"><th scope="row" data-acronyms="off">KPC, NDM, VIM, IMP, OXA-48</th><td>Carbapenemases: KPC (Klebsiella pneumoniae carbapenemase, class A); NDM (New Delhi metallo-beta-lactamase), VIM (Verona integron-encoded metallo-beta-lactamase) and IMP (imipenemase), all class B metallo-beta-lactamases; and OXA-48 (oxacillinase-48, class D).</td><td>Carbapenems and most other beta-lactams (carbapenem-resistant Enterobacterales, CRE).</td><td>The enzyme class affects which newer agents may retain activity; infection-control notification is usually required.</td></tr>
+            <tr id="gene-qnr"><th scope="row" data-acronyms="off">qnrA, qnrB</th><td>Plasmid-mediated proteins that protect the bacterial enzymes <span data-acronyms="off">DNA gyrase</span> and topoisomerase IV.</td><td>Fluoroquinolones (usually low-level resistance).</td><td>Can combine with chromosomal mutations to produce higher-level resistance.</td></tr>
+            <tr id="gene-erm"><th scope="row" data-acronyms="off">ermA, ermB</th><td>Enzymes that chemically modify the ribosome, altering the macrolide binding site.</td><td>Macrolides, lincosamides (clindamycin) and streptogramin B (MLSB phenotype).</td><td>Resistance to clindamycin may be inducible.</td></tr>
+            <tr id="gene-mef"><th scope="row" data-acronyms="off">mefA</th><td>Efflux pump.</td><td>Macrolides (M phenotype); clindamycin typically unaffected.</td><td>Found mainly in streptococci, including Streptococcus pneumoniae and Streptococcus pyogenes.</td></tr>
+            <tr id="gene-pvl"><th scope="row" data-acronyms="off">PVL</th><td>Panton-Valentine leukocidin, a toxin, not a resistance mechanism.</td><td>None (virulence factor).</td><td>Associated with community-associated S. aureus skin infections and necrotizing pneumonia.</td></tr>
             </tbody>
           </table>
         </div>
@@ -114,7 +114,7 @@
     <!-- MEDICAL-DISCLAIMER:START -->
     <section class="section" aria-label="Sources and medical disclaimer">
       <div class="container">
-        <section class="sources" aria-labelledby="page-sources-heading"><h2 id="page-sources-heading">Sources</h2><ol class="ref-list"><li>CDC. <a href="https://www.cdc.gov/antimicrobial-resistance/data-research/threats/index.html" rel="external">Antimicrobial Resistance: Threats and data</a>.</li><li>IDSA. <a href="https://www.idsociety.org/practice-guideline/amr-guidance/" rel="external">Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections</a>.</li><li>CDC. <a href="https://www.cdc.gov/esbl-producing-enterobacterales/about/index.html" rel="external">ESBL-producing Enterobacterales</a>.</li><li>CDC. <a href="https://www.cdc.gov/cre/about/index.html" rel="external">Carbapenem-resistant Enterobacterales (CRE)</a>.</li><li>CDC. <a href="https://www.cdc.gov/mrsa/about/index.html" rel="external">MRSA</a>.</li><li>CDC. <a href="https://www.cdc.gov/vre/about/index.html" rel="external">Vancomycin-resistant Enterococci (VRE)</a>.</li></ol><p class="ref-note">Sources accessed November 2026. Links open external sites that InnovexLab does not control.</p></section>
+        <section class="sources" aria-labelledby="page-sources-heading"><h2 id="page-sources-heading">Sources</h2><ol class="ref-list"><li>Centers for Disease Control and Prevention (CDC). <a href="https://www.cdc.gov/antimicrobial-resistance/data-research/threats/index.html" rel="external">Antimicrobial Resistance: Threats and data</a>.</li><li>Infectious Diseases Society of America (IDSA). <a href="https://www.idsociety.org/practice-guideline/amr-guidance/" rel="external">Guidance on the Treatment of Antimicrobial-Resistant Gram-Negative Infections</a>.</li><li>CDC. <a href="https://www.cdc.gov/esbl-producing-enterobacterales/about/index.html" rel="external">ESBL-producing Enterobacterales</a>.</li><li>CDC. <a href="https://www.cdc.gov/cre/about/index.html" rel="external">Carbapenem-resistant Enterobacterales (CRE)</a>.</li><li>CDC. <a href="https://www.cdc.gov/mrsa/about/index.html" rel="external">MRSA</a>.</li><li>CDC. <a href="https://www.cdc.gov/vre/about/index.html" rel="external">Vancomycin-resistant Enterococci (VRE)</a>.</li></ol><p class="ref-note">Sources accessed November 2026. Links open external sites that InnovexLab does not control.</p></section>
         <div class="disclaimer" role="note" aria-labelledby="disclaimer-heading"><h2 id="disclaimer-heading">Medical disclaimer</h2><p>This page is general educational information summarized from published public-health and professional-society guidance. It is not medical advice, a diagnosis or a treatment recommendation, and reading it does not create a clinician&ndash;patient relationship with InnovexLab. Decisions about testing, diagnosis and treatment belong to the treating clinician, using the patient&rsquo;s history and examination, laboratory and susceptibility results, local resistance patterns and current guidelines. Guidance changes over time; consult the original sources for the latest version. InnovexLab provides this information as is and does not warrant that it is complete or current.</p><p>Patients with questions about their health should contact their own healthcare provider. In an emergency, call 911.</p><p><a class="arrow-link" href="/learn/sources.html">Sources, image credits and editorial policy</a></p></div>
       </div>
     </section>
@@ -126,7 +126,7 @@
   <section class="cta-band" aria-labelledby="cta-band-heading">
     <div class="container">
       <h2 id="cta-band-heading">Discuss a testing program with InnovexLab</h2>
-      <p>Review the panel that fits your patients, its specimen requirements, and how results and billing work.</p>
+      <p>Review the panel that fits your patients, its specimen requirements and how results and billing work.</p>
       <div class="button-row">
         <a class="button button--on-dark" href="/contact.html#book">Request a consultation</a>
         <a class="button button--ghost-on-dark" href="tel:+13523283066">Call (352) 328-3066</a>
@@ -141,23 +141,31 @@
       <div class="site-footer__grid">
         <div>
           <a class="brand" href="/">Innovex<span>Lab</span></a>
-          <p>CLIA-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
-          <p class="site-footer__ids">CLIA #10D2306552 &middot; COLA ID 33609</p>
+          <p><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr>-certified molecular laboratory<br>1135 NW 23rd Ave, Ste L<br>Gainesville, FL 32609</p>
+          <p class="site-footer__ids"><abbr title="Clinical Laboratory Improvement Amendments">CLIA</abbr> #10D2306552 &middot; <abbr title="COLA, a national organization that evaluates clinical laboratories">COLA</abbr> ID 33609</p>
           <p><a href="tel:+13523283066">(352) 328-3066</a><br><a href="mailto:info@innovex-lab.com">info@innovex-lab.com</a></p>
         </div>
-        <nav aria-label="Footer">
-          <h2>Site</h2>
-          <ul>
-            <li><a href="/testing.html">Testing</a></li>
-            <li><a href="/how-to-start.html">Getting Started</a></li>
-            <li><a href="/learn/patients.html">For Patients</a></li>
-            <li><a href="/learn/infections.html">Clinical overview</a></li>
-            <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
-            <li><a href="/learn/organisms/index.html">Organism library</a></li>
-            <li><a href="/testing/panels/index.html">Panels and targets</a></li>
-            <li><a href="/about.html">About</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
+        <nav class="site-footer__nav" aria-label="Footer">
+          <div>
+            <h2>Laboratory</h2>
+            <ul>
+              <li><a href="/testing.html">Testing services</a></li>
+              <li><a href="/testing/panels/index.html">Panels and targets</a></li>
+              <li><a href="/how-to-start.html">Getting started</a></li>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Resources</h2>
+            <ul>
+              <li><a href="/learn/infections.html">Clinical overview</a></li>
+              <li><a href="/learn/resistance-genes.html">Resistance genes</a></li>
+              <li><a href="/learn/organisms/index.html">Organism library</a></li>
+              <li><a href="/learn/patients.html">For patients</a></li>
+              <li><a href="/learn/sources.html">Sources and disclaimer</a></li>
+            </ul>
+          </div>
         </nav>
         <div>
           <h2>Existing clients</h2>

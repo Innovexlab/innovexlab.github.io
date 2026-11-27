@@ -36,9 +36,9 @@ R = {
     "cdc-campylobacter": ("CDC", "Campylobacter", "https://www.cdc.gov/campylobacter/about/index.html"),
     "cdc-hib": ("CDC", "Haemophilus influenzae disease", "https://www.cdc.gov/hi-disease/index.html"),
     "cdc-pertussis": ("CDC", "Whooping cough (pertussis)", "https://www.cdc.gov/pertussis/index.html"),
-    "cdc-legionella": ("CDC", "Legionnaires' disease", "https://www.cdc.gov/legionella/index.html"),
-    "cdc-gonorrhea": ("CDC", "Gonococcal infections (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/gonorrhea-adults.htm"),
-    "cdc-chancroid": ("CDC", "Chancroid (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/chancroid.htm"),
+    "cdc-legionella": ("CDC", "Legionnaires’ disease", "https://www.cdc.gov/legionella/index.html"),
+    "cdc-gonorrhea": ("CDC", "Gonococcal infections (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/gonorrhea-adults.htm"),
+    "cdc-chancroid": ("CDC", "Chancroid (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/chancroid.htm"),
     "cdc-qfever": ("CDC", "Q fever", "https://www.cdc.gov/q-fever/about/index.html"),
     # ---- Gram-positive
     "cdc-staph": ("CDC", "Staphylococcus aureus", "https://www.cdc.gov/staphylococcus-aureus/about/index.html"),
@@ -52,14 +52,14 @@ R = {
     "cdc-listeria": ("CDC", "Listeria infection", "https://www.cdc.gov/listeria/about/index.html"),
     # ---- atypical
     "cdc-mpneumo": ("CDC", "Mycoplasma pneumoniae infection", "https://www.cdc.gov/mycoplasma/index.html"),
-    "cdc-mgen": ("CDC", "Mycoplasma genitalium (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/mycoplasmagenitalium.htm"),
-    "cdc-chlamydia": ("CDC", "Chlamydial infections (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/chlamydia.htm"),
+    "cdc-mgen": ("CDC", "Mycoplasma genitalium (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/mycoplasmagenitalium.htm"),
+    "cdc-chlamydia": ("CDC", "Chlamydial infections (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/chlamydia.htm"),
     "cdc-cpneumo": ("CDC", "Chlamydia pneumoniae infection", "https://www.cdc.gov/cpneumoniae/index.html"),
-    "cdc-syphilis": ("CDC", "Syphilis (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/syphilis.htm"),
-    "cdc-urethritis": ("CDC", "Urethritis and cervicitis (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/urethritis-and-cervicitis.htm"),
+    "cdc-syphilis": ("CDC", "Syphilis (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/syphilis.htm"),
+    "cdc-urethritis": ("CDC", "Urethritis and cervicitis (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/urethritis-and-cervicitis.htm"),
     # ---- vaginal microbiome
-    "cdc-bv-tx": ("CDC", "Bacterial vaginosis (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/bv.htm"),
-    "cdc-vvc": ("CDC", "Vulvovaginal candidiasis (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/candidiasis.htm"),
+    "cdc-bv-tx": ("CDC", "Bacterial vaginosis (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/bv.htm"),
+    "cdc-vvc": ("CDC", "Vulvovaginal candidiasis (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/candidiasis.htm"),
     # ---- viruses
     "cdc-flu": ("CDC", "Influenza (flu)", "https://www.cdc.gov/flu/index.html"),
     "cdc-flu-antivirals": ("CDC", "Influenza antiviral medications: summary for clinicians", "https://www.cdc.gov/flu/hcp/antivirals/summary-clinicians.html"),
@@ -74,7 +74,7 @@ R = {
     "cdc-adeno": ("CDC", "Adenovirus", "https://www.cdc.gov/adenovirus/about/index.html"),
     "cdc-noro": ("CDC", "Norovirus", "https://www.cdc.gov/norovirus/index.html"),
     "cdc-rota": ("CDC", "Rotavirus", "https://www.cdc.gov/rotavirus/about/index.html"),
-    "cdc-herpes": ("CDC", "Genital herpes (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/herpes.htm"),
+    "cdc-herpes": ("CDC", "Genital herpes (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/herpes.htm"),
     "cdc-shingles": ("CDC", "Shingles (herpes zoster)", "https://www.cdc.gov/shingles/index.html"),
     "cdc-chickenpox": ("CDC", "Chickenpox (varicella)", "https://www.cdc.gov/chickenpox/index.html"),
     "cdc-hpv": ("CDC", "Human papillomavirus (HPV)", "https://www.cdc.gov/hpv/index.html"),
@@ -98,7 +98,7 @@ R = {
     "cdc-dpdx-cyclo": ("CDC DPDx", "Cyclosporiasis", "https://www.cdc.gov/dpdx/cyclosporiasis/index.html"),
     "cdc-dpdx-trich": ("CDC DPDx", "Trichomoniasis", "https://www.cdc.gov/dpdx/trichomoniasis/index.html"),
     "cdc-dpdx-pcp": ("CDC DPDx", "Pneumocystis", "https://www.cdc.gov/dpdx/pneumocystis/index.html"),
-    "cdc-trich": ("CDC", "Trichomoniasis (STI Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm"),
+    "cdc-trich": ("CDC", "Trichomoniasis (Sexually Transmitted Infections Treatment Guidelines)", "https://www.cdc.gov/std/treatment-guidelines/trichomoniasis.htm"),
 }
 
 GN_HAI = ["cdc-hai", "cdc-esbl", "cdc-cre", "idsa-amr", "idsa-cuti"]

@@ -184,7 +184,7 @@ class Page:
 # In-page helpers: number every focusable element we expect Tab to reach, and
 # describe whatever currently has focus.
 INDEX_JS = r"""(() => {
-  const sel = 'a[href], button, input, select, textarea, summary, [tabindex], [contenteditable=""], [contenteditable=true]';
+  const sel = 'a[href], button, input, select, textarea, summary, video[controls], audio[controls], [tabindex], [contenteditable=""], [contenteditable=true]';
   const all = Array.from(document.querySelectorAll(sel));
   all.forEach(el => el.removeAttribute('data-kb'));
   const positive = all.filter(el => el.tabIndex > 0).map(el => el.outerHTML.slice(0, 80));
@@ -221,7 +221,7 @@ PROBE_JS = r"""(() => {
   }).length;
   const outline = cs.outlineStyle !== 'none' && parseFloat(cs.outlineWidth) >= 2;
   const ring = outline || (cs.boxShadow && cs.boxShadow !== 'none');
-  return {kb: el.getAttribute('data-kb'), tag: el.tagName, label, fv: el.matches(':focus-visible'),
+  return {kb: el.getAttribute('data-kb'), tag: el.tagName, label, fv: el.matches(':focus-visible'), fw: el.matches(':focus-within'),
           ring, outline, visiblePts, inMain: !!el.closest('main'), expanded: el.getAttribute('aria-expanded'),
           inNav: !!el.closest('#site-nav'), cls: el.className || '', type: el.type || '',
           href: el.getAttribute('href') || '', id: el.id || ''};
@@ -270,11 +270,13 @@ def walk_page(page: Page, base: str, path: str, width: int, res: Results) -> Non
             problems.append(f"focused untracked {p['tag']} '{p.get('label', '')}'")
             continue
         k = int(p["kb"])
+        inner = bool(seq) and k == seq[-1] and p["tag"] in ("VIDEO", "AUDIO")
         if seq and k == seq[0]:
             break                 # wrapped around to the start
-        seq.append(k)
-        what = f"#{k} {p['tag']} '{p['label']}'"
-        if not p["fv"]:
+        if not inner:             # inner = next native player control (volume, full screen...) in the same element
+            seq.append(k)
+        what = f"#{k} {p['tag']} '{p['label']}'" + (" (player control)" if inner else "")
+        if not (p["fv"] or (inner and p["fw"])):
             problems.append(f"{what}: :focus-visible not matched")
         if not p["ring"]:
             problems.append(f"{what}: no outline/box-shadow")
